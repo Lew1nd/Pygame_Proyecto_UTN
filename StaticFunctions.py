@@ -2,6 +2,8 @@
 Aquí estarán las funciones y objetos que pueden estar presentes en varias pantallas a la vez
 '''
 import pygame
+current_screen = ""
+change_screen_flag = True
     
 def iniciar_pantalla():
     '''
@@ -20,3 +22,7 @@ def generar_rectangulo(button_dimensions: list):
     '''
     boton = pygame.Rect(button_dimensions)
     return boton
+
+def cambiar_pantalla(name: str) -> str:
+    print("Pantalla cambiada a", name)
+    return name

@@ -202,4 +202,3 @@ while flag_juego:
             if boton["rect_pos"].collidepoint(mouse[0], mouse[1]):
                 boton["funcion"]()
 
-'''

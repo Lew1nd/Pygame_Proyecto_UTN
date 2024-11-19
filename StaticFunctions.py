@@ -4,14 +4,21 @@ Aquí estarán las funciones y objetos que pueden estar presentes en varias pant
 import pygame
 current_screen = ""
 change_screen_flag = True
-    
+WIDTH, HEIGHT = 1280,800
+
+#Atributos del jugador
+lives = 3
+time = 30
+current_score = 0
+score_gain_per_question = 1
+
 def iniciar_pantalla():
     '''
     Función que inicializa una pantalla de juego.\n
     No recibe nada.\n
     Devuelve la resolución de la pantalla.
     '''
-    pantalla = pygame.display.set_mode((1280,800))
+    pantalla = pygame.display.set_mode((WIDTH, HEIGHT))
     return pantalla
 
 def generar_rectangulo(surface, color, button_dimensions: list):
@@ -24,13 +31,13 @@ def generar_rectangulo(surface, color, button_dimensions: list):
     boton = pygame.draw.rect(surface, color, rectangulo)
     return boton
 
-def dibujar_texto(surface , string: str, font_size: int, color, position: list, font = "Arial"):
+def dibujar_texto(surface , string: str, font_size: int, color, position: list, is_bold: bool, is_italic: bool ,font = "Arial"):
     '''
     Genera un texto y lo muestra en pantalla.\n
     Recibe la pantalla, la cadena, el tamaño de la fuente, un color, la posición en pantalla y una fuente (por defecto es Arial).\n
     Devuelve el objeto
     '''
-    text_font = pygame.font.SysFont(font, font_size)#Se guarda la fuente que se utilizará en el texto
+    text_font = pygame.font.SysFont(font, font_size, is_bold, is_italic)#Se guarda la fuente que se utilizará en el texto
     text_txt = text_font.render(string, True, color)#Posteriormente, se crea el texto
     text_object = surface.blit(text_txt, position)#Y luego se muestra en la pantalla
     return text_object
@@ -47,6 +54,11 @@ def dibujar_imagen(surface, path: str, imagen_dimensions: list):
     return pygame.Rect(imagen_dimensions)
 
 def cambiar_pantalla(name: str) -> str:
+    '''
+    Cambia la pantalla.\n
+    Recibe el nombre de la pantalla como parámetro.\n
+    Devuelve el nombre de la pantalla.\n
+    '''
     print("Pantalla cambiada a", name)
     return name
 
@@ -60,3 +72,32 @@ def iniciar_musica(volume: float, loops: int, path: str):
     pygame.mixer.music.load(path)#Carga la musica para el menu
     pygame.mixer.music.set_volume(volume)#Establece el volumen
     pygame.mixer.music.play(loops)#Veces que se repetirá (-1 para infinitas veces)
+
+
+def entrada_texto(surface, color ,pygame_event, text, max_value: int):
+    '''
+    Función encargada de añadir el nuevo caracter a la cadena.\n
+    Recibe una pantalla (superficie), un color, el gestionador de eventos, una cadena de texto y un número entero que servirá para limitar el número máximo.\n
+    Retorna la cadena.
+    '''
+    surface.blit(color, (0, 0))
+    text = str(text)
+    new_text = text + pygame_event.unicode
+    if comprobar_entero(new_text, max_value): return new_text
+    return text    
+
+def comprobar_entero(string: str, max_value: int):
+    '''
+    Comprueba si una cadena de string es de números enteros.\n
+    Recibe la cadena y un valor máximo para limitar un valor máximo de enteros.\n
+    Retorna True o False según sea el caso
+    '''
+    if string == "":
+        return True
+    if string.isnumeric():
+        num = int(string)
+        if num <= 0 or num > max_value:
+            return False
+        else:
+            return True
+    return False

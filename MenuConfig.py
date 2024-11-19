@@ -53,7 +53,8 @@ class Menu():
 
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:#Evento generado al presionar el click izquierdo
                 if start_button.collidepoint(pygame.mouse.get_pos()):#Llama al evento cuando se presione button_start
-                    self.menu.fill(RED1)
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Difficulty")
+                    StaticFunctions.change_screen_flag = True
                 elif score_button.collidepoint(pygame.mouse.get_pos()):
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("ScoreBoard")
                     StaticFunctions.change_screen_flag = True
@@ -74,6 +75,7 @@ class Menu():
                     return False
         return True
 #endregion
+
 #region Score
 class Scoreboard():
     def __init__(self):
@@ -115,6 +117,7 @@ class Scoreboard():
         return True
 #endregion
 
+#region Options
 class Options():
     def __init__(self):
         self.options = StaticFunctions.iniciar_pantalla()
@@ -149,3 +152,58 @@ class Options():
                     StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3") 
                     StaticFunctions.change_screen_flag = True
         return True
+#endregion
+
+
+#region Difficulty
+
+class Difficulty: 
+    def __init__(self): 
+        self.difficulty = StaticFunctions.iniciar_pantalla()
+        self.fondo = pygame.image.load("archivos_multimedia/imagenes/menu_dificultad.png") 
+        self.fondo = pygame.transform.scale(self.fondo, self.difficulty.get_size())  # Escala el fondo al tamaño de la pantalla
+        
+        # Definición de botones como listas [x, y, ancho, alto]
+        self.button_easy = [470, 260, 355, 96]
+        self.button_medium = [470, 370, 355, 96]
+        self.button_hard = [470, 487, 355, 96]
+        self.button_back = [458, 715, 355, 80]
+        self.button_music = [1190, 10, 75, 75]
+        self.muteado = False
+
+    def init_difficulty(self):
+        if StaticFunctions.change_screen_flag:
+            self.difficulty.blit(self.fondo, (0, 0))
+            StaticFunctions.change_screen_flag = False
+
+        button_easy= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_facil.png", self.button_easy)
+        button_medium= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_medio.png", self.button_medium)
+        button_hard= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_dificil.png", self.button_hard)
+        button_back= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
+        button_music= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
+        
+        
+        event_game = pygame.event.get()
+        for event in event_game:
+            if event.type == pygame.QUIT:
+                return False
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                if button_easy.collidepoint(pygame.mouse.get_pos()):
+                    print("Juego Inicializado en Modo FACIL") #Aca se llamaria a la funcion que inicializaria el modo facil
+                elif button_medium.collidepoint(pygame.mouse.get_pos()):
+                    print("Juego Inicializado en Modo MEDIO") #Aca se llamaria a la funcion que inicializaria el modo medio
+                elif button_hard.collidepoint(pygame.mouse.get_pos()):
+                    print("Juego Inicializado en Modo DIFICIL") #Aca se llamaria a la funcion que inicializaria el modo dificil
+                elif button_back.collidepoint(pygame.mouse.get_pos()):
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Menu") #Vuelve a la pantalla de menu
+                    StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3") 
+                    StaticFunctions.change_screen_flag = True
+                elif button_music.collidepoint(pygame.mouse.get_pos()):
+                    self.muteado = not self.muteado
+                    if self.muteado:
+                        pygame.mixer.music.set_volume(0)
+                    else:
+                        pygame.mixer.music.set_volume(0.2)
+
+        return True
+#endregion

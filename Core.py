@@ -11,6 +11,7 @@ StaticFunctions.current_screen = "Menu"
 menu_screen = Menu()
 score_screen = Scoreboard()
 options_screen = Options()
+difficulty_screen = Difficulty()
 
 #endregion
 
@@ -22,6 +23,9 @@ while game_running:
         game_running = score_screen.init_scoreboard()
     elif StaticFunctions.current_screen == "Options":
         game_running = options_screen.init_options()
+    elif StaticFunctions.current_screen == "Difficulty":
+        game_running = difficulty_screen.init_difficulty()
+    
     pygame.display.flip()
 #endregion
 

@@ -10,18 +10,21 @@ class Menu():
         self.menu = StaticFunctions.iniciar_pantalla()
         pygame.display.set_caption ("BGB")
         icono = pygame.image.load("archivos_multimedia/imagenes/icono_preguntados.png")#Carga el incono de la ventana
-        StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu.mp3")
+        StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3")
         pygame.display.set_icon(icono)
-        self.screen_color = BLUEVIOLET
+        
+        #Cargar la imagen del fondo
+        self.fondo = pygame.image.load("archivos_multimedia/imagenes/menu_principal.png")
+        self.fondo = pygame.transform.scale(self.fondo, self.menu.get_size())#Escala al tamaño de la pantalla
 
         #botones
-        self.button_start = [500, 250,250,100]#Posición x, posición Y, Largo, alto
-        self.button_score = [500, 450,250,100]
-        self.button_exit = [500,650,250,100]
-        self.button_music = [1180, 20, 100, 70]
+        self.button_start = [470, 260, 355, 96]#Posición x, posición Y, Largo, alto
+        self.button_score = [470, 370, 355, 96]
+        self.button_options = [470, 487, 355, 96]
+        self.button_exit = [470, 600, 355, 96]
+        self.button_music = [1180, 10, 90, 90]
 
-        #textos
-        self.text_tittle = [470,100]
+
 
         #imagen muestra (temporal)
         self.imagen_1 = [0,0,500,500]
@@ -29,16 +32,18 @@ class Menu():
         self.muteado = False
 
     def init_menu(self):
-        tittle_text = StaticFunctions.dibujar_texto(self.menu, "Preguntados", 70, GREEN, self.text_tittle)
-        start_button = StaticFunctions.generar_rectangulo(self.menu, GREEN, self.button_start)
-        score_button = StaticFunctions.generar_rectangulo(self.menu, YELLOW1, self.button_score)
-        music_button = StaticFunctions.generar_rectangulo(self.menu, BLUE, self.button_music)
-        exit_button = StaticFunctions.generar_rectangulo(self.menu, RED1, self.button_exit)
+
+
+        start_button = StaticFunctions.dibujar_imagen(self.menu,"archivos_multimedia/imagenes/boton_jugar.png" , self.button_start)
+        score_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_score.png", self.button_score)
+        music_button = StaticFunctions.dibujar_imagen(self.menu,"archivos_multimedia/imagenes/boton_musica.png", self.button_music)
+        options_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_ajustes.png", self.button_options)
+        exit_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_salir.png", self.button_exit)
 
         #img1 = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/icono_preguntados.png", self.imagen_1)#imagen de preguntados
         
         if StaticFunctions.change_screen_flag:
-            self.menu.fill(self.screen_color)
+            self.menu.blit(self.fondo, (0, 0))
             StaticFunctions.change_screen_flag = False
 
         event_game = pygame.event.get()
@@ -68,19 +73,21 @@ class Menu():
 class Scoreboard():
     def __init__(self):
         self.score = StaticFunctions.iniciar_pantalla()
-        self.screen_color = GREEN1
+        #Cargar la imagen del fondo
+        self.fondo = pygame.image.load("archivos_multimedia/imagenes/fondo_score.png")
+        self.fondo = pygame.transform.scale(self.fondo, self.score.get_size())  # Escala al tamaño de la pantalla
 
-        self.button_back = [500,650,250,100]
-        self.button_music = [1180, 20, 100, 70]
+        self.button_back = [458,715,355, 80]#Posición x, posición Y, Largo, alto
+        self.button_music = [1180, 10, 90, 90]
 
         self.muteado = False
 
     def init_scoreboard(self):
-        back_button = StaticFunctions.generar_rectangulo(self.score, RED1, self.button_back)
-        music_button = StaticFunctions.generar_rectangulo(self.score, BLUE, self.button_music)
+        back_button = StaticFunctions.dibujar_imagen(self.score, "archivos_multimedia/imagenes/boton_atras_score.png", self.button_back)
+        music_button = StaticFunctions.dibujar_imagen(self.score, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
 
         if StaticFunctions.change_screen_flag:
-            self.score.fill(self.screen_color)
+            self.score.blit(self.fondo, (0, 0))
             StaticFunctions.iniciar_musica(0.2,-1,"archivos_multimedia/musica/musica_score.mp3")
             StaticFunctions.change_screen_flag = False
         
@@ -98,7 +105,7 @@ class Scoreboard():
                         pygame.mixer.music.set_volume(0.2)#Vuelve a sonar la musica
                 if back_button.collidepoint(pygame.mouse.get_pos()):
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Menu")
-                    StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu.mp3") 
+                    StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3") 
                     StaticFunctions.change_screen_flag = True
         return True
 #endregion

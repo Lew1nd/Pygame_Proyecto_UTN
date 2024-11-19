@@ -44,7 +44,7 @@ def dibujar_imagen(surface, path: str, imagen_dimensions: list):
     img = pygame.image.load(path)
     img_object = pygame.transform.scale(img, (imagen_dimensions[2], imagen_dimensions[3]))
     surface.blit(img_object, (imagen_dimensions[0], imagen_dimensions[1]))
-    return img_object
+    return pygame.Rect(imagen_dimensions)
 
 def cambiar_pantalla(name: str) -> str:
     print("Pantalla cambiada a", name)

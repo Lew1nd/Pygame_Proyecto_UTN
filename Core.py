@@ -10,6 +10,8 @@ StaticFunctions.current_screen = "Menu"
 #region Class
 menu_screen = Menu()
 score_screen = Scoreboard()
+options_screen = Options()
+
 #endregion
 
 #region Update
@@ -18,7 +20,8 @@ while game_running:
         game_running = menu_screen.init_menu()
     elif StaticFunctions.current_screen == "ScoreBoard":
         game_running = score_screen.init_scoreboard()
-        
+    elif StaticFunctions.current_screen == "Options":
+        game_running = options_screen.init_options()
     pygame.display.flip()
 #endregion
 

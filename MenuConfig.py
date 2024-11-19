@@ -22,7 +22,7 @@ class Menu():
         self.button_score = [470, 370, 355, 96]
         self.button_options = [470, 487, 355, 96]
         self.button_exit = [470, 600, 355, 96]
-        self.button_music = [1180, 10, 90, 90]
+        self.button_music = [1190, 10, 75, 75]
 
 
 
@@ -58,12 +58,17 @@ class Menu():
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("ScoreBoard")
                     StaticFunctions.change_screen_flag = True
                 
+                elif options_button.collidepoint(pygame.mouse.get_pos()):
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Options")
+                    StaticFunctions.change_screen_flag = True
+                
                 elif music_button.collidepoint(pygame.mouse.get_pos()):
                     self.muteado = not self.muteado
                     if self.muteado:
                         pygame.mixer.music.set_volume(0)#Silencia la música
                     else:
                         pygame.mixer.music.set_volume(0.6)#Vuelve a sonar la musica
+
                 elif exit_button.collidepoint(pygame.mouse.get_pos()):
                     print("Juego cerrado")
                     return False
@@ -75,10 +80,10 @@ class Scoreboard():
         self.score = StaticFunctions.iniciar_pantalla()
         #Cargar la imagen del fondo
         self.fondo = pygame.image.load("archivos_multimedia/imagenes/fondo_score.png")
-        self.fondo = pygame.transform.scale(self.fondo, self.score.get_size())  # Escala al tamaño de la pantalla
+        self.fondo = pygame.transform.scale(self.fondo, self.score.get_size())#Escala al tamaño de la pantalla
 
         self.button_back = [458,715,355, 80]#Posición x, posición Y, Largo, alto
-        self.button_music = [1180, 10, 90, 90]
+        self.button_music = [1190, 10, 75, 75]
 
         self.muteado = False
 
@@ -109,3 +114,38 @@ class Scoreboard():
                     StaticFunctions.change_screen_flag = True
         return True
 #endregion
+
+class Options():
+    def __init__(self):
+        self.options = StaticFunctions.iniciar_pantalla()
+        self.fondo = pygame.image.load("archivos_multimedia/imagenes/imagen_opciones.png")
+        self.fondo = pygame.transform.scale(self.fondo, self.options.get_size())#Escala
+        self.button_back = [458,715,355, 80]#Posición x,
+        self.button_music = [1190, 10, 75, 75]
+        self.muteado = False
+    
+    def init_options(self):
+        back_button = StaticFunctions.dibujar_imagen(self.options, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
+        music_button = StaticFunctions.dibujar_imagen(self.options, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
+        
+        if StaticFunctions.change_screen_flag:
+            self.options.blit(self.fondo, (0, 0))
+            StaticFunctions.iniciar_musica(0.2,-1,"archivos_multimedia/musica/musica_menu.mp3")
+            StaticFunctions.change_screen_flag = False
+            
+        event_game = pygame.event.get()
+        for event in event_game:
+            if event.type == pygame.QUIT:
+                return False
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:#Evento generado al presionar el click izquierdo
+                if music_button.collidepoint(pygame.mouse.get_pos()):
+                    self.muteado = not self.muteado
+                    if self.muteado:
+                        pygame.mixer.music.set_volume(0)#Silencia la música
+                    else:
+                        pygame.mixer.music.set_volume(0.2)#Vuelve a sonar la musica
+                if back_button.collidepoint(pygame.mouse.get_pos()):
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Menu")
+                    StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3") 
+                    StaticFunctions.change_screen_flag = True
+        return True

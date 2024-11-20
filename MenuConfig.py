@@ -53,7 +53,7 @@ class Menu():
 
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:#Evento generado al presionar el click izquierdo
                 if start_button.collidepoint(pygame.mouse.get_pos()):#Llama al evento cuando se presione button_start
-                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Difficulty")
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Categories")
                     StaticFunctions.change_screen_flag = True
                 elif score_button.collidepoint(pygame.mouse.get_pos()):
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("ScoreBoard")
@@ -266,7 +266,7 @@ class QuestionManager():
 
 #region Difficulty
 
-class Difficulty: 
+class Difficulty(): 
     def __init__(self): 
         self.difficulty = StaticFunctions.iniciar_pantalla()
         self.fondo = pygame.image.load("archivos_multimedia/imagenes/menu_dificultad.png") 
@@ -316,3 +316,60 @@ class Difficulty:
 
         return True
 #endregion
+
+#region Categories  
+class Categories():
+    def __init__(self):
+        self.categories = StaticFunctions.iniciar_pantalla()
+        self.fondo = pygame.image.load("archivos_multimedia/imagenes/menu_categorias.png") 
+        self.fondo = pygame.transform.scale(self.fondo, self.categories.get_size()) 
+        
+        
+        
+        self.button_back = [458, 715, 355, 80]
+        self.button_music = [1190, 10, 75, 75]
+        self.button_anime = [0, 0, 444,800]
+        self.button_games = [444, 0, 444, 800]
+        self.button_geography = [888,0, 444, 800]
+        self.muteado = False
+
+        
+    def init_categories(self):
+        if StaticFunctions.change_screen_flag:
+            self.categories.blit(self.fondo, (0, 0))
+            StaticFunctions.change_screen_flag = False 
+            
+        button_back= StaticFunctions.dibujar_imagen(self.categories, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
+        button_music= StaticFunctions.dibujar_imagen(self.categories, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
+
+
+
+        event_game = pygame.event.get()
+        for event in event_game:
+            if event.type == pygame.QUIT:
+                return False
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1: 
+                
+                if button_back.collidepoint(pygame.mouse.get_pos()):
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Menu") 
+                    StaticFunctions.iniciar_musica(0.6, -1, "archivos_multimedia/musica/musica_menu2.mp3") 
+                    StaticFunctions.change_screen_flag = True
+                
+                elif button_music.collidepoint(pygame.mouse.get_pos()):
+                    self.muteado = not self.muteado
+                    if self.muteado:
+                        pygame.mixer.music.set_volume(0)  
+                    else:
+                        pygame.mixer.music.set_volume(0.2)   
+                
+                elif self.button_anime[0] <= pygame.mouse.get_pos()[0] <= self.button_anime[0] + self.button_anime[2] and \
+                   self.button_anime[1] <= pygame.mouse.get_pos()[1] <= self.button_anime[1] + self.button_anime[3]: # Separ elif por lineas para que sea mas legible
+                    print("Categoria seleccionada: ANIME")   
+                elif self.button_games[0] <= pygame.mouse.get_pos()[0] <= self.button_games[0] + self.button_games[2] and \
+                     self.button_games[1] <= pygame.mouse.get_pos()[1] <= self.button_games[1] + self.button_games[3]:# Separe elif por lineas para que sea mas legible
+                    print("Categoria seleccionada: VIDEOJUEGOS") 
+                elif self.button_geography[0] <= pygame.mouse.get_pos()[0] <= self.button_geography[0] + self.button_geography[2] and \
+                     self.button_geography[1] <= pygame.mouse.get_pos()[1] <= self.button_geography[1] + self.button_geography[3]:# Separe elif por lineas para que sea mas legible
+                    print("Categoria seleccionada: GEOGRAFIA")
+                
+        return True

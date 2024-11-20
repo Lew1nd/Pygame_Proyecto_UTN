@@ -19,6 +19,7 @@ dict_menus = {'Menu': Menu(),
               'Options': Options(),
               'Difficulty': Difficulty(),
               'QuestionManager': QuestionManager(),
+              'Categories': Categories(),
               
               }
 
@@ -32,6 +33,7 @@ while game_running:
         case "Options": game_running = dict_menus['Options'].init_options()
         case "Difficulty": game_running = dict_menus['Difficulty'].init_difficulty()
         case "QuestionManager": game_running = dict_menus['QuestionManager'].init_question_manager()
+        case "Categories": game_running = dict_menus['Categories'].init_categories()
 
     '''
     if StaticFunctions.current_screen == "Menu":

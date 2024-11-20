@@ -127,6 +127,7 @@ class Options():
 
         self.button_back = [458,715,355, 80]#Posición x,
         self.button_music = [1190, 10, 75, 75]
+        self.button_question = [900, 700, 355, 80]
 
         self.text_lives, self.text_lives_input = [50,500], [250, 520] 
         self.text_score, self.text_score_input = [50, 300], [680, 320]
@@ -180,6 +181,7 @@ class Options():
     def init_options(self):
         back_button = StaticFunctions.dibujar_imagen(self.options, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
         music_button = StaticFunctions.dibujar_imagen(self.options, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
+        questions_button = StaticFunctions.generar_rectangulo(self.options, GREEN, self.button_question)
         
         lives_text = StaticFunctions.dibujar_texto(self.options, "Vidas: ", 70, YELLOW1, self.text_lives, True, False)
         lives_input_text = StaticFunctions.dibujar_texto(self.options, self.lives, 50, RED1, self.text_lives_input, True, False)
@@ -217,12 +219,50 @@ class Options():
                     self.texto_vacio(self.lives, 0)
                     self.texto_vacio(self.score, 1)
                     self.texto_vacio(self.time, 2)
+                if questions_button.collidepoint(pygame.mouse.get_pos()):
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("QuestionManager")
+                    StaticFunctions.change_screen_flag = True
 
             self.modificar_texto(event,self.lives,0, 99)
             self.modificar_texto(event,self.score,1, 100000)
             self.modificar_texto(event,self.time,2, 1800)#El parámetro 3 es el tiempo máximo permitido. Ponerlo en segundos
         return True
 #endregion
+#region Agregar preguntas
+class QuestionManager():
+    def __init__(self):
+        self.question_manager = StaticFunctions.iniciar_pantalla()
+
+        self.fondo = pygame.image.load("archivos_multimedia/imagenes/imagen_opciones.png")
+        self.fondo = pygame.transform.scale(self.fondo, self.question_manager.get_size())#Escala
+        
+        self.button_back = [458,715,355, 80]#Posición x,
+        self.button_music = [1190, 10, 75, 75]
+
+        self.muteado = False
+
+    def init_question_manager(self):
+
+        back_button = StaticFunctions.dibujar_imagen(self.question_manager, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
+        music_button = StaticFunctions.dibujar_imagen(self.question_manager, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
+
+
+        if StaticFunctions.change_screen_flag:
+            self.question_manager.blit(self.fondo, (0, 0))
+            StaticFunctions.iniciar_musica(0.2,-1,"archivos_multimedia/musica/musica_menu.mp3")
+            StaticFunctions.change_screen_flag = False
+        
+        event_game = pygame.event.get()
+
+
+        for event in event_game:
+            if event.type == pygame.QUIT:
+                return False
+            
+        return True
+
+#endregion
+
 
 #region Difficulty
 

@@ -182,4 +182,15 @@ def agregar_pregunta_a_archivo():
             datos[0], datos[1], datos[2], datos[3], 
             datos[4], datos[5], datos[6], datos[7]])
         archivo.close()
-    
+
+def mostrar_timer(surface, color, seg : int, position):
+    '''
+    Dibuja un temporizador en la pantalla.
+    Recibe la superficie de la pantalla, color, segundos y las coordenadas de la pantalla.
+    No devuelve nada.
+    '''
+    fuente = pygame.font.Font(None, 48)
+    contador_seg = seg
+    mensaje_tiempo = f"{str(contador_seg).zfill(2)}"
+    texto = fuente.render(mensaje_tiempo, True, color)
+    surface.blit(texto, (position))

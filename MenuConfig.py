@@ -10,8 +10,12 @@ class Menu():
         self.menu = StaticFunctions.iniciar_pantalla()
         pygame.display.set_caption ("BGB")
         icono = pygame.image.load("archivos_multimedia/imagenes/icono_preguntados.png")#Carga el incono de la ventana
+        #musica
+        self.sonido_advertencia = pygame.mixer.Sound("archivos_multimedia/musica/sonido_timer.mp3")
+        self.sonido_advertencia.set_volume(0.5)
         StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3")
         pygame.display.set_icon(icono)
+        self.muteado = False
         
         #Cargar la imagen del fondo
         self.fondo = pygame.image.load("archivos_multimedia/imagenes/menu_principal.png")
@@ -23,20 +27,39 @@ class Menu():
         self.button_options = [470, 487, 355, 96]
         self.button_exit = [470, 600, 355, 96]
         self.button_music = [1190, 10, 75, 75]
+        self.timer = [15, 15]
+        
+        #temporizador(prueba)
+        self.segundos_restantes = 15
+        self.evento_timer = pygame.USEREVENT
+        pygame.time.set_timer(self.evento_timer, 1000)
 
 
 
         #imagen muestra (temporal)
         self.imagen_1 = [0,0,500,500]
 
-        self.muteado = False
-
     def init_menu(self):
+        self.menu.blit(self.fondo, (0, 0))
         start_button = StaticFunctions.dibujar_imagen(self.menu,"archivos_multimedia/imagenes/boton_jugar.png" , self.button_start)
         score_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_score.png", self.button_score)
         music_button = StaticFunctions.dibujar_imagen(self.menu,"archivos_multimedia/imagenes/boton_musica.png", self.button_music)
         options_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_ajustes.png", self.button_options)
         exit_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_salir.png", self.button_exit)
+        color = COLOR_AMARILLO
+        # if self.segundos_restantes <= 13: #cambia el color y reproduce el sonido de que el tiempo se agota
+        #     color = (255, 0, 0) 
+        #     if not self.sonido_advertencia_reproducido:
+        #         self.sonido_advertencia.play()
+        #         self.sonido_advertencia_reproducido = True
+        # else:
+        #     color = COLOR_AMARILLO
+        #     self.sonido_advertencia_reproducido = False
+        # if self.segundos_restantes <= 5 and self.segundos_restantes % 2 == 0:
+        #     color = (255, 255, 255) 
+        pygame.draw.rect(self.menu, (255, 255, 255), (10, 10, 50, 40), border_radius=10, width=4)# Dibujar un marco alrededor del temporizador.
+        timer = StaticFunctions.mostrar_timer(self.menu, color, self.segundos_restantes, self.timer)#Funcion que muestra el temporizador.
+
 
         #img1 = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/icono_preguntados.png", self.imagen_1)#imagen de preguntados
         
@@ -48,6 +71,14 @@ class Menu():
         for event in event_game:#Eventos
             if event.type == pygame.QUIT:
                 return False
+            
+            #evento de temporizador
+            if event.type == self.evento_timer:
+                if self.segundos_restantes > 0:
+                    self.segundos_restantes -= 1
+                else:
+                    print("¡El tiempo terminó!")
+
 
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:#Evento generado al presionar el click izquierdo
                 if start_button.collidepoint(pygame.mouse.get_pos()):#Llama al evento cuando se presione button_start

@@ -4,6 +4,7 @@ from MenuConfig import *
 import StaticFunctions
 
 pygame.init()
+fps = pygame.time.Clock()
 game_running = True
 StaticFunctions.current_screen = "Menu"
 
@@ -47,8 +48,9 @@ while game_running:
     elif StaticFunctions.current_screen == "QuestionManager":
         game_running = question_manager.init_question()
     '''
+    #print(f"FPS actuales: {fps.get_fps()}")
     
     pygame.display.flip()
 #endregion
-
+fps.tick(60)
 pygame.quit()

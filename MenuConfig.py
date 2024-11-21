@@ -196,9 +196,12 @@ class Options():
                         pygame.mixer.music.set_volume(0)#Silencia la música
                     else:
                         pygame.mixer.music.set_volume(0.2)#Vuelve a sonar la musica
-                elif back_button.collidepoint(pygame.mouse.get_pos()):
+                elif back_button.collidepoint(pygame.mouse.get_pos()) and not any(self.text_focus) == True:
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Menu")
                     StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3") 
+                    StaticFunctions.change_screen_flag = True
+                elif questions_button.collidepoint(pygame.mouse.get_pos()) and not any(self.text_focus) == True:
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("QuestionManager")
                     StaticFunctions.change_screen_flag = True
                 elif lives_input_text.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus, 0) 
                 elif score_input_text.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus,1)
@@ -207,10 +210,7 @@ class Options():
                     StaticFunctions.texto_vacio(self.text_focus, self.lives, 0)
                     StaticFunctions.texto_vacio(self.text_focus, self.score, 1)
                     StaticFunctions.texto_vacio(self.text_focus, self.time, 2)
-                if questions_button.collidepoint(pygame.mouse.get_pos()):
-                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("QuestionManager")
-                    StaticFunctions.change_screen_flag = True
-
+                
             self.modificar_texto(event,self.lives,0, 99)
             self.modificar_texto(event,self.score,1, 100000)
             self.modificar_texto(event,self.time,2, 1800)#El parámetro 3 es el tiempo máximo permitido. Ponerlo en segundos
@@ -252,7 +252,7 @@ class QuestionManager():
 
         self.muteado = False
         self.layer_selected = False
-        self.text_focus = [False,False,False,False,False,False]
+        self.text_focus = [False,False,False,False,False]
 
         self.questions = ["","","","","",""]
 
@@ -284,7 +284,6 @@ class QuestionManager():
         #print(StaticFunctions.selected_difficulty)
             
     def init_question_manager(self):
-
         back_button = StaticFunctions.dibujar_imagen(self.question_manager, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
         music_button = StaticFunctions.dibujar_imagen(self.question_manager, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
         confirm_changes_button = StaticFunctions.generar_rectangulo(self.question_manager, BLUE, self.button_confirm_changes)
@@ -342,17 +341,15 @@ class QuestionManager():
                         pygame.mixer.music.set_volume(0)#Silencia la música
                     else:
                         pygame.mixer.music.set_volume(0.2)#Vuelve a sonar la musica
-                elif back_button.collidepoint(pygame.mouse.get_pos()):
+                elif back_button.collidepoint(pygame.mouse.get_pos()) and not any(self.text_focus) == True:
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Options")
                     StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3") 
                     StaticFunctions.change_screen_flag = True
-                elif confirm_changes_button.collidepoint(pygame.mouse.get_pos()):
+                elif confirm_changes_button.collidepoint(pygame.mouse.get_pos()) and not any(self.text_focus) == True:
+                    StaticFunctions.agregar_pregunta_a_archivo()
                     print("Cambios efectuados")
-                    '''
-                    Pendiente, se necesita el archivo
-                    '''
-                
                 else:
+                    self.layer_selected = False
                     for layer, index in selectable_layers:
                         if layer.collidepoint(pygame.mouse.get_pos()):
                             StaticFunctions.seleccionar_texto(self.text_focus, index)
@@ -360,15 +357,15 @@ class QuestionManager():
                             self.layer_selected = True
                             break
                         if not self.layer_selected:
-                            for i in range(len(self.text_focus)): StaticFunctions.texto_vacio(self.text_focus, StaticFunctions.questions[i], i)
+                            for i in range(len(self.text_focus)): StaticFunctions.texto_vacio(self.text_focus, StaticFunctions.questions[i-1], i)
                     
                     for option, index in selectable_options:
                         if option.collidepoint(pygame.mouse.get_pos()):
                             if index < 3:  self.seleccionar_tipo_pregunta(self.categories[index], False)
                             else: self.seleccionar_tipo_pregunta(self.difficulty[index-3], True)
-            
-            for i in range(6):
-                self.modificar_texto(event, i, i)
+            print(self.text_focus)
+            for i in range(len(self.text_focus)):
+                self.modificar_texto(event, i-1, i)
         return True
 
 #endregion

@@ -2,6 +2,8 @@
 Aquí estarán las funciones y objetos que pueden estar presentes en varias pantallas a la vez
 '''
 import pygame
+import csv
+import random
 current_screen = ""
 change_screen_flag = True
 WIDTH, HEIGHT = 1280,800
@@ -9,19 +11,20 @@ WIDTH, HEIGHT = 1280,800
 #Atributos del jugador
 lives = 3
 time = 30
-current_score = 0
 score_gain_per_question = 1
+current_score = 0
 
 #Gestionador de preguntas y respuestas
 questions = ["Ingrese su pregunta aquí", 
              "Ingrese una posible respuesta aquí", 
              "Ingrese una posible respuesta aquí", 
              "Ingrese una posible respuesta aquí",
-             "Ingrese una posible respuesta aquí",
-             "Ingrese la respuesta correcta aquí"]#6
+             "Ingrese la respuesta correcta aquí"]#5
 
-selected_category = "None"
-selected_difficulty = "None"
+selected_category = "Anime"
+selected_difficulty = "Fácil"
+
+datapath = "archivos_multimedia/preguntas.csv"#Ubicación del archivo preguntas
 
 def iniciar_pantalla():
     '''
@@ -144,3 +147,39 @@ def texto_vacio(text_list: list, string: str, selected_text: int):
         '''
         if string == "": text_list[selected_text] = True
         else: text_list[selected_text] = False
+
+def agregar_pregunta_a_archivo():
+    datos = [None] * 8
+    preguntas = [""] * 4
+
+    pregunta_correcta = questions[4]
+    
+    posicion_pregunta_correcta = 4
+    
+    for i in range(len(preguntas)): preguntas[i] = questions[i+1]
+    preguntas_aleatorio = random.sample(preguntas, len(preguntas))
+    #Aleatoriza el orden de todos los valores de la lista, y las guarda en una lista nueva
+
+    for i in range(len(preguntas_aleatorio)): 
+        if pregunta_correcta == preguntas_aleatorio[i]: posicion_pregunta_correcta = i
+        
+    #print("Lista anterior: ", preguntas)
+    #print("Lista nueva: ", preguntas_aleatorio)
+    #print("La pregunta correcta esta en la posición: ", posicion_pregunta_correcta)
+
+    datos[0] = questions[0]#Pregunta
+    datos[1] = preguntas_aleatorio[0]#Opción A
+    datos[2] = preguntas_aleatorio[1]#Opción B
+    datos[3] = preguntas_aleatorio[2]#Opción C
+    datos[4] = preguntas_aleatorio[3]#Opción D
+    datos[5] = int(posicion_pregunta_correcta)#Correcta
+    datos[6] = selected_category
+    datos[7] = selected_difficulty
+    print(datos)
+    with open(datapath, 'a', newline='\n', encoding="utf-8") as archivo:
+        write_csv = csv.writer(archivo)
+        write_csv.writerow([
+            datos[0], datos[1], datos[2], datos[3], 
+            datos[4], datos[5], datos[6], datos[7]])
+        archivo.close()
+    

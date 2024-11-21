@@ -48,7 +48,6 @@ while game_running:
         game_running = question_manager.init_question()
     '''
     
-    
     pygame.display.flip()
 #endregion
 

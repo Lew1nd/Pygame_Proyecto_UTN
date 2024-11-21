@@ -12,6 +12,17 @@ time = 30
 current_score = 0
 score_gain_per_question = 1
 
+#Gestionador de preguntas y respuestas
+questions = ["Ingrese su pregunta aquí", 
+             "Ingrese una posible respuesta aquí", 
+             "Ingrese una posible respuesta aquí", 
+             "Ingrese una posible respuesta aquí",
+             "Ingrese una posible respuesta aquí",
+             "Ingrese la respuesta correcta aquí"]#6
+
+selected_category = "None"
+selected_difficulty = "None"
+
 def iniciar_pantalla():
     '''
     Función que inicializa una pantalla de juego.\n
@@ -74,7 +85,7 @@ def iniciar_musica(volume: float, loops: int, path: str):
     pygame.mixer.music.play(loops)#Veces que se repetirá (-1 para infinitas veces)
 
 
-def entrada_texto(surface, color ,pygame_event, text, max_value: int):
+def entrada_texto(surface, color ,pygame_event, text, max_value: int, check_is_int: bool):
     '''
     Función encargada de añadir el nuevo caracter a la cadena.\n
     Recibe una pantalla (superficie), un color, el gestionador de eventos, una cadena de texto y un número entero que servirá para limitar el número máximo.\n
@@ -83,8 +94,11 @@ def entrada_texto(surface, color ,pygame_event, text, max_value: int):
     surface.blit(color, (0, 0))
     text = str(text)
     new_text = text + pygame_event.unicode
-    if comprobar_entero(new_text, max_value): return new_text
-    return text    
+    if check_is_int:
+        if comprobar_entero(new_text, max_value): return new_text 
+    else:
+        return new_text
+    return text
 
 def comprobar_entero(string: str, max_value: int):
     '''
@@ -101,3 +115,32 @@ def comprobar_entero(string: str, max_value: int):
         else:
             return True
     return False
+
+def suprimir_texto(surface, color, event, value_selected: str):
+    '''
+    Elimina la cadena actual.\n
+    Recibe la superficie de la pantalla, un color, el gestionador de eventos y una cadena.\n
+    Retorna el texto
+    '''
+    surface.blit(color, (0, 0))
+    if event.key == pygame.K_BACKSPACE:
+        value_selected = value_selected[0:-1]
+    return value_selected
+
+def seleccionar_texto(text_list: list, selected_text: int):
+        '''
+        Permite establecer foco en una cadena de texto para permitir la escritura. Desactiva el foco de las demás cadenas existentes.\n
+        Recibe un índice para una lista que posteriormente se utilizará para activar la casilla de texto correspondiente.\n
+        No devuelve nada.
+        '''
+        text_list[:] = [False] * len(text_list)
+        text_list[selected_text] = True
+
+def texto_vacio(text_list: list, string: str, selected_text: int):
+        '''
+        Comprueba si el usuario dejó vacío el texto.
+        Recibe la cadena, y el índice de la cadena de texto que se está modificando
+        No devuelve nada
+        '''
+        if string == "": text_list[selected_text] = True
+        else: text_list[selected_text] = False

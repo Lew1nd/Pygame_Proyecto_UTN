@@ -32,8 +32,6 @@ class Menu():
         self.muteado = False
 
     def init_menu(self):
-
-
         start_button = StaticFunctions.dibujar_imagen(self.menu,"archivos_multimedia/imagenes/boton_jugar.png" , self.button_start)
         score_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_score.png", self.button_score)
         music_button = StaticFunctions.dibujar_imagen(self.menu,"archivos_multimedia/imagenes/boton_musica.png", self.button_music)
@@ -159,24 +157,14 @@ class Options():
         '''
         if self.text_focus[selected_text]:
             if event.type == pygame.KEYDOWN:
-                self.options.blit(self.fondo, (0, 0))
                 if event.key == pygame.K_BACKSPACE:
-                    value_selected = value_selected[0:-1]
+                    value_selected = StaticFunctions.suprimir_texto(self.options, self.fondo, event, value_selected)
                 else:
-                    value_selected = StaticFunctions.entrada_texto(self.options, self.fondo, event, value_selected, max_value)
+                    value_selected = StaticFunctions.entrada_texto(self.options, self.fondo, event, value_selected, max_value, True)
                 match selected_text:
                     case 0: self.lives = value_selected
                     case 1: self.score = value_selected
                     case 2: self.time = value_selected
-                            
-    def texto_vacio(self, string: str, selected_text: int):
-        '''
-        Comprueba si el usuario dejó vacío el texto.
-        Recibe la cadena, y el índice de la cadena de texto que se está modificando
-        No devuelve nada
-        '''
-        if string == "": self.text_focus[selected_text] = True
-        else: self.text_focus[selected_text] = False
 
     def init_options(self):
         back_button = StaticFunctions.dibujar_imagen(self.options, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
@@ -212,13 +200,13 @@ class Options():
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Menu")
                     StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3") 
                     StaticFunctions.change_screen_flag = True
-                elif lives_input_text.collidepoint(pygame.mouse.get_pos()): self.seleccionar_texto(0) 
-                elif score_input_text.collidepoint(pygame.mouse.get_pos()): self.seleccionar_texto(1)
-                elif time_input_text.collidepoint(pygame.mouse.get_pos()): self.seleccionar_texto(2)  
+                elif lives_input_text.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus, 0) 
+                elif score_input_text.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus,1)
+                elif time_input_text.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus,2)  
                 else:
-                    self.texto_vacio(self.lives, 0)
-                    self.texto_vacio(self.score, 1)
-                    self.texto_vacio(self.time, 2)
+                    StaticFunctions.texto_vacio(self.text_focus, self.lives, 0)
+                    StaticFunctions.texto_vacio(self.text_focus, self.score, 1)
+                    StaticFunctions.texto_vacio(self.text_focus, self.time, 2)
                 if questions_button.collidepoint(pygame.mouse.get_pos()):
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("QuestionManager")
                     StaticFunctions.change_screen_flag = True
@@ -238,14 +226,103 @@ class QuestionManager():
         
         self.button_back = [458,715,355, 80]#Posición x,
         self.button_music = [1190, 10, 75, 75]
+        self.button_confirm_changes = [850, 700, 100, 100]
+
+        self.question = [50,50,550,50]
+        self.answer1 = [50, 200, 550, 50]
+        self.answer2 = [50, 300, 550, 50]
+        self.answer3 = [50, 400, 550, 50]
+        self.answer4 = [50, 500, 550, 50]
+
+
+        self.text_question = [50, 50]
+        self.text_answer1, self.text_answer2, self.text_answer3, self.text_answer4  = [50, 200], [50, 300], [50, 400], [50, 500]
+
+        self.categories = ["Anime", "Videojuegos", "Geografía"]
+        self.categories_texts = [[650,200],
+                                 [650, 300],
+                                 [650, 350],
+                                 [650, 400]]
+
+        self.difficulty = ["Fácil", "Medio", "Difícil"]
+        self.difficulty_texts = [[900, 200],
+                                 [900, 300],
+                                 [900, 350],
+                                 [900, 400]]
 
         self.muteado = False
+        self.layer_selected = False
+        self.text_focus = [False,False,False,False,False,False]
 
+        self.questions = ["","","","","",""]
+
+    def modificar_texto(self, event, selected_text: int, max_value: int):
+        '''
+        Permite modificar el texto a partir de la entrada del usuario.\n
+        Recibe el gestionador de enventos, el indice del texto seleccionado y un valor máximo de números enteros.\n
+        No devuelve nada.
+        '''
+        if self.text_focus[selected_text]:
+            selected_value = StaticFunctions.questions[selected_text]
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_BACKSPACE:
+                    selected_value = selected_value[:-1] 
+                else:
+                    selected_value = StaticFunctions.entrada_texto(
+                        self.question_manager, self.fondo, event, selected_value, max_value, False)
+            StaticFunctions.questions[selected_text] = selected_value
+
+    def seleccionar_tipo_pregunta(self, value: str, is_category: bool):
+        '''
+        Carga la opción elegida según la elección del jugador.\n
+        Recibe el valor (puede ser categoría o dificultad) y un booleano que comprueba si es una categoría o una dificultad.\n
+        No devuelve nada.
+        '''
+        if is_category: StaticFunctions.selected_category = str(value)
+        else: StaticFunctions.selected_difficulty = str(value)
+        #print(StaticFunctions.selected_category)
+        #print(StaticFunctions.selected_difficulty)
+            
     def init_question_manager(self):
 
         back_button = StaticFunctions.dibujar_imagen(self.question_manager, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
         music_button = StaticFunctions.dibujar_imagen(self.question_manager, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
+        confirm_changes_button = StaticFunctions.generar_rectangulo(self.question_manager, BLUE, self.button_confirm_changes)
 
+        question_layer = StaticFunctions.generar_rectangulo(self.question_manager, GREEN, self.question)
+        answer1_layer = StaticFunctions.generar_rectangulo(self.question_manager, GREEN, self.answer1)
+        answer2_layer = StaticFunctions.generar_rectangulo(self.question_manager, GREEN, self.answer2)
+        answer3_layer = StaticFunctions.generar_rectangulo(self.question_manager, GREEN, self.answer3)
+        answer4_layer = StaticFunctions.generar_rectangulo(self.question_manager, GREEN, self.answer4)
+
+        question_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[0], 40, RED1, self.text_question, False, False)
+        answer1_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[1], 40, RED1, self.text_answer1, False, False)
+        answer2_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[2], 40, RED1, self.text_answer2, False, False)
+        answer3_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[3], 40, RED1, self.text_answer3, False, False)
+        answer4_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[4], 40, RED1, self.text_answer4, False, False)
+
+        category_name_text = StaticFunctions.dibujar_texto(self.question_manager, "Categoría", 40, RED1, self.categories_texts[0], True, False)
+        category1_text = StaticFunctions.dibujar_texto(self.question_manager, self.categories[0], 40, RED1, self.categories_texts[1], False, False)
+        category2_text = StaticFunctions.dibujar_texto(self.question_manager, self.categories[1], 40, RED1, self.categories_texts[2], False, False)
+        category3_text = StaticFunctions.dibujar_texto(self.question_manager, self.categories[2], 40, RED1, self.categories_texts[3], False, False)
+
+        difficulty_name_text = StaticFunctions.dibujar_texto(self.question_manager, "Dificultad", 40, RED1, self.difficulty_texts[0], True, False)
+        difficulty1_text = StaticFunctions.dibujar_texto(self.question_manager, self.difficulty[0], 40, RED1, self.difficulty_texts[1], False, False)
+        difficulty2_text = StaticFunctions.dibujar_texto(self.question_manager, self.difficulty[1], 40, RED1, self.difficulty_texts[2], False, False)
+        difficulty3_text = StaticFunctions.dibujar_texto(self.question_manager, self.difficulty[2], 40, RED1, self.difficulty_texts[3], False, False)
+
+        selectable_layers = [(question_layer, 0), 
+                           (answer1_layer, 1),
+                           (answer2_layer, 2),
+                           (answer3_layer, 3),
+                           (answer4_layer, 4)]
+        
+        selectable_options = [(category1_text, 0),
+                              (category2_text, 1),
+                              (category3_text, 2),
+                              (difficulty1_text, 3),
+                              (difficulty2_text, 4),
+                              (difficulty3_text, 5)]
 
         if StaticFunctions.change_screen_flag:
             self.question_manager.blit(self.fondo, (0, 0))
@@ -258,7 +335,40 @@ class QuestionManager():
         for event in event_game:
             if event.type == pygame.QUIT:
                 return False
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:#Evento generado al presionar el click izquierdo
+                if music_button.collidepoint(pygame.mouse.get_pos()):
+                    self.muteado = not self.muteado
+                    if self.muteado:
+                        pygame.mixer.music.set_volume(0)#Silencia la música
+                    else:
+                        pygame.mixer.music.set_volume(0.2)#Vuelve a sonar la musica
+                elif back_button.collidepoint(pygame.mouse.get_pos()):
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Options")
+                    StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3") 
+                    StaticFunctions.change_screen_flag = True
+                elif confirm_changes_button.collidepoint(pygame.mouse.get_pos()):
+                    print("Cambios efectuados")
+                    '''
+                    Pendiente, se necesita el archivo
+                    '''
+                
+                else:
+                    for layer, index in selectable_layers:
+                        if layer.collidepoint(pygame.mouse.get_pos()):
+                            StaticFunctions.seleccionar_texto(self.text_focus, index)
+                            StaticFunctions.questions[index] = ""
+                            self.layer_selected = True
+                            break
+                        if not self.layer_selected:
+                            for i in range(len(self.text_focus)): StaticFunctions.texto_vacio(self.text_focus, StaticFunctions.questions[i], i)
+                    
+                    for option, index in selectable_options:
+                        if option.collidepoint(pygame.mouse.get_pos()):
+                            if index < 3:  self.seleccionar_tipo_pregunta(self.categories[index], False)
+                            else: self.seleccionar_tipo_pregunta(self.difficulty[index-3], True)
             
+            for i in range(6):
+                self.modificar_texto(event, i, i)
         return True
 
 #endregion

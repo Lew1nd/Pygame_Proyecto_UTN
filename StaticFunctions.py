@@ -10,7 +10,8 @@ WIDTH, HEIGHT = 1280,800
 
 #Atributos del jugador
 lives = 3
-time = 30
+timer = 30#Variable usada para el timer
+time_config = 30#Variable para mostrar el tiempo configurado en pantalla
 score_gain_per_question = 1
 current_score = 0
 
@@ -24,7 +25,8 @@ questions = ["Ingrese su pregunta aquí",
 selected_category = "Anime"
 selected_difficulty = "Fácil"
 
-datapath = "archivos_multimedia/preguntas.csv"#Ubicación del archivo preguntas
+questions_datapath = "archivos_multimedia/preguntas.csv"#Ubicación del archivo preguntas
+player_datapath = "archivos_multimedia/playerdata.csv"#Ubicación del archivo de playerdata
 
 def iniciar_pantalla():
     '''
@@ -148,40 +150,7 @@ def texto_vacio(text_list: list, string: str, selected_text: int):
         if string == "": text_list[selected_text] = True
         else: text_list[selected_text] = False
 
-def agregar_pregunta_a_archivo():
-    datos = [None] * 8
-    preguntas = [""] * 4
 
-    pregunta_correcta = questions[4]
-    
-    posicion_pregunta_correcta = 4
-    
-    for i in range(len(preguntas)): preguntas[i] = questions[i+1]
-    preguntas_aleatorio = random.sample(preguntas, len(preguntas))
-    #Aleatoriza el orden de todos los valores de la lista, y las guarda en una lista nueva
-
-    for i in range(len(preguntas_aleatorio)): 
-        if pregunta_correcta == preguntas_aleatorio[i]: posicion_pregunta_correcta = i
-        
-    #print("Lista anterior: ", preguntas)
-    #print("Lista nueva: ", preguntas_aleatorio)
-    #print("La pregunta correcta esta en la posición: ", posicion_pregunta_correcta)
-
-    datos[0] = questions[0]#Pregunta
-    datos[1] = preguntas_aleatorio[0]#Opción A
-    datos[2] = preguntas_aleatorio[1]#Opción B
-    datos[3] = preguntas_aleatorio[2]#Opción C
-    datos[4] = preguntas_aleatorio[3]#Opción D
-    datos[5] = int(posicion_pregunta_correcta)#Correcta
-    datos[6] = selected_category
-    datos[7] = selected_difficulty
-    print(datos)
-    with open(datapath, 'a', newline='\n', encoding="utf-8") as archivo:
-        write_csv = csv.writer(archivo)
-        write_csv.writerow([
-            datos[0], datos[1], datos[2], datos[3], 
-            datos[4], datos[5], datos[6], datos[7]])
-        archivo.close()
 
 def mostrar_timer(surface, color, seg : int, position):
     '''
@@ -191,6 +160,96 @@ def mostrar_timer(surface, color, seg : int, position):
     '''
     fuente = pygame.font.Font(None, 48)
     contador_seg = seg
+    print(seg)
     mensaje_tiempo = f"{str(contador_seg).zfill(2)}"
     texto = fuente.render(mensaje_tiempo, True, color)
     surface.blit(texto, (position))
+
+def cargar_datos(datapath, data: str):
+    '''
+    Función encargada de leer archivos.\n
+    Recibe la ubicación del archivo a leer, data funciona como filtro para leer un archivo en concreto.\n
+    No devuelve nada.
+    '''
+    def cargar_datos_jugador(archive):
+        '''
+        Obtiene el contenido del arhicov playerdata.scv.\n
+        Recibe el archivo leido.\n
+        No devuelve nada.
+        '''
+        global timer, lives, score_gain_per_question, time_config
+        content = archive.readlines()
+        player_data = content[0].replace('\n','').split(',')
+
+        time_config = int(player_data[0])
+        lives = int(player_data[1])
+        score_gain_per_question = int(player_data[2])
+        timer = time_config
+
+    with open(datapath, 'r') as archivo:
+        match data:
+            case "Player": cargar_datos_jugador(archivo)
+
+def guardar_datos(datapath, data: str, operation: str):
+    '''
+    Permite gestionar diferentes guardados de diferentes archivos.\n
+    Recibe la ubicación del archivo, el archivo a modificar (data) y la operación que se va a hacer.\n
+    No devuelve nada.
+    '''
+    def agregar_pregunta_a_archivo(datapath, operation: str):
+        '''
+        Agrega una pregunta nueva al archivo de preguntas.\n
+        Recibe la ubicación del archivo y el tipo de operación que va a hacer.\n
+        No devuelve nada.
+        '''
+        datos = [None] * 8
+        preguntas = [""] * 4
+
+        pregunta_correcta = questions[4]
+    
+        posicion_pregunta_correcta = 4
+    
+        for i in range(len(preguntas)): 
+            preguntas[i] = questions[i+1]
+            preguntas_aleatorio = random.sample(preguntas, len(preguntas))
+            #Aleatoriza el orden de todos los valores de la lista, y las guarda en una lista nueva
+
+        for i in range(len(preguntas_aleatorio)): 
+            if pregunta_correcta == preguntas_aleatorio[i]: posicion_pregunta_correcta = i
+
+        datos[0] = questions[0]#Pregunta
+        datos[1] = preguntas_aleatorio[0]#Opción A
+        datos[2] = preguntas_aleatorio[1]#Opción B
+        datos[3] = preguntas_aleatorio[2]#Opción C
+        datos[4] = preguntas_aleatorio[3]#Opción D
+        datos[5] = int(posicion_pregunta_correcta)#Correcta
+        datos[6] = selected_category#Categoría
+        datos[7] = selected_difficulty#Dificultad
+        with open(datapath, operation, newline='\n', encoding="utf-8") as archivo:
+            write_csv = csv.writer(archivo)
+            write_csv.writerow([
+                datos[0], datos[1], datos[2], datos[3], 
+                datos[4], datos[5], datos[6], datos[7]])
+            archivo.close()
+
+    def actualizar_datos_jugador(datapath, operation: str):
+        '''
+        Actualiza los datos que ingresó el usuario.\n
+        Recibe la ubicación del archivo y el tipo de operación que realizará.\n
+        No devuelve nada
+        '''
+        datos = [0] * 3
+        datos[0] = time_config
+        datos[1] = lives
+        datos[2] = score_gain_per_question
+        with open(datapath, operation) as archivo:
+            write_csv = csv.writer(archivo)
+            write_csv.writerow([datos[0], datos[1], datos[2]])
+            print(datos)
+            archivo.close()
+
+    match data:
+        case "Question_add": agregar_pregunta_a_archivo(datapath, operation)
+        case "Player": actualizar_datos_jugador(datapath, operation)
+
+    

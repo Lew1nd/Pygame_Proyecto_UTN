@@ -26,6 +26,8 @@ dict_menus = {'Menu': Menu(),
 
 #endregion
 
+StaticFunctions.cargar_datos(StaticFunctions.player_datapath, "Player")
+
 #region Update
 while game_running:
     match StaticFunctions.current_screen:

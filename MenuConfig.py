@@ -30,7 +30,7 @@ class Menu():
         self.timer = [15, 15]
         
         #temporizador(prueba)
-        self.segundos_restantes = 15
+        self.segundos_restantes = StaticFunctions.timer#Ya no es necesario utilizar una variable local
         self.evento_timer = pygame.USEREVENT
         pygame.time.set_timer(self.evento_timer, 1000)
 
@@ -58,10 +58,7 @@ class Menu():
         # if self.segundos_restantes <= 5 and self.segundos_restantes % 2 == 0:
         #     color = (255, 255, 255) 
         pygame.draw.rect(self.menu, (255, 255, 255), (10, 10, 50, 40), border_radius=10, width=4)# Dibujar un marco alrededor del temporizador.
-        timer = StaticFunctions.mostrar_timer(self.menu, color, self.segundos_restantes, self.timer)#Funcion que muestra el temporizador.
-
-
-        #img1 = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/icono_preguntados.png", self.imagen_1)#imagen de preguntados
+        timer = StaticFunctions.mostrar_timer(self.menu, color, StaticFunctions.timer, self.timer)#Funcion que muestra el temporizador.
         
         if StaticFunctions.change_screen_flag:
             self.menu.blit(self.fondo, (0, 0))
@@ -74,8 +71,8 @@ class Menu():
             
             #evento de temporizador
             if event.type == self.evento_timer:
-                if self.segundos_restantes > 0:
-                    self.segundos_restantes -= 1
+                if StaticFunctions.timer > 0:
+                    StaticFunctions.timer -= 1
                 else:
                     print("¡El tiempo terminó!")
 
@@ -157,14 +154,15 @@ class Options():
         self.button_back = [458,715,355, 80]#Posición x,
         self.button_music = [1190, 10, 75, 75]
         self.button_question = [900, 700, 355, 80]
+        self.button_confirm_changes = [900,600,355,80]
 
         self.text_lives, self.text_lives_input = [50,500], [250, 520] 
         self.text_score, self.text_score_input = [50, 300], [680, 320]
         self.text_time, self.text_time_input = [40, 700], [300,720]
         
-        self.lives = str(StaticFunctions.lives)
-        self.score = str(StaticFunctions.score_gain_per_question)
-        self.time = str(StaticFunctions.time)
+        #self.lives = str(StaticFunctions.lives)
+        #self.score = str(StaticFunctions.score_gain_per_question)
+        #self.time = str(StaticFunctions.time)
         
         self.text_selected = [0,0]
 
@@ -192,24 +190,26 @@ class Options():
                     value_selected = StaticFunctions.suprimir_texto(self.options, self.fondo, event, value_selected)
                 else:
                     value_selected = StaticFunctions.entrada_texto(self.options, self.fondo, event, value_selected, max_value, True)
+
                 match selected_text:
-                    case 0: self.lives = value_selected
-                    case 1: self.score = value_selected
-                    case 2: self.time = value_selected
+                    case 0: StaticFunctions.lives = value_selected
+                    case 1: StaticFunctions.score_gain_per_question = value_selected
+                    case 2: StaticFunctions.time_config = value_selected
 
     def init_options(self):
         back_button = StaticFunctions.dibujar_imagen(self.options, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
         music_button = StaticFunctions.dibujar_imagen(self.options, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
         questions_button = StaticFunctions.generar_rectangulo(self.options, GREEN, self.button_question)
+        confirm_changes_button = StaticFunctions.generar_rectangulo(self.options, BLUE, self.button_confirm_changes)
         
         lives_text = StaticFunctions.dibujar_texto(self.options, "Vidas: ", 70, YELLOW1, self.text_lives, True, False)
-        lives_input_text = StaticFunctions.dibujar_texto(self.options, self.lives, 50, RED1, self.text_lives_input, True, False)
+        lives_input_text = StaticFunctions.dibujar_texto(self.options, str(StaticFunctions.lives), 50, RED1, self.text_lives_input, True, False)
 
         score_text = StaticFunctions.dibujar_texto(self.options, "Puntaje por pregunta: ", 70, YELLOW1, self.text_score, True, False)
-        score_input_text = StaticFunctions.dibujar_texto(self.options, self.score, 50, RED1, self.text_score_input, True, False)
+        score_input_text = StaticFunctions.dibujar_texto(self.options, str(StaticFunctions.score_gain_per_question), 50, RED1, self.text_score_input, True, False)
 
         time_text = StaticFunctions.dibujar_texto(self.options, "Tiempo: ", 70, YELLOW1, self.text_time, True, False)
-        time_input_text = StaticFunctions.dibujar_texto(self.options, self.time, 50, RED1, self.text_time_input, True, False)
+        time_input_text = StaticFunctions.dibujar_texto(self.options, str(StaticFunctions.time_config), 50, RED1, self.text_time_input, True, False)
 
         if StaticFunctions.change_screen_flag:
             self.options.blit(self.fondo, (0, 0))
@@ -234,17 +234,20 @@ class Options():
                 elif questions_button.collidepoint(pygame.mouse.get_pos()) and not any(self.text_focus) == True:
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("QuestionManager")
                     StaticFunctions.change_screen_flag = True
+                elif confirm_changes_button.collidepoint(pygame.mouse.get_pos()) and not any(self.text_focus) == True:
+                    StaticFunctions.guardar_datos(StaticFunctions.player_datapath, "Player", 'w')
+                    StaticFunctions.cargar_datos(StaticFunctions.player_datapath, "Player")
                 elif lives_input_text.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus, 0) 
                 elif score_input_text.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus,1)
                 elif time_input_text.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus,2)  
                 else:
-                    StaticFunctions.texto_vacio(self.text_focus, self.lives, 0)
-                    StaticFunctions.texto_vacio(self.text_focus, self.score, 1)
-                    StaticFunctions.texto_vacio(self.text_focus, self.time, 2)
+                    StaticFunctions.texto_vacio(self.text_focus, str(StaticFunctions.lives), 0)
+                    StaticFunctions.texto_vacio(self.text_focus, str(StaticFunctions.score_gain_per_question), 1)
+                    StaticFunctions.texto_vacio(self.text_focus, str(StaticFunctions.time_config), 2)
                 
-            self.modificar_texto(event,self.lives,0, 99)
-            self.modificar_texto(event,self.score,1, 100000)
-            self.modificar_texto(event,self.time,2, 1800)#El parámetro 3 es el tiempo máximo permitido. Ponerlo en segundos
+            self.modificar_texto(event,str(StaticFunctions.lives),0, 99)
+            self.modificar_texto(event,str(StaticFunctions.score_gain_per_question),1, 100000)
+            self.modificar_texto(event,str(StaticFunctions.time_config),2, 1800)#El parámetro 3 es el tiempo máximo permitido. Ponerlo en segundos
         return True
 #endregion
 #region Agregar preguntas
@@ -264,7 +267,6 @@ class QuestionManager():
         self.answer2 = [50, 300, 550, 50]
         self.answer3 = [50, 400, 550, 50]
         self.answer4 = [50, 500, 550, 50]
-
 
         self.text_question = [50, 50]
         self.text_answer1, self.text_answer2, self.text_answer3, self.text_answer4  = [50, 200], [50, 300], [50, 400], [50, 500]
@@ -311,8 +313,6 @@ class QuestionManager():
         '''
         if is_category: StaticFunctions.selected_category = str(value)
         else: StaticFunctions.selected_difficulty = str(value)
-        #print(StaticFunctions.selected_category)
-        #print(StaticFunctions.selected_difficulty)
             
     def init_question_manager(self):
         back_button = StaticFunctions.dibujar_imagen(self.question_manager, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
@@ -361,7 +361,6 @@ class QuestionManager():
         
         event_game = pygame.event.get()
 
-
         for event in event_game:
             if event.type == pygame.QUIT:
                 return False
@@ -377,7 +376,7 @@ class QuestionManager():
                     StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3") 
                     StaticFunctions.change_screen_flag = True
                 elif confirm_changes_button.collidepoint(pygame.mouse.get_pos()) and not any(self.text_focus) == True:
-                    StaticFunctions.agregar_pregunta_a_archivo()
+                    StaticFunctions.guardar_datos(StaticFunctions.questions_datapath, "Question_add", 'a')
                     print("Cambios efectuados")
                 else:
                     self.layer_selected = False
@@ -394,9 +393,8 @@ class QuestionManager():
                         if option.collidepoint(pygame.mouse.get_pos()):
                             if index < 3:  self.seleccionar_tipo_pregunta(self.categories[index], False)
                             else: self.seleccionar_tipo_pregunta(self.difficulty[index-3], True)
-            print(self.text_focus)
-            for i in range(len(self.text_focus)):
-                self.modificar_texto(event, i-1, i)
+
+            for i in range(len(self.text_focus)): self.modificar_texto(event, i-1, i)
         return True
 
 #endregion

@@ -2,6 +2,8 @@
 Aquí estará todo lo relacionado a las pantallas
 '''
 import pygame
+import csv
+import random
 import StaticFunctions
 from Colors import *
 #region Menú
@@ -27,38 +29,20 @@ class Menu():
         self.button_options = [470, 487, 355, 96]
         self.button_exit = [470, 600, 355, 96]
         self.button_music = [1190, 10, 75, 75]
-        self.timer = [15, 15]
-        
-        #temporizador(prueba)
-        self.segundos_restantes = StaticFunctions.timer#Ya no es necesario utilizar una variable local
-        self.evento_timer = pygame.USEREVENT
-        pygame.time.set_timer(self.evento_timer, 1000)
-
-
 
         #imagen muestra (temporal)
         self.imagen_1 = [0,0,500,500]
 
     def init_menu(self):
+        '''
+        Inicializador de la pantalla, se ejecuta constantemente en Core
+        '''
         self.menu.blit(self.fondo, (0, 0))
         start_button = StaticFunctions.dibujar_imagen(self.menu,"archivos_multimedia/imagenes/boton_jugar.png" , self.button_start)
         score_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_score.png", self.button_score)
         music_button = StaticFunctions.dibujar_imagen(self.menu,"archivos_multimedia/imagenes/boton_musica.png", self.button_music)
         options_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_ajustes.png", self.button_options)
         exit_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_salir.png", self.button_exit)
-        color = COLOR_AMARILLO
-        # if self.segundos_restantes <= 13: #cambia el color y reproduce el sonido de que el tiempo se agota
-        #     color = (255, 0, 0) 
-        #     if not self.sonido_advertencia_reproducido:
-        #         self.sonido_advertencia.play()
-        #         self.sonido_advertencia_reproducido = True
-        # else:
-        #     color = COLOR_AMARILLO
-        #     self.sonido_advertencia_reproducido = False
-        # if self.segundos_restantes <= 5 and self.segundos_restantes % 2 == 0:
-        #     color = (255, 255, 255) 
-        pygame.draw.rect(self.menu, (255, 255, 255), (10, 10, 50, 40), border_radius=10, width=4)# Dibujar un marco alrededor del temporizador.
-        timer = StaticFunctions.mostrar_timer(self.menu, color, StaticFunctions.timer, self.timer)#Funcion que muestra el temporizador.
         
         if StaticFunctions.change_screen_flag:
             self.menu.blit(self.fondo, (0, 0))
@@ -68,15 +52,7 @@ class Menu():
         for event in event_game:#Eventos
             if event.type == pygame.QUIT:
                 return False
-            
-            #evento de temporizador
-            if event.type == self.evento_timer:
-                if StaticFunctions.timer > 0:
-                    StaticFunctions.timer -= 1
-                else:
-                    print("¡El tiempo terminó!")
-
-
+        
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:#Evento generado al presionar el click izquierdo
                 if start_button.collidepoint(pygame.mouse.get_pos()):#Llama al evento cuando se presione button_start
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Categories")
@@ -116,6 +92,9 @@ class Scoreboard():
         self.muteado = False
 
     def init_scoreboard(self):
+        '''
+        Inicializador de la pantalla, se ejecuta constantemente en Core
+        '''
         back_button = StaticFunctions.dibujar_imagen(self.score, "archivos_multimedia/imagenes/boton_atras_score.png", self.button_back)
         music_button = StaticFunctions.dibujar_imagen(self.score, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
 
@@ -197,6 +176,9 @@ class Options():
                     case 2: StaticFunctions.time_config = value_selected
 
     def init_options(self):
+        '''
+        Inicializador de la pantalla, se ejecuta constantemente en Core
+        '''
         back_button = StaticFunctions.dibujar_imagen(self.options, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
         music_button = StaticFunctions.dibujar_imagen(self.options, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
         questions_button = StaticFunctions.generar_rectangulo(self.options, GREEN, self.button_question)
@@ -263,10 +245,7 @@ class QuestionManager():
         self.button_confirm_changes = [850, 700, 100, 100]
 
         self.question = [50,50,550,50]
-        self.answer1 = [50, 200, 550, 50]
-        self.answer2 = [50, 300, 550, 50]
-        self.answer3 = [50, 400, 550, 50]
-        self.answer4 = [50, 500, 550, 50]
+        self.answer1, self.answer2, self.answer3, self.answer4 = [50, 200, 550, 50], [50, 300, 550, 50], [50, 400, 550, 50], [50, 500, 550, 50]
 
         self.text_question = [50, 50]
         self.text_answer1, self.text_answer2, self.text_answer3, self.text_answer4  = [50, 200], [50, 300], [50, 400], [50, 500]
@@ -315,6 +294,9 @@ class QuestionManager():
         else: StaticFunctions.selected_difficulty = str(value)
             
     def init_question_manager(self):
+        '''
+        Inicializador de la pantalla, se ejecuta constantemente en Core
+        '''
         back_button = StaticFunctions.dibujar_imagen(self.question_manager, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
         music_button = StaticFunctions.dibujar_imagen(self.question_manager, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
         confirm_changes_button = StaticFunctions.generar_rectangulo(self.question_manager, BLUE, self.button_confirm_changes)
@@ -399,7 +381,6 @@ class QuestionManager():
 
 #endregion
 
-
 #region Difficulty
 
 class Difficulty(): 
@@ -417,6 +398,9 @@ class Difficulty():
         self.muteado = False
 
     def init_difficulty(self):
+        '''
+        Inicializador de la pantalla, se ejecuta constantemente en Core
+        '''
         if StaticFunctions.change_screen_flag:
             self.difficulty.blit(self.fondo, (0, 0))
             StaticFunctions.change_screen_flag = False
@@ -435,10 +419,19 @@ class Difficulty():
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 if button_easy.collidepoint(pygame.mouse.get_pos()):
                     print("Juego Inicializado en Modo FACIL") #Aca se llamaria a la funcion que inicializaria el modo facil
+                    StaticFunctions.difficulty_game = "Fácil"
+                    StaticFunctions.change_screen_flag = True
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Game")
                 elif button_medium.collidepoint(pygame.mouse.get_pos()):
                     print("Juego Inicializado en Modo MEDIO") #Aca se llamaria a la funcion que inicializaria el modo medio
+                    StaticFunctions.difficulty_game = "Normal"
+                    StaticFunctions.change_screen_flag = True
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Game")
                 elif button_hard.collidepoint(pygame.mouse.get_pos()):
                     print("Juego Inicializado en Modo DIFICIL") #Aca se llamaria a la funcion que inicializaria el modo dificil
+                    StaticFunctions.difficulty_game = "Difícil"
+                    StaticFunctions.change_screen_flag = True
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Game")
                 elif button_back.collidepoint(pygame.mouse.get_pos()):
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Menu") #Vuelve a la pantalla de menu
                     StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3") 
@@ -460,8 +453,6 @@ class Categories():
         self.fondo = pygame.image.load("archivos_multimedia/imagenes/menu_categorias.png") 
         self.fondo = pygame.transform.scale(self.fondo, self.categories.get_size()) 
         
-        
-        
         self.button_back = [458, 715, 355, 80]
         self.button_music = [1190, 10, 75, 75]
         self.button_anime = [0, 0, 444,800]
@@ -469,7 +460,6 @@ class Categories():
         self.button_geography = [888,0, 444, 800]
         self.muteado = False
 
-        
     def init_categories(self):
         if StaticFunctions.change_screen_flag:
             self.categories.blit(self.fondo, (0, 0))
@@ -477,8 +467,6 @@ class Categories():
             
         button_back= StaticFunctions.dibujar_imagen(self.categories, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
         button_music= StaticFunctions.dibujar_imagen(self.categories, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
-
-
 
         event_game = pygame.event.get()
         for event in event_game:
@@ -499,13 +487,266 @@ class Categories():
                         pygame.mixer.music.set_volume(0.2)   
                 
                 elif self.button_anime[0] <= pygame.mouse.get_pos()[0] <= self.button_anime[0] + self.button_anime[2] and \
-                   self.button_anime[1] <= pygame.mouse.get_pos()[1] <= self.button_anime[1] + self.button_anime[3]: # Separ elif por lineas para que sea mas legible
+                    self.button_anime[1] <= pygame.mouse.get_pos()[1] <= self.button_anime[1] + self.button_anime[3]: # Separ elif por lineas para que sea mas legible
+                    StaticFunctions.category_game = "Anime"
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Difficulty")
+                    StaticFunctions.change_screen_flag = True
                     print("Categoria seleccionada: ANIME")   
                 elif self.button_games[0] <= pygame.mouse.get_pos()[0] <= self.button_games[0] + self.button_games[2] and \
-                     self.button_games[1] <= pygame.mouse.get_pos()[1] <= self.button_games[1] + self.button_games[3]:# Separe elif por lineas para que sea mas legible
-                    print("Categoria seleccionada: VIDEOJUEGOS") 
+                    self.button_games[1] <= pygame.mouse.get_pos()[1] <= self.button_games[1] + self.button_games[3]:# Separe elif por lineas para que sea mas legibleç
+                    StaticFunctions.category_game = "Videojuegos"
+                    StaticFunctions.change_screen_flag = True
+                    print("Categoria seleccionada: VIDEOJUEGOS")
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Difficulty")
                 elif self.button_geography[0] <= pygame.mouse.get_pos()[0] <= self.button_geography[0] + self.button_geography[2] and \
-                     self.button_geography[1] <= pygame.mouse.get_pos()[1] <= self.button_geography[1] + self.button_geography[3]:# Separe elif por lineas para que sea mas legible
+                    self.button_geography[1] <= pygame.mouse.get_pos()[1] <= self.button_geography[1] + self.button_geography[3]:# Separe elif por lineas para que sea mas legible
                     print("Categoria seleccionada: GEOGRAFIA")
-                
+                    StaticFunctions.category_game = "Geografía"
+                    StaticFunctions.change_screen_flag = True
+                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Difficulty")   
         return True
+
+#endregion
+#region Game
+
+class Game():
+    def __init__(self):
+        self.game = StaticFunctions.iniciar_pantalla()
+        self.fondo = pygame.image.load("archivos_multimedia/imagenes/imagen_opciones.png") 
+        self.fondo = pygame.transform.scale(self.fondo, self.game.get_size()) 
+
+        self.buttons = {'Question_layer': [350,100,650, 100],
+                        'Option1': [350,300,650,50],
+                        'Option2': [350,400,650,50],
+                        'Option3': [350,500,650,50],
+                        'Option4': [350,600,650,50],
+                        'Next_Option': [600,700,150,150],
+                        'Music': [1190, 10, 75, 75]}
+        
+        self.texts = {'Option1': [350,300],
+                      'Option2': [350,400],
+                      'Option3': [350,500],
+                      'Option4': [350,600],
+                      'Time_layer': [10,10],
+                      'Lives_layer': [10,80],
+                      'Lives_value': [142,81],
+                      'Timer': [140, 22],
+                      'Result_answer': [350,200]}
+
+        self.question_selected = {}#Se guardarán todas las preguntas posible según la categoría y dificultad elegida
+        self.question_generated = []#Las preguntas que ya aparecieron se van a guardar aquí, para evitar la repetición
+        self.question_saved = {}
+
+        self.can_select_next_question = False
+        self.answer_selected = False
+        self.game_finished = False
+        self.is_correct = False
+        self.time_out = True
+        self.muteado = False
+
+        self.current_lives = 0
+        self.game_time = 0 #Tiempo transcurrido en la partida
+        self.score_points = 0
+
+        self.segundos_restantes = StaticFunctions.timer
+        self.evento_timer = pygame.USEREVENT
+        pygame.time.set_timer(self.evento_timer, 1000)
+
+    def obtener_pregunta_aleatoria(self):
+        '''
+        Obtiene una pregunta de manera aleatoria entre todas las que se obtuvo según la categoría y dificultad.\n
+        No recibe ni devuelve nada.
+        '''
+        self.game_finished = self.derrota()
+        while self.game_finished == False:
+            self.question_selected = random.choice(StaticFunctions.all_questions_data)
+            if not self.pregunta_repetida(self.question_selected): 
+                self.question_saved[self.question_selected['Pregunta']] = self.question_selected #Guarda la pregunta utilizando la pregunta como clave
+                break
+            
+        self.question_generated.append(self.question_selected['Pregunta'])
+        self.answer_selected, self.can_select_next_question = False, False
+    
+    def pregunta_repetida(self, question_dict: dict):
+        '''
+        Comprueba si la pregunta que se eligió no es repetida, en caso de serlo, retorna True y vuelve a generar otra.\n
+        Recibe un diccionario con las preguntas que ya aparecieron.\n
+        Devuelve True o Flase según el caso.
+        '''
+        if not len(self.question_generated) >= len(StaticFunctions.all_questions_data):
+            for question in self.question_generated:
+                if question_dict['Pregunta'] == question:
+                    return True
+        else: self.game_finished = True
+        return False
+
+    def mostrar_respuesta(self, is_correct: bool):
+        '''
+        Muestra un texto con un color dependiendo de si el jugador repondió la respuesta correctamente.\n
+        Recibe un booleano que comprueba el resultado.\n
+        Devuelve una tupla con un string de "Respuesta correcta o incorrecta", además del color que utilizará el texto.
+        '''
+        if (is_correct): return "Respuesta correcta", GREEN
+        elif (self.time_out == True): 
+            StaticFunctions.timer = StaticFunctions.time_config
+            return "Tiempo excedido", RED1
+        elif(self.time_out == False): return "Respuesta incorrecta", RED1
+            
+    def calcular_respuesta(self, option_selected: int):
+        '''
+        Función encargada de determinar si la respuesta del usuario es correcta o no.\n
+        Recibe la opción seleccionada como un entero, que luego se comprobará con el número de registro en el archivo,
+        si es igual, entonces la respuesta es correcta.\n
+        No devuelve nada.
+        '''
+        self.question_selected['Veces preguntada'] = int(self.question_selected['Veces preguntada']) + 1
+        self.answer_selected, self.can_select_next_question = True, True
+
+        correct_answer = self.question_selected['Correcta']
+        correct_answer = int(correct_answer)
+
+        if option_selected == correct_answer:#Si la opción es correcta, se le suma 5 segundos
+            self.is_correct = True
+            self.question_selected['Cantidad aciertos'] = int(self.question_selected['Cantidad aciertos']) + 1
+            self.score_points += StaticFunctions.score_gain_per_question
+            StaticFunctions.timer += 5
+        else:#Caso opuesto, pierde una vida
+            self.is_correct = False
+            self.question_selected['Cantidad fallos'] = int(self.question_selected['Cantidad fallos']) + 1
+            self.current_lives -= 1
+
+    def eliminar_registros_con_None(self, content):
+        '''
+        Elimina registros que tengan valores inválidos, como None\n.
+        Recibe el content, que será el contenido que fue leido mediante un CSV.reader.\n
+        Devuelve el mismo content mediante bucle eliminando cualquier registro inválido.
+        '''
+        return [pregunta for pregunta in content if None not in pregunta and all(v != '' for v in pregunta.values())]
+        #La pregunta, por la key de la pregunta en el contenido, si es nulo, lo descarta, si algún registro de la key es '', lo descarta
+
+    def actualizar_registros(self, datapath):
+        questions = []
+
+        with open(datapath, 'r', newline='', encoding='utf-8') as archivo:
+            reader = csv.DictReader(archivo)
+            questions = list(reader)
+
+        questions = self.eliminar_registros_con_None(questions)#Debido a que se lee un registro de más, se lo filtra
+    
+        for question in questions:
+            Key_question = question['Pregunta']
+            if Key_question in self.question_saved:#Si las preguntas que aparecieron en la partida aparecen en el archivo, se actualizan sus valores
+                question['Cantidad fallos'] = self.question_saved[Key_question]['Cantidad fallos']
+                question['Cantidad aciertos'] = self.question_saved[Key_question]['Cantidad aciertos']
+                question['Veces preguntada'] = self.question_saved[Key_question]['Veces preguntada']
+        #--------------------------------------------Escritura----------------------------------
+        with open(datapath, 'w', newline='', encoding='utf-8') as archivo:
+            fieldnames = ['Pregunta', 'Opción A', 'Opción B', 'Opción C', 'Opción D', 
+                          'Correcta', 'Categoría', 'Dificultad', 'Cantidad fallos', 
+                          'Cantidad aciertos', 'Veces preguntada']
+            writer = csv.DictWriter(archivo, fieldnames=fieldnames)
+            writer.writeheader()
+
+            for question in questions: writer.writerow(question)    
+
+    def derrota(self):
+        '''
+        Encargado de determinar el fin del juego en base a las vidas, si el jugador pierde todas sus vidas, el juego se acaba.\n
+        No recibe nada.\n
+        Devuelve True en caso de perder todas las vidas, False en caso contrario.
+        '''
+        if self.current_lives < 1: return True
+        else: return False
+
+    #-------------------------------------------------------------------------------------------
+    def init_game(self):
+        '''
+        Inicializador de la pantalla, se ejecuta constantemente en Core
+        '''
+        self.game.blit(self.fondo, (0, 0))
+        if StaticFunctions.change_screen_flag:
+            self.current_lives = StaticFunctions.lives
+            StaticFunctions.cargar_datos(StaticFunctions.questions_datapath,"Start")
+            StaticFunctions.change_screen_flag = False 
+            self.obtener_pregunta_aleatoria()
+        # if self.segundos_restantes <= 13: #cambia el color y reproduce el sonido de que el tiempo se agota
+        #     color = (255, 0, 0) 
+        #     if not self.sonido_advertencia_reproducido:
+        #         self.sonido_advertencia.play()
+        #         self.sonido_advertencia_reproducido = True
+        # else:
+        #     color = COLOR_AMARILLO
+        #     self.sonido_advertencia_reproducido = False
+        # if self.segundos_restantes <= 5 and self.segundos_restantes % 2 == 0:
+        #     color = (255, 255, 255) 
+
+        timer = StaticFunctions.mostrar_timer(self.game, YELLOW1, StaticFunctions.timer, self.texts['Timer'])#Funcion que muestra el temporizador.
+        pygame.draw.rect(self.game, (255,255,255), (135, 16, 50, 40), border_radius=10, width=4)# Dibujar un marco alrededor del temporizador.
+        pygame.draw.rect(self.game, (255,255,255), (135, 85, 50, 40), border_radius=10, width=4)# Dibujar un marco alrededor de las vidas.
+        music_button = StaticFunctions.dibujar_imagen(self.game, "archivos_multimedia/imagenes/boton_musica.png", self.buttons['Music'])
+
+        if(self.game_finished == False):
+            question_layer = StaticFunctions.generar_rectangulo(self.game, RED1, self.buttons['Question_layer'])
+            button_option1 = StaticFunctions.generar_rectangulo(self.game, YELLOW1, self.buttons['Option1'])
+            button_option2 = StaticFunctions.generar_rectangulo(self.game, YELLOW1, self.buttons['Option2'])
+            button_option3 = StaticFunctions.generar_rectangulo(self.game, YELLOW1, self.buttons['Option3'])
+            button_option4 = StaticFunctions.generar_rectangulo(self.game, YELLOW1, self.buttons['Option4'])
+
+            text_question = StaticFunctions.dibujar_texto(self.game, self.question_selected['Pregunta'], 20, BLUE, self.buttons['Question_layer'], True, False)
+            text_answer1 = StaticFunctions.dibujar_texto(self.game, self.question_selected['Opción A'], 30, RED1, self.buttons['Option1'], False, False)
+            text_answer2 = StaticFunctions.dibujar_texto(self.game, self.question_selected['Opción B'], 30, RED1, self.buttons['Option2'], False, False)
+            text_answer3 = StaticFunctions.dibujar_texto(self.game, self.question_selected['Opción C'], 30, RED1, self.buttons['Option3'], False, False)
+            text_answer4 = StaticFunctions.dibujar_texto(self.game, self.question_selected['Opción D'], 30, RED1, self.buttons['Option4'], False, False)
+        else:
+            text_finish = StaticFunctions.dibujar_texto(self.game, "Fin del juego", 60, YELLOW1, self.buttons['Question_layer'], True,False)
+
+        if(self.can_select_next_question == True):
+            text_result = StaticFunctions.dibujar_texto(self.game, self.mostrar_respuesta(self.is_correct)[0], 30, self.mostrar_respuesta(self.is_correct)[1], self.texts['Result_answer'],False,False)
+
+        text_timer = StaticFunctions.dibujar_texto(self.game, "Tiempo", 40, YELLOW1, self.texts['Time_layer'], True, False)
+        text_lives_layer = StaticFunctions.dibujar_texto(self.game, "Vidas", 40, YELLOW1, self.texts['Lives_layer'], True, False)
+        text_lives = StaticFunctions.dibujar_texto(self.game, str(self.current_lives), 40, GREEN, self.texts['Lives_value'], True, False)
+
+        button_next_option = StaticFunctions.generar_rectangulo(self.game, BLUE, self.buttons['Next_Option'])
+        
+        event_game = pygame.event.get()
+        for event in event_game:
+            if event.type == pygame.QUIT:
+                return False
+            
+            #evento de temporizador
+            if self.answer_selected == False and self.game_finished == False:
+                if event.type == self.evento_timer:
+                    if StaticFunctions.timer > 0:
+                        self.game_time += 1
+                        StaticFunctions.timer -= 1
+                        self.time_out = False
+                    else:
+                        self.is_correct = False
+                        self.current_lives -= 1
+                        self.can_select_next_question, self.answer_selected, self.time_out = True, True, True
+
+
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1: 
+                if music_button.collidepoint(pygame.mouse.get_pos()):
+                    self.muteado = not self.muteado
+                    if self.muteado: pygame.mixer.music.set_volume(0)#Silencia la música
+                    else: pygame.mixer.music.set_volume(0.6)#Vuelve a sonar la musica
+                        
+                if(self.game_finished == False):
+                    if button_option1.collidepoint(pygame.mouse.get_pos()) and self.answer_selected == False: self.calcular_respuesta(1)
+                    elif button_option2.collidepoint(pygame.mouse.get_pos()) and self.answer_selected == False: self.calcular_respuesta(2)
+                    elif button_option3.collidepoint(pygame.mouse.get_pos()) and self.answer_selected == False: self.calcular_respuesta(3)
+                    elif button_option4.collidepoint(pygame.mouse.get_pos()) and self.answer_selected == False: self.calcular_respuesta(4) 
+                    elif button_next_option.collidepoint(pygame.mouse.get_pos()) and self.can_select_next_question == True: self.obtener_pregunta_aleatoria()
+                elif button_next_option.collidepoint(pygame.mouse.get_pos()) and self.game_finished == True:
+                    self.actualizar_registros(StaticFunctions.questions_datapath)
+                    self.is_correct = False
+                    print("Yendo a resultados...")
+                    '''
+                    Falta menú de resultados
+                    '''
+                    
+        return True
+    
+#endregion

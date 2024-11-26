@@ -1,92 +1,86 @@
-Pregunta,Opción A,Opción B,Opción C,Opción D,Correcta,Categoría,Dificultad
-¿Quién es el fontanero más famoso de los videojuegos?,Sonic,Luigi,Mario,Crash,3,Videojuegos,Fácil
-¿Cuál es el objetivo principal en Pac-Man?,Atrapar fantasmas,Comer puntos,Escapar de los fantasmas,Resolver acertijos,2,Videojuegos,Fácil
-¿Qué consola fue creada por Sony?,Xbox,PlayStation,GameCube,Atari,2,Videojuegos,Fácil
-¿Qué juego popular de móviles involucra lanzar pájaros a estructuras?,Candy Crush,Temple Run,Angry Birds,Flappy Bird,3,Videojuegos,Fácil
-¿En qué saga aparece el personaje Pikachu?,Pokémon,Digimon,Yu-Gi-Oh!,Animal Crossing,1,Videojuegos,Fácil
-¿Qué videojuego tiene niveles en Mundo 1-1?,Sonic,Super Mario Bros,Zelda,Donkey Kong,2,Videojuegos,Fácil
-¿Qué personaje utiliza un sombrero verde en The Legend of Zelda?,Zelda,Ganondorf,Link,Navi,3,Videojuegos,Fácil
-¿Qué compañía creó el juego Minecraft?,EA,Nintendo,Rockstar,Mojang,3,Videojuegos,Fácil
-¿Qué personaje es un erizo azul famoso?,Sonic,Mario,Kirby,Donkey Kong,1,Videojuegos,Fácil
-¿Qué saga de videojuegos tiene como antagonista principal a Dr. Robotnik?,Sonic,Mega Man,Kirby,Metroid,1,Videojuegos,Fácil
-¿Cuál es el nombre de los fantasmas de Pac-Man?,Blinky; Pinky; Inky y Clyde,Shadow; Speedy; Bashful y Pokey,Boo; Spooky; Winky y Clyde,Glowy; Slowpoke; Sneaky y Blinky,1,Videojuegos,Normal
-¿Qué videojuego popular tiene un mapa llamado Dust II?,Fortnite,Counter-Strike,Call of Duty,Valorant,2,Videojuegos,Normal
-¿Qué género describe a The Legend of Zelda: Breath of the Wild?,Shooter,RPG de acción,Estrategia,Simulación,2,Videojuegos,Normal
-¿Cuál fue el primer personaje jugable en Donkey Kong?,Mario,Donkey Kong,Luigi,Diddy Kong,1,Videojuegos,Normal
-¿Qué significa MMO en videojuegos?,Multi Map Online,Massive Multiplayer Online,Mega Match Online,Multiplayer Mission Online,2,Videojuegos,Normal
-¿Qué videojuego introdujo el sistema de construcción rápida en Battle Royale?,PUBG,Apex Legends,Free Fire,Fortnite,4,Videojuegos,Normal
-¿Cuál es el nombre completo de la consola SNES?,Super Nintendo Entertainment System,Sega Nintendo Entertainment System,Small Nintendo Exclusive System,Super Nova Entertainment System,1,Videojuegos,Normal
-¿Quién es el creador de Metal Gear Solid?,Hideo Kojima,Shigeru Miyamoto,Satoru Iwata,Hideki Kamiya,1,Videojuegos,Normal
-¿Qué videojuego presenta un mundo postapocalíptico lleno de máquinas animales?,Fallout 4,The Last of Us,Horizon Zero Dawn, Days Gone,3,Videojuegos,Normal
-¿Qué videojuego se considera el precursor del género Battle Royale?,Fortnite,Apex Legends,Free Fire,PUBG,4,Videojuegos,Normal
-¿En qué año se lanzó el primer Final Fantasy?,1985,1987,1990,1992,2,Videojuegos,Difícil
-¿Cuál es el nombre del protagonista en Half-Life?,Gordon Freeman,Isaac Clarke,Alan Wake,Marcus Fenix,1,Videojuegos,Difícil
-¿Qué videojuego popular se lanzó primero como un mod llamado Defense of the Ancients?,League of Legends,Smite,Dota 2,,Heroes of the Storm,3,Videojuegos,Difícil
-¿Qué nombre tiene el primer jefe en Dark Souls?,Gaping Dragon,Taurus Demon,Asylum Demon,Bell Gargoyles,3,Videojuegos,Difícil
-¿Qué título introdujo a la consola Dreamcast al mercado en 1999?,Sonic Adventure,Shenmue,Crazy Taxi,Jet Set Radio,1,Videojuegos,Difícil
-¿En qué planeta comienza Mass Effect 1?,Eden Prime,Thessia,Earth,Palaven,1,Videojuegos,Difícil
-¿Qué estudio desarrolló Cuphead?,Devolver Digital,Studio MDHR,Team Cherry,Yacht Club Games,2,Videojuegos,Difícil
-¿Qué videojuego introdujo el "Mundo de las Sombras" como mecánica principal?,Dark Souls,Castlevania,Prince of Persia,Shadow of Mordor,4,Videojuegos,Difícil
-¿En qué juego aparece el personaje llamado Big Boss?,Metal Gear Solid,Splinter Cell,Hitman, Deus Ex,1,Videojuegos,Difícil
-¿Cuál es el nombre completo de Samus en la saga Metroid?,Samus Raynor,Samus Kerrigan,Samus Aran,Samus Shepard,3,Videojuegos,Difícil
-¿Quién es el protagonista de Naruto?,Sasuke,Kakashi,Naruto,Sakura,3,Anime,Fácil
-¿Qué objeto busca Goku en Dragon Ball?,Las Bolas de Dragón,Las Esferas del Caos,La Espada Z,El Grial Sagrado,1,Anime,Fácil
-¿Cómo se llama el capitán de los Sombreros de Paja en One Piece?,Roronoa Zoro,Monkey 4. Luffy,Sanji,Usopp,2,Anime,Fácil
-¿Qué tipo de monstruo es Pikachu en Pokémon?,Agua,Planta,Eléctrico,Fuego,3,Anime,Fácil
-¿Cómo se llama el hermano menor de Edward en Fullmetal Alchemist?,Roy,Alphonse,Mustang,Bradley,2,Anime,Fácil
-¿Qué fruta es la favorita de Ryuk en Death Note?,Frutilla,Naranja,Banana,Manzana,4,Anime,Fácil
-¿En qué ciudad ocurre la historia de Attack on Titan?,Ciudadela,Shiganshina,Trost,Marley,2,Anime,Fácil
-¿Cómo se llama el protagonista de Bleach?,Uryu Ishida,Renji Abarai,Ichigo Kurosaki,Byakuya Kuchiki,3,Anime,Fácil
-¿Qué quiere ser Ash en Pokémon?,Entrenador Maestro,Criador de Pokémon,Líder de Gimnasio,Explorador Pokémon,1,Anime,Fácil
-¿Qué carta es la primera que Sakura captura en Cardcaptor Sakura?,La Carta Fuego,La Carta Vuelo,La Carta Viento,La Carta Sombra,3,Anime,Fácil
-¿Quién es el creador de Neon Genesis Evangelion?,Masashi Kishimoto,Hideaki Anno,Akira Toriyama,Yoshihiro Togashi,2,Anime,Normal
-¿Cómo se llama el gremio de Natsu en Fairy Tail?,Phantom Lord,Sabertooth,Fairy Tail,Blue Pegasus,3,Anime,Normal
-¿Qué tipo de Nen tiene Gon en Hunter x Hunter?,Intensificador,Transformación,Especialista,Manipulador,1,Anime,Normal
-¿Qué personaje utiliza el Sharingan?,Zoro,Gohan,Sasuke,Eren,3,Anime,Normal
-¿Contra qué tipo de ciraturas pelea Itadori en Jujutsu Kaisen?,Akumas,Yokais,Titanes,Espíritus Malignos,4,Anime,Normal
-¿Qué instrumento toca Kousei en Shigatsu wa Kimi no Uso?,Guitarra,Piano,Violín,Flauta,2,Anime,Normal
-¿Quién es el Capitán Comandante del Gotei 13 en Bleach?,Toshiro Hitsugaya,Kenpachi Zaraki,Shunsui Kyoraku,enryusai Yamamoto,4,Anime,Normal
-¿Qué significa el apellido Elric en Fullmetal Alchemist?,Alquimista,Guerrero,Acerado,Luz,3,Anime,Normal
-¿Qué tipo de juego usa Kaiba en Yu-Gi-Oh!?,Juegos de Cartas,Juegos de Dados,Juegos de Estrategia,Juegos de Simulación,1,Anime,Normal
-¿Cómo se llama el grupo principal de villanos en Naruto?,Los Sannin,Akatsuki,La Organización X,Los Espadas,2,Anime,Normal
-¿Qué autor creó Berserk?,Kentaro Miura,Naoki Urasawa,Yoshihiro Togashi,Takehiko Inoue,1,Anime,Difícil
-¿Qué familia en Hunter x Hunter conformada por asesinos?La familia Kurta,La familia Zoldyck,La familia Pariston,La familia Morau,2,Difícil
-¿Qué significan los símbolos kanji en los trajes de los Hashira en Demon Slayer?,El Pilar,Los Guardianes de los Humanos,Espadas Mortales,Guerrero del Sol,2,Anime,Difícil
-¿En qué ciudad se desarrolla Steins;Gate?,Osaka,Nagoya,Akihabara,Kyoto,3,Anime,Difícil
-¿Cómo se llama la habilidad especial de Killua en Hunter x Hunter?,Godspeed,Nen Claws,Thunderstrike,Lightning Reflex,1,Anime,Difícil
-¿Quién creó la primera Quimera Humana en Fullmetal Alchemist?,Van Hohenheim,Father,Shou Tucker,Kimblee,3,Anime,Difícil
-¿Cuál es el verdadero propósito del Proyecto Instrumental Humano en Neon Genesis Evangelion?,Eliminar los Ángeles,Crear una nueva raza de humanos,Detener el Tercer Impacto,Fusionar a toda la humanidad en un solo ser,4,Anime,Difícil
-¿Qué representa el emblema de los Eldianos en Attack on Titan?,El Escudo de los Héroes,La Marca del Titán,Las Alas de la Libertad,La Espada del Sol,3,Anime,Difícil
-¿Qué arma legendaria utiliza Guts en Berserk?,Dragonslayer,Muramasa,Excalibur,Soul Reaver,1,Anime,Difícil
-¿Cuál es la capital de España?,Barcelona,Sevilla,Madrid,Valencia,3,Geografía,Fácil
-¿En qué continente se encuentra Brasil?,África,Europa,América,Asia,3,Geografía,Fácil
-¿Cuál es el océano más grande del mundo?,Atlántico,Índico,Pacífico,Ártico,3,Geografía,Fácil
-¿Qué país tiene forma de bota?,Francia,Italia,Grecia,Egipto,2,Geografía,Fácil
-¿En qué país se encuentra la Torre Eiffel?,España,Francia,Alemania,Inglaterra,2,Geografía,Fácil
-¿Qué país tiene el mayor número de habitantes del mundo?,India,Estados Unidos,China,Rusia,3,Geografía,Fácil
-¿Cuál es el río más largo del mundo?,Nilo,Amazonas,Yangtsé,Danubio,2,Geografía,Fácil
-¿En qué país está la ciudad de Tokio?,China,Corea del Sur,Japón,Vietnam,2,
-¿Qué continente tiene más países?África,Europa,América,Asia,1,Geografía,Fácil
-¿Cuál es el desierto más grande del mundo?,Atacama,Sahara,Gobi,Kalahari,2,Geografía,Fácil
-¿Qué país tiene las pirámides de Giza?,Marruecos,Egipto,Sudán,Etiopía,2,Geografía,Normal
-¿Cuál es el país más pequeño del mundo?,San Marino,Mónaco,Vaticano,Liechtenstein,3,Geografía,Normal
-¿En qué continente se encuentra el monte Kilimanjaro?,Asia,África ,América,Europa,2,Geografía,Normal
-¿Qué país tiene el canal de Panamá?,Panamá,Costa Rica,Colombia,México,1,Geografía,Normal
-¿Qué cordillera separa Europa de Asia?,Alpes,Himalaya,Montes Urales,Andes,3,Geografía,Normal
-¿Qué océano rodea a Australia?,Atlántico,Índico,Pacífico,Ártico,2,Geografía,Normal
-¿Cuál es el país con más islas en el mundo?,Indonesia,Filipinas,Suecia,Japón,3,Geografía,Normal
-¿En qué país se encuentra el Kremlin?,Ucrania,Rusia,Polonia,Bielorrusia,2,Geografía,Normal
-¿Qué país se conoce como "La Tierra de los Mil Lagos"?,Suecia,Noruega,Finlandia,Dinamarca,3,Geografía,Normal
-¿Qué ciudad es conocida como "La Ciudad Eterna"?,París,Atenas,Roma,Estambul,3,Geografía,Normal
-¿Cuál es la capital de Mongolia?,Ulaanbaatar,Astana,Damasco,Bishkek,1,Geografía,Difícil
-¿En qué país se encuentra el desierto de Sonora?,México,Estados Unidos,Perú,Chile,1,Geografía,Difícil
-¿Cuál es el lago más profundo del mundo?,Lago Baikal,Lago Superior,Lago Tanganica,Lago Victoria,1,Geografía,Difícil
-¿Qué país tiene el punto más alto del mundo, el monte Everest?,Nepal,India,China,Bután,1,Geografía,Difícil
-¿Qué país tiene la mayor costa del mundo?,Estados Unidos,Canadá,Rusia,Australia,2,Geografía,Difícil
-¿Cuál es la capital de Bután?,Daca,Colombo,Thimphu,Katmandú,3,Geografía,Difícil
-¿Qué estrecho conecta el Océano Pacífico con el Ártico?,Estrecho de Gibraltar,Estrecho de Bering,Estrecho de Malaca,Estrecho de Malaca,2,Geografía,Difícil
-¿Qué río pasa por la ciudad de Londres?,Támesis,Sena,Rin,Po,1,Geografía,Difícil
-¿Qué país tiene la montaña K2, la segunda más alta del mundo?,Nepal,India,Pakistán,Afganistán,3,Geografía,Difícil
-¿Qué país tiene la selva más grande del mundo?,Brasil,Congo,Indonesia,Australia,1,Geografía,Difícil
-¿Qué videojuego introdujo el Mundo de las Sombras como mecánica principal?,Shadow of Mordor,Prince of Persia,Dark Souls,Castlevania,1,Difícil
-pregunta 1,2,3,4,5,3,Anime,F�cil
+Pregunta,Opción A,Opción B,Opción C,Opción D,Correcta,Categoría,Dificultad,Cantidad fallos,Cantidad aciertos,Veces preguntada
+¿Quién es el fontanero más famoso de los videojuegos?,Sonic,Luigi,Mario,Crash,3,Videojuegos,Fácil,2,0,2
+¿Cuál es el objetivo principal en Pac-Man?,Atrapar fantasmas,Comer puntos,Escapar de los fantasmas,Resolver acertijos,2,Videojuegos,Fácil,3,0,3
+¿Qué consola fue creada por Sony?,Xbox,PlayStation,GameCube,Atari,2,Videojuegos,Fácil,1,0,1
+¿Qué juego popular de móviles involucra lanzar pájaros a estructuras?,Candy Crush,Temple Run,Angry Birds,Flappy Bird,3,Videojuegos,Fácil,1,2,3
+¿En qué saga aparece el personaje Pikachu?,Pokémon,Digimon,Yu-Gi-Oh!,Animal Crossing,1,Videojuegos,Fácil,1,1,2
+¿Qué videojuego tiene niveles en Mundo 1-1?,Sonic,Super Mario Bros,Zelda,Donkey Kong,2,Videojuegos,Fácil,0,0,0
+¿Qué personaje utiliza un sombrero verde en The Legend of Zelda?,Zelda,Ganondorf,Link,Navi,3,Videojuegos,Fácil,1,0,1
+¿Qué compañía creó el juego Minecraft?,EA,Nintendo,Rockstar,Mojang,4,Videojuegos,Fácil,2,1,3
+¿Qué personaje es un erizo azul famoso?,Sonic,Mario,Kirby,Donkey Kong,1,Videojuegos,Fácil,1,0,1
+¿Qué saga de videojuegos tiene como antagonista principal a Dr. Robotnik?,Sonic,Mega Man,Kirby,Metroid,1,Videojuegos,Fácil,1,0,1
+¿Cuál es el nombre de los fantasmas de Pac-Man?,Blinky; Pinky; Inky y Clyde,Shadow; Speedy; Bashful y Pokey,Boo; Spooky; Winky y Clyde,Glowy; Slowpoke; Sneaky y Blinky,1,Videojuegos,Normal,0,0,0
+¿Qué videojuego popular tiene un mapa llamado Dust II?,Fortnite,Counter-Strike,Call of Duty,Valorant,2,Videojuegos,Normal,0,0,0
+¿Qué género describe a The Legend of Zelda: Breath of the Wild?,Shooter,RPG de acción,Estrategia,Simulación,2,Videojuegos,Normal,0,0,0
+¿Cuál fue el primer personaje jugable en Donkey Kong?,Mario,Donkey Kong,Luigi,Diddy Kong,1,Videojuegos,Normal,0,0,0
+¿Qué significa MMO en videojuegos?,Multi Map Online,Massive Multiplayer Online,Mega Match Online,Multiplayer Mission Online,2,Videojuegos,Normal,0,0,0
+¿Qué videojuego introdujo el sistema de construcción rápida en Battle Royale?,PUBG,Apex Legends,Free Fire,Fortnite,4,Videojuegos,Normal,0,0,0
+¿Cuál es el nombre completo de la consola SNES?,Super Nintendo Entertainment System,Sega Nintendo Entertainment System,Small Nintendo Exclusive System,Super Nova Entertainment System,1,Videojuegos,Normal,0,0,0
+¿Quién es el creador de Metal Gear Solid?,Hideo Kojima,Shigeru Miyamoto,Satoru Iwata,Hideki Kamiya,1,Videojuegos,Normal,0,0,0
+¿Qué videojuego presenta un mundo postapocalíptico lleno de máquinas animales?,Fallout 4,The Last of Us,Horizon Zero Dawn, Days Gone,3,Videojuegos,Normal,0,0,0
+¿Qué videojuego se considera el precursor del género Battle Royale?,Fortnite,Apex Legends,Free Fire,PUBG,4,Videojuegos,Normal,0,0,0
+¿En qué año se lanzó el primer Final Fantasy?,1985,1987,1990,1992,2,Videojuegos,Difícil,0,0,0
+¿Cuál es el nombre del protagonista en Half-Life?,Gordon Freeman,Isaac Clarke,Alan Wake,Marcus Fenix,1,Videojuegos,Difícil,0,0,0
+¿Qué nombre tiene el primer jefe en Dark Souls?,Gaping Dragon,Taurus Demon,Asylum Demon,Bell Gargoyles,3,Videojuegos,Difícil,0,0,0
+¿Qué título introdujo a la consola Dreamcast al mercado en 1999?,Sonic Adventure,Shenmue,Crazy Taxi,Jet Set Radio,1,Videojuegos,Difícil,0,0,0
+¿En qué planeta comienza Mass Effect 1?,Eden Prime,Thessia,Earth,Palaven,1,Videojuegos,Difícil,0,0,0
+¿Qué estudio desarrolló Cuphead?,Devolver Digital,Studio MDHR,Team Cherry,Yacht Club Games,2,Videojuegos,Difícil,0,0,0
+"¿Qué videojuego introdujo el ""Mundo de las Sombras"" como mecánica principal?",Dark Souls,Castlevania,Prince of Persia,Shadow of Mordor,4,Videojuegos,Difícil,0,0,0
+¿En qué juego aparece el personaje llamado Big Boss?,Metal Gear Solid,Splinter Cell,Hitman, Deus Ex,1,Videojuegos,Difícil,0,0,0
+¿Cuál es el nombre completo de Samus en la saga Metroid?,Samus Raynor,Samus Kerrigan,Samus Aran,Samus Shepard,3,Videojuegos,Difícil,0,0,0
+¿Quién es el protagonista de Naruto?,Sasuke,Kakashi,Naruto,Sakura,3,Anime,Fácil,0,0,0
+¿Qué objeto busca Goku en Dragon Ball?,Las Bolas de Dragón,Las Esferas del Caos,La Espada Z,El Grial Sagrado,1,Anime,Fácil,0,0,0
+¿Cómo se llama el capitán de los Sombreros de Paja en One Piece?,Roronoa Zoro,Monkey 4. Luffy,Sanji,Usopp,2,Anime,Fácil,0,0,0
+¿Qué tipo de monstruo es Pikachu en Pokémon?,Agua,Planta,Eléctrico,Fuego,3,Anime,Fácil,0,0,0
+¿Cómo se llama el hermano menor de Edward en Fullmetal Alchemist?,Roy,Alphonse,Mustang,Bradley,2,Anime,Fácil,0,0,0
+¿Qué fruta es la favorita de Ryuk en Death Note?,Frutilla,Naranja,Banana,Manzana,4,Anime,Fácil,0,0,0
+¿En qué ciudad ocurre la historia de Attack on Titan?,Ciudadela,Shiganshina,Trost,Marley,2,Anime,Fácil,0,0,0
+¿Cómo se llama el protagonista de Bleach?,Uryu Ishida,Renji Abarai,Ichigo Kurosaki,Byakuya Kuchiki,3,Anime,Fácil,0,0,0
+¿Qué quiere ser Ash en Pokémon?,Entrenador Maestro,Criador de Pokémon,Líder de Gimnasio,Explorador Pokémon,1,Anime,Fácil,0,0,0
+¿Qué carta es la primera que Sakura captura en Cardcaptor Sakura?,La Carta Fuego,La Carta Vuelo,La Carta Viento,La Carta Sombra,3,Anime,Fácil,0,0,0
+¿Quién es el creador de Neon Genesis Evangelion?,Masashi Kishimoto,Hideaki Anno,Akira Toriyama,Yoshihiro Togashi,2,Anime,Normal,0,0,0
+¿Cómo se llama el gremio de Natsu en Fairy Tail?,Phantom Lord,Sabertooth,Fairy Tail,Blue Pegasus,3,Anime,Normal,0,0,0
+¿Qué tipo de Nen tiene Gon en Hunter x Hunter?,Intensificador,Transformación,Especialista,Manipulador,1,Anime,Normal,0,0,0
+¿Qué personaje utiliza el Sharingan?,Zoro,Gohan,Sasuke,Eren,3,Anime,Normal,0,0,0
+¿Contra qué tipo de ciraturas pelea Itadori en Jujutsu Kaisen?,Akumas,Yokais,Titanes,Espíritus Malignos,4,Anime,Normal,0,0,0
+¿Qué instrumento toca Kousei en Shigatsu wa Kimi no Uso?,Guitarra,Piano,Violín,Flauta,2,Anime,Normal,0,0,0
+¿Quién es el Capitán Comandante del Gotei 13 en Bleach?,Toshiro Hitsugaya,Kenpachi Zaraki,Shunsui Kyoraku,enryusai Yamamoto,4,Anime,Normal,0,0,0
+¿Qué significa el apellido Elric en Fullmetal Alchemist?,Alquimista,Guerrero,Acerado,Luz,3,Anime,Normal,0,0,0
+¿Qué tipo de juego usa Kaiba en Yu-Gi-Oh!?,Juegos de Cartas,Juegos de Dados,Juegos de Estrategia,Juegos de Simulación,1,Anime,Normal,0,0,0
+¿Cómo se llama el grupo principal de villanos en Naruto?,Los Sannin,Akatsuki,La Organización X,Los Espadas,2,Anime,Normal,0,0,0
+¿Qué autor creó Berserk?,Kentaro Miura,Naoki Urasawa,Yoshihiro Togashi,Takehiko Inoue,1,Anime,Difícil,0,0,0
+¿Qué significan los símbolos kanji en los trajes de los Hashira en Demon Slayer?,El Pilar,Los Guardianes de los Humanos,Espadas Mortales,Guerrero del Sol,2,Anime,Difícil,0,0,0
+¿En qué ciudad se desarrolla Steins;Gate?,Osaka,Nagoya,Akihabara,Kyoto,3,Anime,Difícil,0,0,0
+¿Cómo se llama la habilidad especial de Killua en Hunter x Hunter?,Godspeed,Nen Claws,Thunderstrike,Lightning Reflex,1,Anime,Difícil,0,0,0
+¿Quién creó la primera Quimera Humana en Fullmetal Alchemist?,Van Hohenheim,Father,Shou Tucker,Kimblee,3,Anime,Difícil,0,0,0
+¿Cuál es el verdadero propósito del Proyecto Instrumental Humano en Neon Genesis Evangelion?,Eliminar los Ángeles,Crear una nueva raza de humanos,Detener el Tercer Impacto,Fusionar a toda la humanidad en un solo ser,4,Anime,Difícil,0,0,0
+¿Qué representa el emblema de los Eldianos en Attack on Titan?,El Escudo de los Héroes,La Marca del Titán,Las Alas de la Libertad,La Espada del Sol,3,Anime,Difícil,0,0,0
+¿Qué arma legendaria utiliza Guts en Berserk?,Dragonslayer,Muramasa,Excalibur,Soul Reaver,1,Anime,Difícil,0,0,0
+¿Cuál es la capital de España?,Barcelona,Sevilla,Madrid,Valencia,3,Geografía,Fácil,0,0,0
+¿En qué continente se encuentra Brasil?,África,Europa,América,Asia,3,Geografía,Fácil,0,0,0
+¿Cuál es el océano más grande del mundo?,Atlántico,Índico,Pacífico,Ártico,3,Geografía,Fácil,0,0,0
+¿Qué país tiene forma de bota?,Francia,Italia,Grecia,Egipto,2,Geografía,Fácil,0,0,0
+¿En qué país se encuentra la Torre Eiffel?,España,Francia,Alemania,Inglaterra,2,Geografía,Fácil,0,0,0
+¿Qué país tiene el mayor número de habitantes del mundo?,India,Estados Unidos,China,Rusia,3,Geografía,Fácil,0,0,0
+¿Cuál es el río más largo del mundo?,Nilo,Amazonas,Yangtsé,Danubio,2,Geografía,Fácil,0,0,0
+¿En qué país está la ciudad de Tokio?,China,Corea del Sur,Japón,Vietnam,2,Geografía,Fácil,0,0,0
+¿Cuál es el desierto más grande del mundo?,Atacama,Sahara,Gobi,Kalahari,2,Geografía,Fácil,0,0,0
+¿Qué país tiene las pirámides de Giza?,Marruecos,Egipto,Sudán,Etiopía,2,Geografía,Normal,0,0,0
+¿Cuál es el país más pequeño del mundo?,San Marino,Mónaco,Vaticano,Liechtenstein,3,Geografía,Normal,0,0,0
+¿En qué continente se encuentra el monte Kilimanjaro?,Asia,África ,América,Europa,2,Geografía,Normal,0,0,0
+¿Qué país tiene el canal de Panamá?,Panamá,Costa Rica,Colombia,México,1,Geografía,Normal,0,0,0
+¿Qué cordillera separa Europa de Asia?,Alpes,Himalaya,Montes Urales,Andes,3,Geografía,Normal,0,0,0
+¿Qué océano rodea a Australia?,Atlántico,Índico,Pacífico,Ártico,2,Geografía,Normal,0,0,0
+¿Cuál es el país con más islas en el mundo?,Indonesia,Filipinas,Suecia,Japón,3,Geografía,Normal,0,0,0
+¿En qué país se encuentra el Kremlin?,Ucrania,Rusia,Polonia,Bielorrusia,2,Geografía,Normal,0,0,0
+"¿Qué país se conoce como ""La Tierra de los Mil Lagos""?",Suecia,Noruega,Finlandia,Dinamarca,3,Geografía,Normal,0,0,0
+"¿Qué ciudad es conocida como ""La Ciudad Eterna""?",París,Atenas,Roma,Estambul,3,Geografía,Normal,0,0,0
+¿Cuál es la capital de Mongolia?,Ulaanbaatar,Astana,Damasco,Bishkek,1,Geografía,Difícil,0,0,0
+¿En qué país se encuentra el desierto de Sonora?,México,Estados Unidos,Perú,Chile,1,Geografía,Difícil,0,0,0
+¿Cuál es el lago más profundo del mundo?,Lago Baikal,Lago Superior,Lago Tanganica,Lago Victoria,1,Geografía,Difícil,0,0,0
+¿Qué país tiene la mayor costa del mundo?,Estados Unidos,Canadá,Rusia,Australia,2,Geografía,Difícil,0,0,0
+¿Cuál es la capital de Bután?,Daca,Colombo,Thimphu,Katmandú,3,Geografía,Difícil,0,0,0
+¿Qué estrecho conecta el Océano Pacífico con el Ártico?,Estrecho de Gibraltar,Estrecho de Bering,Estrecho de Malaca,Estrecho de Malaca,2,Geografía,Difícil,0,0,0
+¿Qué río pasa por la ciudad de Londres?,Támesis,Sena,Rin,Po,1,Geografía,Difícil,0,0,0
+¿Qué país tiene la selva más grande del mundo?,Brasil,Congo,Indonesia,Australia,1,Geografía,Difícil,0,0,0
+asd,ddd,eee,www,qqq,1,Medio,Videojuegos,0,0,0

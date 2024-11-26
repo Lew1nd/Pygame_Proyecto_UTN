@@ -13,7 +13,6 @@ lives = 3
 timer = 30#Variable usada para el timer
 time_config = 30#Variable para mostrar el tiempo configurado en pantalla
 score_gain_per_question = 1
-current_score = 0
 
 #Gestionador de preguntas y respuestas
 questions = ["Ingrese su pregunta aquí", 
@@ -27,6 +26,12 @@ selected_difficulty = "Fácil"
 
 questions_datapath = "archivos_multimedia/preguntas.csv"#Ubicación del archivo preguntas
 player_datapath = "archivos_multimedia/playerdata.csv"#Ubicación del archivo de playerdata
+
+#Juego
+difficulty_game = ""
+category_game = ""
+score = 0
+all_questions_data = []
 
 def iniciar_pantalla():
     '''
@@ -138,8 +143,8 @@ def seleccionar_texto(text_list: list, selected_text: int):
         Recibe un índice para una lista que posteriormente se utilizará para activar la casilla de texto correspondiente.\n
         No devuelve nada.
         '''
-        text_list[:] = [False] * len(text_list)
-        text_list[selected_text] = True
+        text_list[:] = [False] * len(text_list)#Toma todos los elementos de la lista y los vuelve False
+        text_list[selected_text] = True#Vuelve true el que recibió como parámetro
 
 def texto_vacio(text_list: list, string: str, selected_text: int):
         '''
@@ -150,8 +155,6 @@ def texto_vacio(text_list: list, string: str, selected_text: int):
         if string == "": text_list[selected_text] = True
         else: text_list[selected_text] = False
 
-
-
 def mostrar_timer(surface, color, seg : int, position):
     '''
     Dibuja un temporizador en la pantalla.
@@ -160,7 +163,6 @@ def mostrar_timer(surface, color, seg : int, position):
     '''
     fuente = pygame.font.Font(None, 48)
     contador_seg = seg
-    print(seg)
     mensaje_tiempo = f"{str(contador_seg).zfill(2)}"
     texto = fuente.render(mensaje_tiempo, True, color)
     surface.blit(texto, (position))
@@ -185,10 +187,22 @@ def cargar_datos(datapath, data: str):
         lives = int(player_data[1])
         score_gain_per_question = int(player_data[2])
         timer = time_config
-
-    with open(datapath, 'r') as archivo:
+    
+    def obtener_preguntas_filtradas(archive):
+        '''
+        Obtiene todas las preguntas por la categoría y dificultad seleccionadas\n.
+        Recibe el archivo leido\n.
+        No devuelve nada.
+        '''
+        global all_questions_data, category_game, difficulty_game
+        content = csv.DictReader(archive)
+        for question in content:
+            if question["Categoría"] == category_game and question["Dificultad"] == difficulty_game: all_questions_data.append(question)
+                
+    with open(datapath, 'r', encoding="utf-8") as archivo:
         match data:
             case "Player": cargar_datos_jugador(archivo)
+            case "Start": obtener_preguntas_filtradas(archivo)
 
 def guardar_datos(datapath, data: str, operation: str):
     '''
@@ -214,7 +228,7 @@ def guardar_datos(datapath, data: str, operation: str):
             preguntas_aleatorio = random.sample(preguntas, len(preguntas))
             #Aleatoriza el orden de todos los valores de la lista, y las guarda en una lista nueva
 
-        for i in range(len(preguntas_aleatorio)): 
+        for i in range(len(preguntas_aleatorio)):
             if pregunta_correcta == preguntas_aleatorio[i]: posicion_pregunta_correcta = i
 
         datos[0] = questions[0]#Pregunta
@@ -229,10 +243,11 @@ def guardar_datos(datapath, data: str, operation: str):
             write_csv = csv.writer(archivo)
             write_csv.writerow([
                 datos[0], datos[1], datos[2], datos[3], 
-                datos[4], datos[5], datos[6], datos[7]])
+                datos[4], datos[5], datos[6], datos[7],"0","0","0"])
             archivo.close()
 
     def actualizar_datos_jugador(datapath, operation: str):
+
         '''
         Actualiza los datos que ingresó el usuario.\n
         Recibe la ubicación del archivo y el tipo de operación que realizará.\n

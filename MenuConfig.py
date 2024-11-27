@@ -181,18 +181,123 @@ class Options():
         '''
         back_button = StaticFunctions.dibujar_imagen(self.options, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
         music_button = StaticFunctions.dibujar_imagen(self.options, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
-        questions_button = StaticFunctions.generar_rectangulo(self.options, GREEN, self.button_question)
-        confirm_changes_button = StaticFunctions.generar_rectangulo(self.options, BLUE, self.button_confirm_changes)
-        
-        lives_text = StaticFunctions.dibujar_texto(self.options, "Vidas: ", 70, YELLOW1, self.text_lives, True, False)
-        lives_input_text = StaticFunctions.dibujar_texto(self.options, str(StaticFunctions.lives), 50, RED1, self.text_lives_input, True, False)
+        questions_button = StaticFunctions.generar_rectangulo_estilizado(
+            self.options,
+            WHITE,
+            self.button_question,
+            BLACK,  # Color del borde
+            2,      # Grosor del borde
+            redondeo=10
+        )
+        StaticFunctions.dibujar_texto_estilizado(
+            self.options,
+            "Agregar Preguntas",
+            30,  # Tamaño del texto
+            BLACK,
+            questions_button,  # Rectángulo de referencia
+            centrado_horizontal=True,
+            centrado_vertical=True,
+            fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+        )
 
-        score_text = StaticFunctions.dibujar_texto(self.options, "Puntaje por pregunta: ", 70, YELLOW1, self.text_score, True, False)
-        score_input_text = StaticFunctions.dibujar_texto(self.options, str(StaticFunctions.score_gain_per_question), 50, RED1, self.text_score_input, True, False)
+                
+        confirm_changes_button = StaticFunctions.generar_rectangulo_estilizado(
+            self.options,
+            WHITE,
+            self.button_confirm_changes,
+            BLACK,  # Color del borde
+            2,      # Grosor del borde
+            redondeo=10
+        )
+        StaticFunctions.dibujar_texto_estilizado(
+            self.options,
+            "Guardar Cambios",
+            30,  # Tamaño del texto
+            BLACK,
+            confirm_changes_button,  # Rectángulo de referencia
+            centrado_horizontal=True,
+            centrado_vertical=True,
+            fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+        )
+        lives_rect = StaticFunctions.generar_rectangulo_estilizado(
+            self.options, WHITE, [100, 50, 400, 70], BLACK, 5, redondeo=15
+        )
+        lives_text = StaticFunctions.dibujar_texto_estilizado(
+            self.options,
+            "Vidas: ",
+            40,  
+            BLACK,
+            lives_rect,
+            centrado_horizontal=True,
+            centrado_vertical=True,
+            fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+        )
+        lives_input_rect = StaticFunctions.generar_rectangulo_estilizado(
+            self.options, WHITE, [520, 50, 150, 70], BLACK, 5, redondeo=15
+        )
+        lives_input_text = StaticFunctions.dibujar_texto_estilizado(
+            self.options,
+            str(StaticFunctions.lives),
+            40,
+            BLACK,
+            lives_input_rect,
+            centrado_horizontal=True,
+            centrado_vertical=True,
+            fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+        )
 
-        time_text = StaticFunctions.dibujar_texto(self.options, "Tiempo: ", 70, YELLOW1, self.text_time, True, False)
-        time_input_text = StaticFunctions.dibujar_texto(self.options, str(StaticFunctions.time_config), 50, RED1, self.text_time_input, True, False)
-
+        score_rect = StaticFunctions.generar_rectangulo_estilizado(
+            self.options, WHITE, [100, 150, 400, 70], BLACK, 5, redondeo=15
+        )
+        score_text = StaticFunctions.dibujar_texto_estilizado(
+            self.options,
+            "Puntaje por pregunta: ",
+            40,
+            BLACK,
+            score_rect,
+            centrado_horizontal=True,
+            centrado_vertical=True,
+            fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+        )
+        score_input_rect = StaticFunctions.generar_rectangulo_estilizado(
+            self.options, WHITE, [520, 150, 150, 70], BLACK, 5, redondeo=15
+        )
+        score_input_text = StaticFunctions.dibujar_texto_estilizado(
+            self.options,
+            str(StaticFunctions.score_gain_per_question),
+            40,
+            BLACK,
+            score_input_rect,
+            centrado_horizontal=True,
+            centrado_vertical=True,
+            fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+        )
+        time_rect = StaticFunctions.generar_rectangulo_estilizado(
+            self.options, WHITE, [100, 250, 400, 70], BLACK, 5, redondeo=15
+        )
+        time_text = StaticFunctions.dibujar_texto_estilizado(
+            self.options,
+            "Tiempo: ",
+            40,
+            BLACK,
+            time_rect,
+            centrado_horizontal=True,
+            centrado_vertical=True,
+            fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+        )
+        time_input_rect = StaticFunctions.generar_rectangulo_estilizado(
+            self.options, WHITE, [520, 250, 150, 70], BLACK, 5, redondeo=15
+        )
+        time_input_text = StaticFunctions.dibujar_texto_estilizado(
+            self.options,
+            str(StaticFunctions.time_config),
+            40,
+            BLACK,
+            time_input_rect,
+            centrado_horizontal=True,
+            centrado_vertical=True,
+            fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+        )
         if StaticFunctions.change_screen_flag:
             self.options.blit(self.fondo, (0, 0))
             StaticFunctions.iniciar_musica(0.2,-1,"archivos_multimedia/musica/musica_menu.mp3")
@@ -219,9 +324,9 @@ class Options():
                 elif confirm_changes_button.collidepoint(pygame.mouse.get_pos()) and not any(self.text_focus) == True:
                     StaticFunctions.guardar_datos(StaticFunctions.player_datapath, "Player", 'w')
                     StaticFunctions.cargar_datos(StaticFunctions.player_datapath, "Player")
-                elif lives_input_text.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus, 0) 
-                elif score_input_text.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus,1)
-                elif time_input_text.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus,2)  
+                elif lives_input_rect.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus, 0) 
+                elif score_input_rect.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus,1)
+                elif time_input_rect.collidepoint(pygame.mouse.get_pos()): StaticFunctions.seleccionar_texto(self.text_focus,2)  
                 else:
                     StaticFunctions.texto_vacio(self.text_focus, str(StaticFunctions.lives), 0)
                     StaticFunctions.texto_vacio(self.text_focus, str(StaticFunctions.score_gain_per_question), 1)
@@ -299,19 +404,37 @@ class QuestionManager():
         '''
         back_button = StaticFunctions.dibujar_imagen(self.question_manager, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
         music_button = StaticFunctions.dibujar_imagen(self.question_manager, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
-        confirm_changes_button = StaticFunctions.generar_rectangulo(self.question_manager, BLUE, self.button_confirm_changes)
+        confirm_changes_button = StaticFunctions.generar_rectangulo_estilizado(
+            self.question_manager,
+            GREEN3,
+            self.button_confirm_changes,
+            borde_color=BLACK,
+            grosor_borde=1,
+            redondeo=10
+        )
+        StaticFunctions.dibujar_texto_estilizado(
+            self.question_manager,
+            "Guardar",
+            20,
+            BLACK,
+            self.button_confirm_changes,
+            centrado_horizontal=True,
+            centrado_vertical=True,
+            fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+        )
 
-        question_layer = StaticFunctions.generar_rectangulo(self.question_manager, GREEN, self.question)
-        answer1_layer = StaticFunctions.generar_rectangulo(self.question_manager, GREEN, self.answer1)
-        answer2_layer = StaticFunctions.generar_rectangulo(self.question_manager, GREEN, self.answer2)
-        answer3_layer = StaticFunctions.generar_rectangulo(self.question_manager, GREEN, self.answer3)
-        answer4_layer = StaticFunctions.generar_rectangulo(self.question_manager, GREEN, self.answer4)
 
-        question_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[0], 40, RED1, self.text_question, False, False)
-        answer1_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[1], 40, RED1, self.text_answer1, False, False)
-        answer2_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[2], 40, RED1, self.text_answer2, False, False)
-        answer3_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[3], 40, RED1, self.text_answer3, False, False)
-        answer4_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[4], 40, RED1, self.text_answer4, False, False)
+        question_layer = StaticFunctions.generar_rectangulo(self.question_manager, WHITE, self.question)
+        answer1_layer = StaticFunctions.generar_rectangulo(self.question_manager, WHITE, self.answer1)
+        answer2_layer = StaticFunctions.generar_rectangulo(self.question_manager, WHITE, self.answer2)
+        answer3_layer = StaticFunctions.generar_rectangulo(self.question_manager, WHITE, self.answer3)
+        answer4_layer = StaticFunctions.generar_rectangulo(self.question_manager, WHITE, self.answer4)
+
+        question_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[0], 40, BLACK, self.text_question, False, False)
+        answer1_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[1], 40, BLACK, self.text_answer1, False, False)
+        answer2_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[2], 40, BLACK, self.text_answer2, False, False)
+        answer3_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[3], 40,BLACK, self.text_answer3, False, False)
+        answer4_text = StaticFunctions.dibujar_texto(self.question_manager, StaticFunctions.questions[4], 40, BLACK, self.text_answer4, False, False)
 
         category_name_text = StaticFunctions.dibujar_texto(self.question_manager, "Categoría", 40, RED1, self.categories_texts[0], True, False)
         category1_text = StaticFunctions.dibujar_texto(self.question_manager, self.categories[0], 40, RED1, self.categories_texts[1], False, False)

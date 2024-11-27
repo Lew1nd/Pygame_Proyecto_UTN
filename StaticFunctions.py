@@ -277,3 +277,55 @@ def guardar_puntaje(nombre, puntaje):
         with open(filepath, mode='a', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
             writer.writerow([nombre, puntaje])
+            
+def generar_rectangulo_estilizado(surface, color, dimensiones, borde_color, grosor_borde, redondeo=10):
+    """
+    Genera y dibuja un rectángulo estilizado con bordes redondeados.
+    - surface: Superficie donde se dibujará.
+    - color: Color del fondo del rectángulo.
+    - dimensiones: Lista [x, y, ancho, alto] del rectángulo.
+    - borde_color: Color del borde.
+    - grosor_borde: Grosor del borde.
+    - redondeo: Redondeo de las esquinas.
+    Devuelve el objeto Rect generado.
+    """
+    # Dibujar el borde
+    pygame.draw.rect(surface, borde_color, dimensiones, border_radius=redondeo)
+    
+    # Dibujar el rectángulo interior
+    x, y, ancho, alto = dimensiones
+    pygame.draw.rect(
+        surface, 
+        color, 
+        [x + grosor_borde, y + grosor_borde, ancho - 2 * grosor_borde, alto - 2 * grosor_borde], 
+        border_radius=redondeo
+    )
+    
+    return pygame.Rect(dimensiones)
+
+def dibujar_texto_estilizado(superficie, texto, tamano, color, posicion, centrado_horizontal=True, centrado_vertical=True, fuente="Arial", negrita=False, fuente_archivo=None):
+    """
+    Dibuja texto estilizado en la superficie con opciones de tamaño, color, fuente y alineación.
+    :param fuente_archivo: Ruta al archivo de la fuente (opcional).
+    """
+    if fuente_archivo:
+        fuente_obj = pygame.font.Font(fuente_archivo, tamano)
+    else:
+        fuente_obj = pygame.font.SysFont(fuente, tamano, bold=negrita)
+
+    texto_superficie = fuente_obj.render(texto, True, color)
+    texto_rect = texto_superficie.get_rect()
+
+    # Calculamos el centro dentro del rectángulo especificado
+    if centrado_horizontal:
+        texto_rect.centerx = posicion[0] + (posicion[2] // 2)  # Centrar horizontalmente
+    else:
+        texto_rect.x = posicion[0]
+
+    if centrado_vertical:
+        texto_rect.centery = posicion[1] + (posicion[3] // 2)  # Centrar verticalmente
+    else:
+        texto_rect.y = posicion[1]
+
+    superficie.blit(texto_superficie, texto_rect)
+    return texto_superficie

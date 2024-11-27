@@ -306,26 +306,46 @@ def generar_rectangulo_estilizado(surface, color, dimensiones, borde_color, gros
 def dibujar_texto_estilizado(superficie, texto, tamano, color, posicion, centrado_horizontal=True, centrado_vertical=True, fuente="Arial", negrita=False, fuente_archivo=None):
     """
     Dibuja texto estilizado en la superficie con opciones de tamaño, color, fuente y alineación.
-    :param fuente_archivo: Ruta al archivo de la fuente (opcional).
+    Divide el texto en líneas si excede el ancho del rectángulo especificado.
     """
     if fuente_archivo:
         fuente_obj = pygame.font.Font(fuente_archivo, tamano)
     else:
         fuente_obj = pygame.font.SysFont(fuente, tamano, bold=negrita)
 
-    texto_superficie = fuente_obj.render(texto, True, color)
-    texto_rect = texto_superficie.get_rect()
+    texto_rect = pygame.Rect(posicion)  # El rectangulo de referencia
+    palabras = texto.split(' ')  # se divide el texto en palabras
+    lineas = []  # se almacenan las líneas generadas
+    linea_actual = ''
 
-    # Calculamos el centro dentro del rectángulo especificado
-    if centrado_horizontal:
-        texto_rect.centerx = posicion[0] + (posicion[2] // 2)  # Centrar horizontalmente
-    else:
-        texto_rect.x = posicion[0]
+    # Secrean líneas que entran dentro del ancho 
+    for palabra in palabras:
+        if fuente_obj.size(linea_actual + palabra)[0] <= texto_rect.width:
+            linea_actual += palabra + ' '
+        else:
+            lineas.append(linea_actual.strip())
+            linea_actual = palabra + ' '
+
+    if linea_actual:
+        lineas.append(linea_actual.strip())  # se añade la ultima linea
+
+    # Calcula la altura total necesaria
+    altura_total = len(lineas) * fuente_obj.get_height()
+    offset_y = texto_rect.y
 
     if centrado_vertical:
-        texto_rect.centery = posicion[1] + (posicion[3] // 2)  # Centrar verticalmente
-    else:
-        texto_rect.y = posicion[1]
+        offset_y += (texto_rect.height - altura_total) // 2  # Ajusta verticalmente si se requiere
 
-    superficie.blit(texto_superficie, texto_rect)
-    return texto_superficie
+    # Dibuja cada línea
+    for linea in lineas:
+        texto_superficie = fuente_obj.render(linea, True, color)
+        linea_rect = texto_superficie.get_rect()
+
+        if centrado_horizontal:
+            linea_rect.centerx = texto_rect.centerx
+        else:
+            linea_rect.x = texto_rect.x
+
+        linea_rect.y = offset_y
+        superficie.blit(texto_superficie, linea_rect)
+        offset_y += fuente_obj.get_height()  # Avanza

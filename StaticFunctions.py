@@ -312,8 +312,10 @@ def dibujar_texto_estilizado(superficie, texto, tamano, color, posicion, centrad
         fuente_obj = pygame.font.Font(fuente_archivo, tamano)
     else:
         fuente_obj = pygame.font.SysFont(fuente, tamano, bold=negrita)
-
-    texto_rect = pygame.Rect(posicion)  # El rectangulo de referencia
+    if isinstance(posicion, tuple):  # Si se da una posición directa (x, y)
+        texto_rect = pygame.Rect(posicion[0], posicion[1], 800, 100)  # Rectángulo ficticio con ancho y alto arbitrarios
+    else:
+        texto_rect = pygame.Rect(posicion)  # Si se da un rectángulo, úsalo directamente
     palabras = texto.split(' ')  # se divide el texto en palabras
     lineas = []  # se almacenan las líneas generadas
     linea_actual = ''

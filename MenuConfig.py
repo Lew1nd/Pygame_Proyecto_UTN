@@ -686,19 +686,71 @@ class Game():
         music_button = StaticFunctions.dibujar_imagen(self.game, "archivos_multimedia/imagenes/boton_musica.png", self.buttons['Music'])
 
         if(self.game_finished == False):
-            question_layer = StaticFunctions.generar_rectangulo(self.game, RED1, self.buttons['Question_layer'])
-            button_option1 = StaticFunctions.generar_rectangulo(self.game, YELLOW1, self.buttons['Option1'])
-            button_option2 = StaticFunctions.generar_rectangulo(self.game, YELLOW1, self.buttons['Option2'])
-            button_option3 = StaticFunctions.generar_rectangulo(self.game, YELLOW1, self.buttons['Option3'])
-            button_option4 = StaticFunctions.generar_rectangulo(self.game, YELLOW1, self.buttons['Option4'])
+            question_layer = StaticFunctions.generar_rectangulo_estilizado(self.game, WHITE, self.buttons['Question_layer'], (0, 0, 0), 3, redondeo=10)
+            button_option1 = StaticFunctions.generar_rectangulo_estilizado(self.game, WHITE, self.buttons['Option1'], (0, 0, 0), 3, redondeo=10)
+            button_option2 = StaticFunctions.generar_rectangulo_estilizado(self.game, WHITE, self.buttons['Option2'], (0, 0, 0), 3, redondeo=10)
+            button_option3 = StaticFunctions.generar_rectangulo_estilizado(self.game, WHITE, self.buttons['Option3'], (0, 0, 0), 3, redondeo=10)
+            button_option4 = StaticFunctions.generar_rectangulo_estilizado(self.game, WHITE, self.buttons['Option4'], (0, 0, 0), 3, redondeo=10)
 
-            text_question = StaticFunctions.dibujar_texto(self.game, self.question_selected['Pregunta'], 20, BLUE, self.buttons['Question_layer'], True, False)
-            text_answer1 = StaticFunctions.dibujar_texto(self.game, self.question_selected['Opción A'], 30, RED1, self.buttons['Option1'], False, False)
-            text_answer2 = StaticFunctions.dibujar_texto(self.game, self.question_selected['Opción B'], 30, RED1, self.buttons['Option2'], False, False)
-            text_answer3 = StaticFunctions.dibujar_texto(self.game, self.question_selected['Opción C'], 30, RED1, self.buttons['Option3'], False, False)
-            text_answer4 = StaticFunctions.dibujar_texto(self.game, self.question_selected['Opción D'], 30, RED1, self.buttons['Option4'], False, False)
+            text_question = StaticFunctions.dibujar_texto_estilizado(
+                self.game, 
+                self.question_selected['Pregunta'], 
+                tamano=24, 
+                color=BLACK, 
+                posicion=self.buttons['Question_layer'], 
+                centrado_horizontal=True, 
+                centrado_vertical=True, 
+                fuente="Comic Sans MS", 
+                negrita=True
+            )
+
+            text_answer1 = StaticFunctions.dibujar_texto_estilizado(
+                self.game, 
+                self.question_selected['Opción A'], 
+                tamano=30, 
+                color=BLACK, 
+                posicion=self.buttons['Option1'], 
+                centrado_horizontal=True, 
+                centrado_vertical=True, 
+                negrita=True,
+                fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+            )
+
+            text_answer2 = StaticFunctions.dibujar_texto_estilizado(
+                self.game, 
+                self.question_selected['Opción B'], 
+                30, 
+                BLACK, 
+                self.buttons['Option2'], 
+                centrado_horizontal=True, 
+                centrado_vertical=True, 
+                fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+            )
+
+            text_answer3 = StaticFunctions.dibujar_texto_estilizado(
+                self.game, 
+                self.question_selected['Opción C'], 
+                30, 
+                BLACK, 
+                self.buttons['Option3'], 
+                centrado_horizontal=True, 
+                centrado_vertical=True, 
+                fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+            )
+
+            text_answer4 = StaticFunctions.dibujar_texto_estilizado(
+                self.game, 
+                self.question_selected['Opción D'], 
+                30, 
+                BLACK, 
+                self.buttons['Option4'], 
+                centrado_horizontal=True, 
+                centrado_vertical=True, 
+                fuente_archivo="archivos_multimedia/fuentes/LeagueSpartan-Regular.ttf"
+            )
+
         else:
-            text_finish = StaticFunctions.dibujar_texto(self.game, "Fin del juego", 60, YELLOW1, self.buttons['Question_layer'], True,False)
+            text_finish = StaticFunctions.dibujar_texto(self.game, "Fin del juego", 60, RED1, self.buttons['Question_layer'], True,False)
 
         if(self.can_select_next_question == True):
             text_result = StaticFunctions.dibujar_texto(self.game, self.mostrar_respuesta(self.is_correct)[0], 30, self.mostrar_respuesta(self.is_correct)[1], self.texts['Result_answer'],False,False)
@@ -707,8 +759,17 @@ class Game():
         text_lives_layer = StaticFunctions.dibujar_texto(self.game, "Vidas", 40, YELLOW1, self.texts['Lives_layer'], True, False)
         text_lives = StaticFunctions.dibujar_texto(self.game, str(self.current_lives), 40, GREEN, self.texts['Lives_value'], True, False)
 
-        button_next_option = StaticFunctions.generar_rectangulo(self.game, BLUE, self.buttons['Next_Option'])
-        
+        # Ajustamos dimensiones y posición del botón "Siguiente"
+        self.buttons['Next_Option'] = [540, 700, 261, 64]  # (x, y, ancho, alto)
+
+        # Dibujamos la imagen del botón con las dimensiones ajustadas
+        button_next_option = StaticFunctions.dibujar_imagen(
+            self.game,
+            "archivos_multimedia/imagenes/boton_siguiente.png",
+            self.buttons['Next_Option']
+        )
+
+
         event_game = pygame.event.get()
         for event in event_game:
             if event.type == pygame.QUIT:
@@ -834,8 +895,10 @@ class FinalScreen:
                 if pygame.Rect(*self.submit_button).collidepoint(event.pos):
                     if self.name:
                         print("Nombre ingresado:", self.name)
-                        print("Puntuación enviada:", type(self.score_value))
+                        print("Puntuación enviada:", (self.score_value))
                         StaticFunctions.guardar_puntaje(self.name, self.score_value)
+                        StaticFunctions.current_screen = "Menu"  # Regresa al menú principal
+
 
                 if pygame.Rect(*self.button_back).collidepoint(event.pos):
                     print("Volviendo al menú principal...")

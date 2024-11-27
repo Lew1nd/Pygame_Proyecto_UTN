@@ -30,7 +30,7 @@ player_datapath = "archivos_multimedia/playerdata.csv"#Ubicación del archivo de
 #Juego
 difficulty_game = ""
 category_game = ""
-score = 0
+score = 4
 all_questions_data = []
 
 def iniciar_pantalla():
@@ -267,4 +267,13 @@ def guardar_datos(datapath, data: str, operation: str):
         case "Question_add": agregar_pregunta_a_archivo(datapath, operation)
         case "Player": actualizar_datos_jugador(datapath, operation)
 
-    
+def guardar_puntaje(nombre, puntaje):
+        """
+        Guarda el nombre y puntaje en el archivo scoreboard.csv.
+        Crea el archivo si no existe.
+        """
+        print(f"Guardando puntaje: Nombre = {nombre}, Puntaje = {puntaje}")  # Depuración
+        filepath = "archivos_multimedia/scoreboard.csv"
+        with open(filepath, mode='a', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            writer.writerow([nombre, puntaje])

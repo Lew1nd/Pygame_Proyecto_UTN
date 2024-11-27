@@ -21,9 +21,10 @@ dict_menus = {'Menu': Menu(),
               'Difficulty': Difficulty(),
               'QuestionManager': QuestionManager(),
               'Categories': Categories(),
-              'Game': Game()
-              
+              'Game': Game(),
+              'FinalScreen': FinalScreen()  # Instancia de la pantalla final
               }
+
 
 #endregion
 
@@ -39,6 +40,7 @@ while game_running:
         case "QuestionManager": game_running = dict_menus['QuestionManager'].init_question_manager()
         case "Categories": game_running = dict_menus['Categories'].init_categories()
         case "Game": game_running = dict_menus['Game'].init_game()
+        case "FinalScreen": game_running = dict_menus['FinalScreen'].init_final_screen()
 
     '''
     if StaticFunctions.current_screen == "Menu":

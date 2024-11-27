@@ -1,53 +1,53 @@
 Pregunta,Opción A,Opción B,Opción C,Opción D,Correcta,Categoría,Dificultad,Cantidad fallos,Cantidad aciertos,Veces preguntada
-¿Quién es el fontanero más famoso de los videojuegos?,Sonic,Luigi,Mario,Crash,3,Videojuegos,Fácil,2,0,2
-¿Cuál es el objetivo principal en Pac-Man?,Atrapar fantasmas,Comer puntos,Escapar de los fantasmas,Resolver acertijos,2,Videojuegos,Fácil,3,0,3
-¿Qué consola fue creada por Sony?,Xbox,PlayStation,GameCube,Atari,2,Videojuegos,Fácil,1,0,1
-¿Qué juego popular de móviles involucra lanzar pájaros a estructuras?,Candy Crush,Temple Run,Angry Birds,Flappy Bird,3,Videojuegos,Fácil,1,2,3
-¿En qué saga aparece el personaje Pikachu?,Pokémon,Digimon,Yu-Gi-Oh!,Animal Crossing,1,Videojuegos,Fácil,1,1,2
-¿Qué videojuego tiene niveles en Mundo 1-1?,Sonic,Super Mario Bros,Zelda,Donkey Kong,2,Videojuegos,Fácil,0,0,0
-¿Qué personaje utiliza un sombrero verde en The Legend of Zelda?,Zelda,Ganondorf,Link,Navi,3,Videojuegos,Fácil,1,0,1
-¿Qué compañía creó el juego Minecraft?,EA,Nintendo,Rockstar,Mojang,4,Videojuegos,Fácil,2,1,3
-¿Qué personaje es un erizo azul famoso?,Sonic,Mario,Kirby,Donkey Kong,1,Videojuegos,Fácil,1,0,1
-¿Qué saga de videojuegos tiene como antagonista principal a Dr. Robotnik?,Sonic,Mega Man,Kirby,Metroid,1,Videojuegos,Fácil,1,0,1
-¿Cuál es el nombre de los fantasmas de Pac-Man?,Blinky; Pinky; Inky y Clyde,Shadow; Speedy; Bashful y Pokey,Boo; Spooky; Winky y Clyde,Glowy; Slowpoke; Sneaky y Blinky,1,Videojuegos,Normal,0,0,0
-¿Qué videojuego popular tiene un mapa llamado Dust II?,Fortnite,Counter-Strike,Call of Duty,Valorant,2,Videojuegos,Normal,0,0,0
-¿Qué género describe a The Legend of Zelda: Breath of the Wild?,Shooter,RPG de acción,Estrategia,Simulación,2,Videojuegos,Normal,0,0,0
-¿Cuál fue el primer personaje jugable en Donkey Kong?,Mario,Donkey Kong,Luigi,Diddy Kong,1,Videojuegos,Normal,0,0,0
-¿Qué significa MMO en videojuegos?,Multi Map Online,Massive Multiplayer Online,Mega Match Online,Multiplayer Mission Online,2,Videojuegos,Normal,0,0,0
-¿Qué videojuego introdujo el sistema de construcción rápida en Battle Royale?,PUBG,Apex Legends,Free Fire,Fortnite,4,Videojuegos,Normal,0,0,0
+¿Quién es el fontanero más famoso de los videojuegos?,Sonic,Luigi,Mario,Crash,3,Videojuegos,Fácil,5,2,7
+¿Cuál es el objetivo principal en Pac-Man?,Atrapar fantasmas,Comer puntos,Escapar de los fantasmas,Resolver acertijos,2,Videojuegos,Fácil,4,0,4
+¿Qué consola fue creada por Sony?,Xbox,PlayStation,GameCube,Atari,2,Videojuegos,Fácil,2,2,4
+¿Qué juego popular de móviles involucra lanzar pájaros a estructuras?,Candy Crush,Temple Run,Angry Birds,Flappy Bird,3,Videojuegos,Fácil,4,3,7
+¿En qué saga aparece el personaje Pikachu?,Pokémon,Digimon,Yu-Gi-Oh!,Animal Crossing,1,Videojuegos,Fácil,5,3,8
+¿Qué videojuego tiene niveles en Mundo 1-1?,Sonic,Super Mario Bros,Zelda,Donkey Kong,2,Videojuegos,Fácil,1,0,1
+¿Qué personaje utiliza un sombrero verde en The Legend of Zelda?,Zelda,Ganondorf,Link,Navi,3,Videojuegos,Fácil,5,0,5
+¿Qué compañía creó el juego Minecraft?,EA,Nintendo,Rockstar,Mojang,4,Videojuegos,Fácil,6,2,8
+¿Qué personaje es un erizo azul famoso?,Sonic,Mario,Kirby,Donkey Kong,1,Videojuegos,Fácil,4,1,5
+¿Qué saga de videojuegos tiene como antagonista principal a Dr. Robotnik?,Sonic,Mega Man,Kirby,Metroid,1,Videojuegos,Fácil,3,0,3
+¿Cuál es el nombre de los fantasmas de Pac-Man?,Blinky; Pinky; Inky y Clyde,Shadow; Speedy; Bashful y Pokey,Boo; Spooky; Winky y Clyde,Glowy; Slowpoke; Sneaky y Blinky,1,Videojuegos,Normal,4,0,4
+¿Qué videojuego popular tiene un mapa llamado Dust II?,Fortnite,Counter-Strike,Call of Duty,Valorant,2,Videojuegos,Normal,1,0,1
+¿Qué género describe a The Legend of Zelda: Breath of the Wild?,Shooter,RPG de acción,Estrategia,Simulación,2,Videojuegos,Normal,0,1,1
+¿Cuál fue el primer personaje jugable en Donkey Kong?,Mario,Donkey Kong,Luigi,Diddy Kong,1,Videojuegos,Normal,2,0,2
+¿Qué significa MMO en videojuegos?,Multi Map Online,Massive Multiplayer Online,Mega Match Online,Multiplayer Mission Online,2,Videojuegos,Normal,2,2,4
+¿Qué videojuego introdujo el sistema de construcción rápida en Battle Royale?,PUBG,Apex Legends,Free Fire,Fortnite,4,Videojuegos,Normal,3,0,3
 ¿Cuál es el nombre completo de la consola SNES?,Super Nintendo Entertainment System,Sega Nintendo Entertainment System,Small Nintendo Exclusive System,Super Nova Entertainment System,1,Videojuegos,Normal,0,0,0
-¿Quién es el creador de Metal Gear Solid?,Hideo Kojima,Shigeru Miyamoto,Satoru Iwata,Hideki Kamiya,1,Videojuegos,Normal,0,0,0
-¿Qué videojuego presenta un mundo postapocalíptico lleno de máquinas animales?,Fallout 4,The Last of Us,Horizon Zero Dawn, Days Gone,3,Videojuegos,Normal,0,0,0
-¿Qué videojuego se considera el precursor del género Battle Royale?,Fortnite,Apex Legends,Free Fire,PUBG,4,Videojuegos,Normal,0,0,0
+¿Quién es el creador de Metal Gear Solid?,Hideo Kojima,Shigeru Miyamoto,Satoru Iwata,Hideki Kamiya,1,Videojuegos,Normal,2,1,3
+¿Qué videojuego presenta un mundo postapocalíptico lleno de máquinas animales?,Fallout 4,The Last of Us,Horizon Zero Dawn, Days Gone,3,Videojuegos,Normal,1,0,1
+¿Qué videojuego se considera el precursor del género Battle Royale?,Fortnite,Apex Legends,Free Fire,PUBG,4,Videojuegos,Normal,1,0,1
 ¿En qué año se lanzó el primer Final Fantasy?,1985,1987,1990,1992,2,Videojuegos,Difícil,0,0,0
-¿Cuál es el nombre del protagonista en Half-Life?,Gordon Freeman,Isaac Clarke,Alan Wake,Marcus Fenix,1,Videojuegos,Difícil,0,0,0
-¿Qué nombre tiene el primer jefe en Dark Souls?,Gaping Dragon,Taurus Demon,Asylum Demon,Bell Gargoyles,3,Videojuegos,Difícil,0,0,0
-¿Qué título introdujo a la consola Dreamcast al mercado en 1999?,Sonic Adventure,Shenmue,Crazy Taxi,Jet Set Radio,1,Videojuegos,Difícil,0,0,0
-¿En qué planeta comienza Mass Effect 1?,Eden Prime,Thessia,Earth,Palaven,1,Videojuegos,Difícil,0,0,0
-¿Qué estudio desarrolló Cuphead?,Devolver Digital,Studio MDHR,Team Cherry,Yacht Club Games,2,Videojuegos,Difícil,0,0,0
-"¿Qué videojuego introdujo el ""Mundo de las Sombras"" como mecánica principal?",Dark Souls,Castlevania,Prince of Persia,Shadow of Mordor,4,Videojuegos,Difícil,0,0,0
-¿En qué juego aparece el personaje llamado Big Boss?,Metal Gear Solid,Splinter Cell,Hitman, Deus Ex,1,Videojuegos,Difícil,0,0,0
-¿Cuál es el nombre completo de Samus en la saga Metroid?,Samus Raynor,Samus Kerrigan,Samus Aran,Samus Shepard,3,Videojuegos,Difícil,0,0,0
-¿Quién es el protagonista de Naruto?,Sasuke,Kakashi,Naruto,Sakura,3,Anime,Fácil,0,0,0
-¿Qué objeto busca Goku en Dragon Ball?,Las Bolas de Dragón,Las Esferas del Caos,La Espada Z,El Grial Sagrado,1,Anime,Fácil,0,0,0
-¿Cómo se llama el capitán de los Sombreros de Paja en One Piece?,Roronoa Zoro,Monkey 4. Luffy,Sanji,Usopp,2,Anime,Fácil,0,0,0
-¿Qué tipo de monstruo es Pikachu en Pokémon?,Agua,Planta,Eléctrico,Fuego,3,Anime,Fácil,0,0,0
-¿Cómo se llama el hermano menor de Edward en Fullmetal Alchemist?,Roy,Alphonse,Mustang,Bradley,2,Anime,Fácil,0,0,0
-¿Qué fruta es la favorita de Ryuk en Death Note?,Frutilla,Naranja,Banana,Manzana,4,Anime,Fácil,0,0,0
-¿En qué ciudad ocurre la historia de Attack on Titan?,Ciudadela,Shiganshina,Trost,Marley,2,Anime,Fácil,0,0,0
-¿Cómo se llama el protagonista de Bleach?,Uryu Ishida,Renji Abarai,Ichigo Kurosaki,Byakuya Kuchiki,3,Anime,Fácil,0,0,0
-¿Qué quiere ser Ash en Pokémon?,Entrenador Maestro,Criador de Pokémon,Líder de Gimnasio,Explorador Pokémon,1,Anime,Fácil,0,0,0
+¿Cuál es el nombre del protagonista en Half-Life?,Gordon Freeman,Isaac Clarke,Alan Wake,Marcus Fenix,1,Videojuegos,Difícil,2,0,2
+¿Qué nombre tiene el primer jefe en Dark Souls?,Gaping Dragon,Taurus Demon,Asylum Demon,Bell Gargoyles,3,Videojuegos,Difícil,2,1,3
+¿Qué título introdujo a la consola Dreamcast al mercado en 1999?,Sonic Adventure,Shenmue,Crazy Taxi,Jet Set Radio,1,Videojuegos,Difícil,1,0,1
+¿En qué planeta comienza Mass Effect 1?,Eden Prime,Thessia,Earth,Palaven,1,Videojuegos,Difícil,1,0,1
+¿Qué estudio desarrolló Cuphead?,Devolver Digital,Studio MDHR,Team Cherry,Yacht Club Games,2,Videojuegos,Difícil,1,0,1
+"¿Qué videojuego introdujo el ""Mundo de las Sombras"" como mecánica principal?",Dark Souls,Castlevania,Prince of Persia,Shadow of Mordor,4,Videojuegos,Difícil,1,1,2
+¿En qué juego aparece el personaje llamado Big Boss?,Metal Gear Solid,Splinter Cell,Hitman, Deus Ex,1,Videojuegos,Difícil,2,0,2
+¿Cuál es el nombre completo de Samus en la saga Metroid?,Samus Raynor,Samus Kerrigan,Samus Aran,Samus Shepard,3,Videojuegos,Difícil,1,1,2
+¿Quién es el protagonista de Naruto?,Sasuke,Kakashi,Naruto,Sakura,3,Anime,Fácil,0,1,1
+¿Qué objeto busca Goku en Dragon Ball?,Las Bolas de Dragón,Las Esferas del Caos,La Espada Z,El Grial Sagrado,1,Anime,Fácil,0,1,1
+¿Cómo se llama el capitán de los Sombreros de Paja en One Piece?,Roronoa Zoro,Monkey 4. Luffy,Sanji,Usopp,2,Anime,Fácil,0,1,1
+¿Qué tipo de monstruo es Pikachu en Pokémon?,Agua,Planta,Eléctrico,Fuego,3,Anime,Fácil,0,1,1
+¿Cómo se llama el hermano menor de Edward en Fullmetal Alchemist?,Roy,Alphonse,Mustang,Bradley,2,Anime,Fácil,0,1,1
+¿Qué fruta es la favorita de Ryuk en Death Note?,Frutilla,Naranja,Banana,Manzana,4,Anime,Fácil,0,1,1
+¿En qué ciudad ocurre la historia de Attack on Titan?,Ciudadela,Shiganshina,Trost,Marley,2,Anime,Fácil,0,1,1
+¿Cómo se llama el protagonista de Bleach?,Uryu Ishida,Renji Abarai,Ichigo Kurosaki,Byakuya Kuchiki,3,Anime,Fácil,0,1,1
+¿Qué quiere ser Ash en Pokémon?,Entrenador Maestro,Criador de Pokémon,Líder de Gimnasio,Explorador Pokémon,1,Anime,Fácil,0,1,1
 ¿Qué carta es la primera que Sakura captura en Cardcaptor Sakura?,La Carta Fuego,La Carta Vuelo,La Carta Viento,La Carta Sombra,3,Anime,Fácil,0,0,0
 ¿Quién es el creador de Neon Genesis Evangelion?,Masashi Kishimoto,Hideaki Anno,Akira Toriyama,Yoshihiro Togashi,2,Anime,Normal,0,0,0
 ¿Cómo se llama el gremio de Natsu en Fairy Tail?,Phantom Lord,Sabertooth,Fairy Tail,Blue Pegasus,3,Anime,Normal,0,0,0
-¿Qué tipo de Nen tiene Gon en Hunter x Hunter?,Intensificador,Transformación,Especialista,Manipulador,1,Anime,Normal,0,0,0
-¿Qué personaje utiliza el Sharingan?,Zoro,Gohan,Sasuke,Eren,3,Anime,Normal,0,0,0
+¿Qué tipo de Nen tiene Gon en Hunter x Hunter?,Intensificador,Transformación,Especialista,Manipulador,1,Anime,Normal,1,0,1
+¿Qué personaje utiliza el Sharingan?,Zoro,Gohan,Sasuke,Eren,3,Anime,Normal,0,1,1
 ¿Contra qué tipo de ciraturas pelea Itadori en Jujutsu Kaisen?,Akumas,Yokais,Titanes,Espíritus Malignos,4,Anime,Normal,0,0,0
 ¿Qué instrumento toca Kousei en Shigatsu wa Kimi no Uso?,Guitarra,Piano,Violín,Flauta,2,Anime,Normal,0,0,0
-¿Quién es el Capitán Comandante del Gotei 13 en Bleach?,Toshiro Hitsugaya,Kenpachi Zaraki,Shunsui Kyoraku,enryusai Yamamoto,4,Anime,Normal,0,0,0
-¿Qué significa el apellido Elric en Fullmetal Alchemist?,Alquimista,Guerrero,Acerado,Luz,3,Anime,Normal,0,0,0
+¿Quién es el Capitán Comandante del Gotei 13 en Bleach?,Toshiro Hitsugaya,Kenpachi Zaraki,Shunsui Kyoraku,enryusai Yamamoto,4,Anime,Normal,1,0,1
+¿Qué significa el apellido Elric en Fullmetal Alchemist?,Alquimista,Guerrero,Acerado,Luz,3,Anime,Normal,1,0,1
 ¿Qué tipo de juego usa Kaiba en Yu-Gi-Oh!?,Juegos de Cartas,Juegos de Dados,Juegos de Estrategia,Juegos de Simulación,1,Anime,Normal,0,0,0
-¿Cómo se llama el grupo principal de villanos en Naruto?,Los Sannin,Akatsuki,La Organización X,Los Espadas,2,Anime,Normal,0,0,0
+¿Cómo se llama el grupo principal de villanos en Naruto?,Los Sannin,Akatsuki,La Organización X,Los Espadas,2,Anime,Normal,0,1,1
 ¿Qué autor creó Berserk?,Kentaro Miura,Naoki Urasawa,Yoshihiro Togashi,Takehiko Inoue,1,Anime,Difícil,0,0,0
 ¿Qué significan los símbolos kanji en los trajes de los Hashira en Demon Slayer?,El Pilar,Los Guardianes de los Humanos,Espadas Mortales,Guerrero del Sol,2,Anime,Difícil,0,0,0
 ¿En qué ciudad se desarrolla Steins;Gate?,Osaka,Nagoya,Akihabara,Kyoto,3,Anime,Difícil,0,0,0
@@ -76,11 +76,11 @@ Pregunta,Opción A,Opción B,Opción C,Opción D,Correcta,Categoría,Dificultad,
 "¿Qué país se conoce como ""La Tierra de los Mil Lagos""?",Suecia,Noruega,Finlandia,Dinamarca,3,Geografía,Normal,0,0,0
 "¿Qué ciudad es conocida como ""La Ciudad Eterna""?",París,Atenas,Roma,Estambul,3,Geografía,Normal,0,0,0
 ¿Cuál es la capital de Mongolia?,Ulaanbaatar,Astana,Damasco,Bishkek,1,Geografía,Difícil,0,0,0
-¿En qué país se encuentra el desierto de Sonora?,México,Estados Unidos,Perú,Chile,1,Geografía,Difícil,0,0,0
+¿En qué país se encuentra el desierto de Sonora?,México,Estados Unidos,Perú,Chile,1,Geografía,Difícil,0,1,1
 ¿Cuál es el lago más profundo del mundo?,Lago Baikal,Lago Superior,Lago Tanganica,Lago Victoria,1,Geografía,Difícil,0,0,0
 ¿Qué país tiene la mayor costa del mundo?,Estados Unidos,Canadá,Rusia,Australia,2,Geografía,Difícil,0,0,0
-¿Cuál es la capital de Bután?,Daca,Colombo,Thimphu,Katmandú,3,Geografía,Difícil,0,0,0
-¿Qué estrecho conecta el Océano Pacífico con el Ártico?,Estrecho de Gibraltar,Estrecho de Bering,Estrecho de Malaca,Estrecho de Malaca,2,Geografía,Difícil,0,0,0
+¿Cuál es la capital de Bután?,Daca,Colombo,Thimphu,Katmandú,3,Geografía,Difícil,1,0,1
+¿Qué estrecho conecta el Océano Pacífico con el Ártico?,Estrecho de Gibraltar,Estrecho de Bering,Estrecho de Malaca,Estrecho de Malaca,2,Geografía,Difícil,1,0,1
 ¿Qué río pasa por la ciudad de Londres?,Támesis,Sena,Rin,Po,1,Geografía,Difícil,0,0,0
-¿Qué país tiene la selva más grande del mundo?,Brasil,Congo,Indonesia,Australia,1,Geografía,Difícil,0,0,0
+¿Qué país tiene la selva más grande del mundo?,Brasil,Congo,Indonesia,Australia,1,Geografía,Difícil,1,0,1
 asd,ddd,eee,www,qqq,1,Medio,Videojuegos,0,0,0

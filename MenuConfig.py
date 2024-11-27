@@ -82,12 +82,16 @@ class Menu():
 class Scoreboard():
     def __init__(self):
         self.score = StaticFunctions.iniciar_pantalla()
+        #Carga la puntuacion de los jugadores
+        # self.scores = StaticFunctions.cargar_datos(StaticFunctions.score_datapath, "Scores")
+
         #Cargar la imagen del fondo
         self.fondo = pygame.image.load("archivos_multimedia/imagenes/fondo_score.png")
         self.fondo = pygame.transform.scale(self.fondo, self.score.get_size())#Escala al tamaño de la pantalla
 
         self.button_back = [458,715,355, 80]#Posición x, posición Y, Largo, alto
         self.button_music = [1190, 10, 75, 75]
+        self.cordenadas = [136, 500]
 
         self.muteado = False
 
@@ -97,6 +101,8 @@ class Scoreboard():
         '''
         back_button = StaticFunctions.dibujar_imagen(self.score, "archivos_multimedia/imagenes/boton_atras_score.png", self.button_back)
         music_button = StaticFunctions.dibujar_imagen(self.score, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
+        # self.puntos = StaticFunctions.mostrar_puntuaciones_csv(self.score, self.scores, self.cordenadas, 57, COLOR_BLANCO, 44)
+
 
         if StaticFunctions.change_screen_flag:
             self.score.blit(self.fondo, (0, 0))

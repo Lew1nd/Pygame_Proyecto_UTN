@@ -1,33 +1,33 @@
 Pregunta,Opción A,Opción B,Opción C,Opción D,Correcta,Categoría,Dificultad,Cantidad fallos,Cantidad aciertos,Veces preguntada
-¿Quién es el fontanero más famoso de los videojuegos?,Sonic,Luigi,Mario,Crash,3,Videojuegos,Fácil,7,4,11
-¿Cuál es el objetivo principal en Pac-Man?,Atrapar fantasmas,Comer puntos,Escapar de los fantasmas,Resolver acertijos,2,Videojuegos,Fácil,6,0,6
+¿Quién es el fontanero más famoso de los videojuegos?,Sonic,Luigi,Mario,Crash,3,Videojuegos,Fácil,8,4,12
+¿Cuál es el objetivo principal en Pac-Man?,Atrapar fantasmas,Comer puntos,Escapar de los fantasmas,Resolver acertijos,2,Videojuegos,Fácil,8,0,8
 ¿Qué consola fue creada por Sony?,Xbox,PlayStation,GameCube,Atari,2,Videojuegos,Fácil,6,4,10
-¿Qué juego popular de móviles involucra lanzar pájaros a estructuras?,Candy Crush,Temple Run,Angry Birds,Flappy Bird,3,Videojuegos,Fácil,6,3,9
-¿En qué saga aparece el personaje Pikachu?,Pokémon,Digimon,Yu-Gi-Oh!,Animal Crossing,1,Videojuegos,Fácil,6,5,11
-¿Qué videojuego tiene niveles en Mundo 1-1?,Sonic,Super Mario Bros,Zelda,Donkey Kong,2,Videojuegos,Fácil,5,1,6
-¿Qué personaje utiliza un sombrero verde en The Legend of Zelda?,Zelda,Ganondorf,Link,Navi,3,Videojuegos,Fácil,11,0,11
-¿Qué compañía creó el juego Minecraft?,EA,Nintendo,Rockstar,Mojang,4,Videojuegos,Fácil,11,3,14
-¿Qué personaje es un erizo azul famoso?,Sonic,Mario,Kirby,Donkey Kong,1,Videojuegos,Fácil,10,1,11
-¿Qué saga de videojuegos tiene como antagonista principal a Dr. Robotnik?,Sonic,Mega Man,Kirby,Metroid,1,Videojuegos,Fácil,5,1,6
+¿Qué juego popular de móviles involucra lanzar pájaros a estructuras?,Candy Crush,Temple Run,Angry Birds,Flappy Bird,3,Videojuegos,Fácil,8,3,11
+¿En qué saga aparece el personaje Pikachu?,Pokémon,Digimon,Yu-Gi-Oh!,Animal Crossing,1,Videojuegos,Fácil,8,5,13
+¿Qué videojuego tiene niveles en Mundo 1-1?,Sonic,Super Mario Bros,Zelda,Donkey Kong,2,Videojuegos,Fácil,8,1,9
+¿Qué personaje utiliza un sombrero verde en The Legend of Zelda?,Zelda,Ganondorf,Link,Navi,3,Videojuegos,Fácil,11,1,12
+¿Qué compañía creó el juego Minecraft?,EA,Nintendo,Rockstar,Mojang,4,Videojuegos,Fácil,13,3,16
+¿Qué personaje es un erizo azul famoso?,Sonic,Mario,Kirby,Donkey Kong,1,Videojuegos,Fácil,11,1,12
+¿Qué saga de videojuegos tiene como antagonista principal a Dr. Robotnik?,Sonic,Mega Man,Kirby,Metroid,1,Videojuegos,Fácil,7,1,8
 ¿Cuál es el nombre de los fantasmas de Pac-Man?,Blinky; Pinky; Inky y Clyde,Shadow; Speedy; Bashful y Pokey,Boo; Spooky; Winky y Clyde,Glowy; Slowpoke; Sneaky y Blinky,1,Videojuegos,Normal,4,0,4
 ¿Qué videojuego popular tiene un mapa llamado Dust II?,Fortnite,Counter-Strike,Call of Duty,Valorant,2,Videojuegos,Normal,1,0,1
 ¿Qué género describe a The Legend of Zelda: Breath of the Wild?,Shooter,RPG de acción,Estrategia,Simulación,2,Videojuegos,Normal,0,1,1
 ¿Cuál fue el primer personaje jugable en Donkey Kong?,Mario,Donkey Kong,Luigi,Diddy Kong,1,Videojuegos,Normal,2,0,2
-¿Qué significa MMO en videojuegos?,Multi Map Online,Massive Multiplayer Online,Mega Match Online,Multiplayer Mission Online,2,Videojuegos,Normal,2,2,4
+¿Qué significa MMO en videojuegos?,Multi Map Online,Massive Multiplayer Online,Mega Match Online,Multiplayer Mission Online,2,Videojuegos,Normal,3,2,5
 ¿Qué videojuego introdujo el sistema de construcción rápida en Battle Royale?,PUBG,Apex Legends,Free Fire,Fortnite,4,Videojuegos,Normal,3,0,3
 ¿Cuál es el nombre completo de la consola SNES?,Super Nintendo Entertainment System,Sega Nintendo Entertainment System,Small Nintendo Exclusive System,Super Nova Entertainment System,1,Videojuegos,Normal,0,0,0
-¿Quién es el creador de Metal Gear Solid?,Hideo Kojima,Shigeru Miyamoto,Satoru Iwata,Hideki Kamiya,1,Videojuegos,Normal,2,1,3
-¿Qué videojuego presenta un mundo postapocalíptico lleno de máquinas animales?,Fallout 4,The Last of Us,Horizon Zero Dawn, Days Gone,3,Videojuegos,Normal,1,0,1
+¿Quién es el creador de Metal Gear Solid?,Hideo Kojima,Shigeru Miyamoto,Satoru Iwata,Hideki Kamiya,1,Videojuegos,Normal,3,1,4
+¿Qué videojuego presenta un mundo postapocalíptico lleno de máquinas animales?,Fallout 4,The Last of Us,Horizon Zero Dawn, Days Gone,3,Videojuegos,Normal,2,0,2
 ¿Qué videojuego se considera el precursor del género Battle Royale?,Fortnite,Apex Legends,Free Fire,PUBG,4,Videojuegos,Normal,1,0,1
-¿En qué año se lanzó el primer Final Fantasy?,1985,1987,1990,1992,2,Videojuegos,Difícil,1,0,1
+¿En qué año se lanzó el primer Final Fantasy?,1985,1987,1990,1992,2,Videojuegos,Difícil,4,0,4
 ¿Cuál es el nombre del protagonista en Half-Life?,Gordon Freeman,Isaac Clarke,Alan Wake,Marcus Fenix,1,Videojuegos,Difícil,3,0,3
 ¿Qué nombre tiene el primer jefe en Dark Souls?,Gaping Dragon,Taurus Demon,Asylum Demon,Bell Gargoyles,3,Videojuegos,Difícil,3,1,4
 ¿Qué título introdujo a la consola Dreamcast al mercado en 1999?,Sonic Adventure,Shenmue,Crazy Taxi,Jet Set Radio,1,Videojuegos,Difícil,1,0,1
-¿En qué planeta comienza Mass Effect 1?,Eden Prime,Thessia,Earth,Palaven,1,Videojuegos,Difícil,1,0,1
-¿Qué estudio desarrolló Cuphead?,Devolver Digital,Studio MDHR,Team Cherry,Yacht Club Games,2,Videojuegos,Difícil,2,0,2
-"¿Qué videojuego introdujo el ""Mundo de las Sombras"" como mecánica principal?",Dark Souls,Castlevania,Prince of Persia,Shadow of Mordor,4,Videojuegos,Difícil,2,1,3
-¿En qué juego aparece el personaje llamado Big Boss?,Metal Gear Solid,Splinter Cell,Hitman, Deus Ex,1,Videojuegos,Difícil,3,0,3
-¿Cuál es el nombre completo de Samus en la saga Metroid?,Samus Raynor,Samus Kerrigan,Samus Aran,Samus Shepard,3,Videojuegos,Difícil,1,2,3
+¿En qué planeta comienza Mass Effect 1?,Eden Prime,Thessia,Earth,Palaven,1,Videojuegos,Difícil,2,0,2
+¿Qué estudio desarrolló Cuphead?,Devolver Digital,Studio MDHR,Team Cherry,Yacht Club Games,2,Videojuegos,Difícil,3,0,3
+"¿Qué videojuego introdujo el ""Mundo de las Sombras"" como mecánica principal?",Dark Souls,Castlevania,Prince of Persia,Shadow of Mordor,4,Videojuegos,Difícil,2,2,4
+¿En qué juego aparece el personaje llamado Big Boss?,Metal Gear Solid,Splinter Cell,Hitman, Deus Ex,1,Videojuegos,Difícil,5,0,5
+¿Cuál es el nombre completo de Samus en la saga Metroid?,Samus Raynor,Samus Kerrigan,Samus Aran,Samus Shepard,3,Videojuegos,Difícil,3,2,5
 ¿Quién es el protagonista de Naruto?,Sasuke,Kakashi,Naruto,Sakura,3,Anime,Fácil,0,1,1
 ¿Qué objeto busca Goku en Dragon Ball?,Las Bolas de Dragón,Las Esferas del Caos,La Espada Z,El Grial Sagrado,1,Anime,Fácil,0,2,2
 ¿Cómo se llama el capitán de los Sombreros de Paja en One Piece?,Roronoa Zoro,Monkey 4. Luffy,Sanji,Usopp,2,Anime,Fácil,1,1,2

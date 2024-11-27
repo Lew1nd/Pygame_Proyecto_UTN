@@ -821,13 +821,13 @@ class FinalScreen:
         self.fondo = pygame.transform.scale(self.fondo, self.screen.get_size())
 
         # Caja de texto
-        self.input_box = pygame.Rect(440, 350, 400, 50)
+        self.input_box = pygame.Rect(380, 350, 480, 50)
         self.input_active = False
         self.name = ""
 
         # Botones
-        self.submit_button = [540, 480, 150, 60]  # Botón enviar
-        self.button_back = [458, 715, 150, 60]  # Botón volver al menú principal
+        self.submit_button = [508, 480, 200, 60]  # Ajustamos el botón guardar
+        self.button_back = [100, 715, 180, 58]   # Ajustamos el botón volver
 
         # Imagen "Tu puntuación"
         self.score_image_path = "archivos_multimedia/imagenes/tu_puntuacion.png"

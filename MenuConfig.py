@@ -750,8 +750,8 @@ class Game():
             )
 
         else:
-            text_finish = StaticFunctions.dibujar_texto(self.game, "Fin del juego", 60, RED1, self.buttons['Question_layer'], True,False)
-
+            StaticFunctions.dibujar_imagen(self.game,"archivos_multimedia/imagenes/game_over.png",[0,0,self.game.get_size()[0],self.game.get_size()[1]]) 
+            
         if(self.can_select_next_question == True):
             text_result = StaticFunctions.dibujar_texto(self.game, self.mostrar_respuesta(self.is_correct)[0], 30, self.mostrar_respuesta(self.is_correct)[1], self.texts['Result_answer'],False,False)
 

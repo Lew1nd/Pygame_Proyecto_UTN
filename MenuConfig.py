@@ -23,26 +23,22 @@ class Menu():
         self.fondo = pygame.image.load("archivos_multimedia/imagenes/menu_principal.png")
         self.fondo = pygame.transform.scale(self.fondo, self.menu.get_size())#Escala al tamaño de la pantalla
 
-        #botones
-        self.button_start = [470, 260, 355, 96]#Posición x, posición Y, Largo, alto
-        self.button_score = [470, 370, 355, 96]
-        self.button_options = [470, 487, 355, 96]
-        self.button_exit = [470, 600, 355, 96]
-        self.button_music = [1190, 10, 75, 75]
-
-        #imagen muestra (temporal)
-        self.imagen_1 = [0,0,500,500]
+        self.buttons = {'Start': [470, 260, 355, 96], #Posición x, posición Y, Largo, alto
+                        'Score': [470, 370, 355, 96],
+                        'Options': [470, 487, 355, 96],
+                        'Exit': [470, 600, 355, 96],
+                        'Music': [1190, 10, 75, 75]}
 
     def init_menu(self):
         '''
         Inicializador de la pantalla, se ejecuta constantemente en Core
         '''
         self.menu.blit(self.fondo, (0, 0))
-        start_button = StaticFunctions.dibujar_imagen(self.menu,"archivos_multimedia/imagenes/boton_jugar.png" , self.button_start)
-        score_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_score.png", self.button_score)
-        music_button = StaticFunctions.dibujar_imagen(self.menu,"archivos_multimedia/imagenes/boton_musica.png", self.button_music)
-        options_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_ajustes.png", self.button_options)
-        exit_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_salir.png", self.button_exit)
+        start_button = StaticFunctions.dibujar_imagen(self.menu,"archivos_multimedia/imagenes/boton_jugar.png" , self.buttons['Start'])
+        score_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_score.png", self.buttons['Score'])
+        music_button = StaticFunctions.dibujar_imagen(self.menu,"archivos_multimedia/imagenes/boton_musica.png", self.buttons['Music'])
+        options_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_ajustes.png", self.buttons['Options'])
+        exit_button = StaticFunctions.dibujar_imagen(self.menu, "archivos_multimedia/imagenes/boton_salir.png", self.buttons['Exit'])
         
         if StaticFunctions.change_screen_flag:
             self.menu.blit(self.fondo, (0, 0))
@@ -60,7 +56,6 @@ class Menu():
                 elif score_button.collidepoint(pygame.mouse.get_pos()):
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("ScoreBoard")
                     StaticFunctions.change_screen_flag = True
-                
                 elif options_button.collidepoint(pygame.mouse.get_pos()):
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Options")
                     StaticFunctions.change_screen_flag = True
@@ -71,10 +66,8 @@ class Menu():
                         pygame.mixer.music.set_volume(0)#Silencia la música
                     else:
                         pygame.mixer.music.set_volume(0.6)#Vuelve a sonar la musica
-
-                elif exit_button.collidepoint(pygame.mouse.get_pos()):
-                    print("Juego cerrado")
-                    return False
+                elif exit_button.collidepoint(pygame.mouse.get_pos()): return False
+     
         return True
 #endregion
 
@@ -519,12 +512,24 @@ class Difficulty():
         self.fondo = pygame.transform.scale(self.fondo, self.difficulty.get_size())  # Escala el fondo al tamaño de la pantalla
         
         # Definición de botones como listas [x, y, ancho, alto]
-        self.button_easy = [470, 260, 355, 96]
-        self.button_medium = [470, 370, 355, 96]
-        self.button_hard = [470, 487, 355, 96]
-        self.button_back = [458, 715, 355, 80]
-        self.button_music = [1190, 10, 75, 75]
+        self.buttons = {'Easy': [470, 260, 355, 96],
+                        'Medium': [470, 370, 355, 96],
+                        'Hard': [470, 487, 355, 96],
+                        'Back': [458, 715, 355, 80],
+                        'Music': [1190, 10, 75, 75]}
+        
         self.muteado = False
+
+    def seleccionar_dificultad(self, selected_difficulty: str):
+        '''
+        Función encargada de guardar la dificultad seleccionada.\n
+        Recibe la dificultad como cadena de texto.\n
+        No devuelve nada.
+        '''
+        print("Dificultad seleccionada:", selected_difficulty)
+        StaticFunctions.difficulty_game = selected_difficulty
+        StaticFunctions.change_screen_flag = True
+        StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Game")
 
     def init_difficulty(self):
         '''
@@ -534,33 +539,20 @@ class Difficulty():
             self.difficulty.blit(self.fondo, (0, 0))
             StaticFunctions.change_screen_flag = False
 
-        button_easy= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_facil.png", self.button_easy)
-        button_medium= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_medio.png", self.button_medium)
-        button_hard= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_dificil.png", self.button_hard)
-        button_back= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
-        button_music= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
-        
+        button_easy= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_facil.png", self.buttons['Easy'])
+        button_medium= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_medio.png", self.buttons['Medium'])
+        button_hard= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_dificil.png", self.buttons['Hard'])
+        button_back= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_atras.png", self.buttons['Back'])
+        button_music= StaticFunctions.dibujar_imagen(self.difficulty, "archivos_multimedia/imagenes/boton_musica.png", self.buttons['Music'])
         
         event_game = pygame.event.get()
         for event in event_game:
             if event.type == pygame.QUIT:
                 return False
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-                if button_easy.collidepoint(pygame.mouse.get_pos()):
-                    print("Juego Inicializado en Modo FACIL") #Aca se llamaria a la funcion que inicializaria el modo facil
-                    StaticFunctions.difficulty_game = "Fácil"
-                    StaticFunctions.change_screen_flag = True
-                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Game")
-                elif button_medium.collidepoint(pygame.mouse.get_pos()):
-                    print("Juego Inicializado en Modo MEDIO") #Aca se llamaria a la funcion que inicializaria el modo medio
-                    StaticFunctions.difficulty_game = "Normal"
-                    StaticFunctions.change_screen_flag = True
-                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Game")
-                elif button_hard.collidepoint(pygame.mouse.get_pos()):
-                    print("Juego Inicializado en Modo DIFICIL") #Aca se llamaria a la funcion que inicializaria el modo dificil
-                    StaticFunctions.difficulty_game = "Difícil"
-                    StaticFunctions.change_screen_flag = True
-                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Game")
+                if button_easy.collidepoint(pygame.mouse.get_pos()): self.seleccionar_dificultad("Fácil")#Modo fácil
+                elif button_medium.collidepoint(pygame.mouse.get_pos()): self.seleccionar_dificultad("Normal")#Modo medio
+                elif button_hard.collidepoint(pygame.mouse.get_pos()): self.seleccionar_dificultad("Difícil")#Modo difícil
                 elif button_back.collidepoint(pygame.mouse.get_pos()):
                     StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Menu") #Vuelve a la pantalla de menu
                     StaticFunctions.iniciar_musica(0.6,-1,"archivos_multimedia/musica/musica_menu2.mp3") 
@@ -582,20 +574,32 @@ class Categories():
         self.fondo = pygame.image.load("archivos_multimedia/imagenes/menu_categorias.png") 
         self.fondo = pygame.transform.scale(self.fondo, self.categories.get_size()) 
         
-        self.button_back = [458, 715, 355, 80]
-        self.button_music = [1190, 10, 75, 75]
-        self.button_anime = [0, 0, 444,800]
-        self.button_games = [444, 0, 444, 800]
-        self.button_geography = [888,0, 444, 800]
+        self.buttons = {'Back': [458, 715, 355, 80],
+                        'Music': [1190, 10, 75, 75],
+                        'Anime': [0, 0, 444,800],
+                        'Games': [444, 0, 444, 800],
+                        'Geography': [888,0, 444, 800]}
+
         self.muteado = False
+
+    def seleccionar_categoria(self, selected_category: str):
+        '''
+        Función encargada de guardar la categoría seleccionada.\n
+        Recibe la categoría como cadena de texto.\n
+        No devuelve nada.
+        '''
+        print("Categoria seleccionada:", selected_category)
+        StaticFunctions.category_game = selected_category
+        StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Difficulty")
+        StaticFunctions.change_screen_flag = True
 
     def init_categories(self):
         if StaticFunctions.change_screen_flag:
             self.categories.blit(self.fondo, (0, 0))
             StaticFunctions.change_screen_flag = False 
             
-        button_back= StaticFunctions.dibujar_imagen(self.categories, "archivos_multimedia/imagenes/boton_atras.png", self.button_back)
-        button_music= StaticFunctions.dibujar_imagen(self.categories, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
+        button_back= StaticFunctions.dibujar_imagen(self.categories, "archivos_multimedia/imagenes/boton_atras.png", self.buttons['Back'])
+        button_music= StaticFunctions.dibujar_imagen(self.categories, "archivos_multimedia/imagenes/boton_musica.png", self.buttons['Music'])
 
         event_game = pygame.event.get()
         for event in event_game:
@@ -615,24 +619,15 @@ class Categories():
                     else:
                         pygame.mixer.music.set_volume(0.2)   
                 
-                elif self.button_anime[0] <= pygame.mouse.get_pos()[0] <= self.button_anime[0] + self.button_anime[2] and \
-                    self.button_anime[1] <= pygame.mouse.get_pos()[1] <= self.button_anime[1] + self.button_anime[3]: # Separ elif por lineas para que sea mas legible
-                    StaticFunctions.category_game = "Anime"
-                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Difficulty")
-                    StaticFunctions.change_screen_flag = True
-                    print("Categoria seleccionada: ANIME")   
-                elif self.button_games[0] <= pygame.mouse.get_pos()[0] <= self.button_games[0] + self.button_games[2] and \
-                    self.button_games[1] <= pygame.mouse.get_pos()[1] <= self.button_games[1] + self.button_games[3]:# Separe elif por lineas para que sea mas legibleç
-                    StaticFunctions.category_game = "Videojuegos"
-                    StaticFunctions.change_screen_flag = True
-                    print("Categoria seleccionada: VIDEOJUEGOS")
-                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Difficulty")
-                elif self.button_geography[0] <= pygame.mouse.get_pos()[0] <= self.button_geography[0] + self.button_geography[2] and \
-                    self.button_geography[1] <= pygame.mouse.get_pos()[1] <= self.button_geography[1] + self.button_geography[3]:# Separe elif por lineas para que sea mas legible
-                    print("Categoria seleccionada: GEOGRAFIA")
-                    StaticFunctions.category_game = "Geografía"
-                    StaticFunctions.change_screen_flag = True
-                    StaticFunctions.current_screen = StaticFunctions.cambiar_pantalla("Difficulty")   
+                elif self.buttons['Anime'][0] <= pygame.mouse.get_pos()[0] <= self.buttons['Anime'][0] + self.buttons['Anime'][2] and \
+                    self.buttons['Anime'][1] <= pygame.mouse.get_pos()[1] <= self.buttons['Anime'][1] + self.buttons['Anime'][3]: # Separ elif por lineas para que sea mas legible
+                    self.seleccionar_categoria("Anime") 
+                elif self.buttons['Games'][0] <= pygame.mouse.get_pos()[0] <= self.buttons['Games'][0] + self.buttons['Games'][2] and \
+                    self.buttons['Games'][1] <= pygame.mouse.get_pos()[1] <= self.buttons['Games'][1] + self.buttons['Games'][3]:# Separe elif por lineas para que sea mas legible
+                    self.seleccionar_categoria("Videojuegos")
+                elif self.buttons['Geography'][0] <= pygame.mouse.get_pos()[0] <= self.buttons['Geography'][0] + self.buttons['Geography'][2] and \
+                    self.buttons['Geography'][1] <= pygame.mouse.get_pos()[1] <= self.buttons['Geography'][1] + self.buttons['Geography'][3]:# Separe elif por lineas para que sea mas legible
+                    self.seleccionar_categoria("Geografía")
         return True
 
 #endregion
@@ -670,14 +665,12 @@ class Game():
         self.answer_selected = False
         self.game_finished = False
         self.is_correct = False
-        self.time_out = True
+        self.time_out = False
         self.muteado = False
 
         self.current_lives = 0
         self.game_time = 0 #Tiempo transcurrido en la partida
-        self.score_points = 0
 
-        self.segundos_restantes = StaticFunctions.timer
         self.evento_timer = pygame.USEREVENT
         pygame.time.set_timer(self.evento_timer, 1000)
 
@@ -737,7 +730,7 @@ class Game():
         if option_selected == correct_answer:#Si la opción es correcta, se le suma 5 segundos
             self.is_correct = True
             self.question_selected['Cantidad aciertos'] = int(self.question_selected['Cantidad aciertos']) + 1
-            self.score_points += StaticFunctions.score_gain_per_question
+            StaticFunctions.score += StaticFunctions.score_gain_per_question
             StaticFunctions.timer += 5
         else:#Caso opuesto, pierde una vida
             self.is_correct = False
@@ -797,6 +790,7 @@ class Game():
             self.current_lives = StaticFunctions.lives
             StaticFunctions.cargar_datos(StaticFunctions.questions_datapath,"Start")
             StaticFunctions.change_screen_flag = False 
+            StaticFunctions.timer = StaticFunctions.time_config
             self.obtener_pregunta_aleatoria()
         # if self.segundos_restantes <= 13: #cambia el color y reproduce el sonido de que el tiempo se agota
         #     color = (255, 0, 0) 
@@ -879,8 +873,8 @@ class Game():
             )
 
         else:
-            StaticFunctions.dibujar_imagen(self.game,"archivos_multimedia/imagenes/game_over.png",[0,0,self.game.get_size()[0],self.game.get_size()[1]]) 
-            
+            text_finish = StaticFunctions.dibujar_texto(self.game, "Fin del juego", 60, RED1, self.buttons['Question_layer'], True,False)
+
         if(self.can_select_next_question == True):
             text_result = StaticFunctions.dibujar_texto(self.game, self.mostrar_respuesta(self.is_correct)[0], 30, self.mostrar_respuesta(self.is_correct)[1], self.texts['Result_answer'],False,False)
 
@@ -897,7 +891,6 @@ class Game():
             "archivos_multimedia/imagenes/boton_siguiente.png",
             self.buttons['Next_Option']
         )
-
 
         event_game = pygame.event.get()
         for event in event_game:
@@ -931,11 +924,14 @@ class Game():
                     elif button_next_option.collidepoint(pygame.mouse.get_pos()) and self.can_select_next_question == True: self.obtener_pregunta_aleatoria()
                 elif button_next_option.collidepoint(pygame.mouse.get_pos()) and self.game_finished == True:
                     self.actualizar_registros(StaticFunctions.questions_datapath)
+                    self.question_selected = {}
+                    self.question_generated = []
+                    self.question_saved = {}
+                    StaticFunctions.all_questions_data = []
                     self.is_correct = False
                     print("Yendo a resultados...")
                     StaticFunctions.current_screen = "FinalScreen"
-                    
-                    
+                         
         return True
     
 #endregion
@@ -1026,11 +1022,13 @@ class FinalScreen:
                         print("Nombre ingresado:", self.name)
                         print("Puntuación enviada:", (self.score_value))
                         StaticFunctions.guardar_puntaje(self.name, self.score_value)
+                        StaticFunctions.score = 0
                         StaticFunctions.current_screen = "Menu"  # Regresa al menú principal
 
 
                 if pygame.Rect(*self.button_back).collidepoint(event.pos):
                     print("Volviendo al menú principal...")
+                    StaticFunctions.score = 0
                     StaticFunctions.current_screen = "Menu"  # Regresa al menú principal
 
             # Manejo de teclado

@@ -31,7 +31,7 @@ score_datapath = "archivos_multimedia/puntuacion.csv"#Ubicación del archivo de 
 #Juego
 difficulty_game = ""
 category_game = ""
-score = 4
+score = 0
 all_questions_data = []
 
 def iniciar_pantalla():
@@ -238,12 +238,6 @@ def mostrar_puntuaciones_csv(surface, puntuaciones, posicion_inicial, espacio, c
         texto = fuente.render(f"{score['nombre']} - {score['puntos']} pts", True, color)
         surface.blit(texto, (x, y))
         y += espacio
-
-
-
-
-
-
 
 def guardar_datos(datapath, data: str, operation: str):
     '''

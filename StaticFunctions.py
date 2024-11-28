@@ -7,7 +7,7 @@ import random
 current_screen = ""
 change_screen_flag = True
 WIDTH, HEIGHT = 1280,800
-
+scores_dic = {}
 #Atributos del jugador
 lives = 3
 timer = 30#Variable usada para el timer
@@ -199,66 +199,44 @@ def cargar_datos(datapath, data: str):
         content = csv.DictReader(archive)
         for question in content:
             if question["Categoría"] == category_game and question["Dificultad"] == difficulty_game: all_questions_data.append(question)
-    # def cargar_puntuaciones(archive):
-    #     '''
-    #     Carga las puntuaciones desde un archivo CSV.
-    #     Recibe el archivo leído.
-    #     Devuelve una lista con las puntuaciones.
-    #     '''
-    #     scores = []
-    #     reader = csv.DictReader(archive)
-    #     for i in reader:
-    #         try:
-    #             scores.append({
-    #                 'nombre': i['Nombre_jugador'],
-    #                 'puntos': int(i['Puntos'])
-    #             })
-    #         except ValueError:
-    #             print(f"Error al procesar la fila: {i}")
-    
+    def cargar_puntuaciones(archive):
+        '''
+        Carga las puntuaciones desde un archivo CSV.
+        Recibe el archivo leído.
+        Devuelve una lista con las puntuaciones.
+        '''
+        global scores_dic
+        scores = []
+        reader = csv.DictReader(archive)
+        for i in reader:
+            try:
+                scores.append({
+                    'nombre': i['Nombre_jugador'],
+                    'puntos': int(i['Puntos'])
+                })
+            except ValueError:
+                print(f"Error al procesar la fila: {i}")
+        scores_dic = scores
     with open(datapath, 'r', encoding="utf-8") as archivo:
         match data:
             case "Player": cargar_datos_jugador(archivo)
             case "Start": obtener_preguntas_filtradas(archivo)
-            # case "Scores": cargar_puntuaciones(archivo)
+            case "Scores": cargar_puntuaciones(archivo)
 
-# def ordenar_puntuaciones(puntuaciones):
-#     """
-#     Recibe una lista.
-#     Ordena la lista de puntuaciones en orden descendente usando Bubble Sort.
-#     """
-#     if puntuaciones is None or len(puntuaciones) == 0:  # Comprobamos que la lista sea válida
-#         print("Error: La lista de puntuaciones está vacía o no se cargó correctamente.")
-#         return None
-#     n = len(puntuaciones)
-#     for i in range(n - 1):
-#         for j in range(n - i - 1):
-#             if puntuaciones[j]['puntos'] < puntuaciones[j + 1]['puntos']:
-#                 puntuaciones[j], puntuaciones[j + 1] = puntuaciones[j + 1], puntuaciones[j]
-                
 
-# def mostrar_puntuaciones_csv(surface, puntuaciones, posicion_inicial, espacio, color=(255, 255, 255), tamaño_fuente=44):
-#     """
-#     Dibuja las puntuaciones en pantalla a partir de una lista de datos y aplica el ordenamiento de fomrma decendente.
-#     """
-#     # Ordenar puntuaciones en orden descendente antes de mostrarlas
-#     puntos = ordenar_puntuaciones(puntuaciones)
 
-#     # Configurar la fuente y posición inicial
-#     fuente = pygame.font.Font(None, tamaño_fuente)
-#     x, y = posicion_inicial
-
-#     # Dibujar encabezado
-#     encabezado = fuente.render("Puntuaciones:", True, color)
-#     surface.blit(encabezado, (x, y))
-#     y += espacio  # Espaciado para la primera puntuación
-
-#     # Dibujar cada puntuación
-#     for index, score in enumerate(puntos):
-#         texto = fuente.render(f"{index + 1}. {score['nombre']} - {score['puntos']} pts", True, color)
-#         surface.blit(texto, (x, y))
-#         y += espacio
-
+def mostrar_puntuaciones_csv(surface, puntuaciones, posicion_inicial, espacio, color=(255, 255, 255), tamaño_fuente=44):
+    """
+    Dibuja las puntuaciones en pantalla a partir de una lista de datos y aplica el ordenamiento de fomrma decendente.
+    """
+    puntos = sorted(puntuaciones, key=lambda x: x['puntos'], reverse=True)
+    fuente = pygame.font.Font(None, tamaño_fuente)
+    x, y = posicion_inicial
+    y += espacio  # Espaciado para la primera puntuación
+    for index, score in enumerate(puntos):
+        texto = fuente.render(f"{score['nombre']} - {score['puntos']} pts", True, color)
+        surface.blit(texto, (x, y))
+        y += espacio
 
 
 

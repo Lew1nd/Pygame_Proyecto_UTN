@@ -93,12 +93,11 @@ class Scoreboard():
         '''
         back_button = StaticFunctions.dibujar_imagen(self.score, "archivos_multimedia/imagenes/boton_atras_score.png", self.button_back)
         music_button = StaticFunctions.dibujar_imagen(self.score, "archivos_multimedia/imagenes/boton_musica.png", self.button_music)
-        puntos = StaticFunctions.mostrar_puntuaciones_csv(self.score, StaticFunctions.scores_dic, self.cordenadas, 59, COLOR_BLANCO, 44)
-
 
         if StaticFunctions.change_screen_flag:
             self.score.blit(self.fondo, (0, 0))
             StaticFunctions.cargar_datos(StaticFunctions.score_datapath, "Scores")
+            StaticFunctions.mostrar_puntuaciones_csv(self.score, StaticFunctions.scores_dic, self.cordenadas, 59, COLOR_BLANCO, 44)
             StaticFunctions.iniciar_musica(0.2,-1,"archivos_multimedia/musica/musica_score.mp3")
             StaticFunctions.change_screen_flag = False
         

@@ -1,14 +1,14 @@
 Pregunta,Opción A,Opción B,Opción C,Opción D,Correcta,Categoría,Dificultad,Cantidad fallos,Cantidad aciertos,Veces preguntada
-¿Quién es el fontanero más famoso de los videojuegos?,Sonic,Luigi,Mario,Crash,3,Videojuegos,Fácil,14,4,18
-¿Cuál es el objetivo principal en Pac-Man?,Atrapar fantasmas,Comer puntos,Escapar de los fantasmas,Resolver acertijos,2,Videojuegos,Fácil,11,2,13
-¿Qué consola fue creada por Sony?,Xbox,PlayStation,GameCube,Atari,2,Videojuegos,Fácil,11,5,16
-¿Qué juego popular de móviles involucra lanzar pájaros a estructuras?,Candy Crush,Temple Run,Angry Birds,Flappy Bird,3,Videojuegos,Fácil,9,5,14
-¿En qué saga aparece el personaje Pikachu?,Pokémon,Digimon,Yu-Gi-Oh!,Animal Crossing,1,Videojuegos,Fácil,11,6,17
-¿Qué videojuego tiene niveles en Mundo 1-1?,Sonic,Super Mario Bros,Zelda,Donkey Kong,2,Videojuegos,Fácil,12,3,15
-¿Qué personaje utiliza un sombrero verde en The Legend of Zelda?,Zelda,Ganondorf,Link,Navi,3,Videojuegos,Fácil,16,4,20
-¿Qué compañía creó el juego Minecraft?,EA,Nintendo,Rockstar,Mojang,4,Videojuegos,Fácil,13,8,21
-¿Qué personaje es un erizo azul famoso?,Sonic,Mario,Kirby,Donkey Kong,1,Videojuegos,Fácil,16,1,17
-¿Qué saga de videojuegos tiene como antagonista principal a Dr. Robotnik?,Sonic,Mega Man,Kirby,Metroid,1,Videojuegos,Fácil,9,3,12
+¿Quién es el fontanero más famoso de los videojuegos?,Sonic,Luigi,Mario,Crash,3,Videojuegos,Fácil,15,4,19
+¿Cuál es el objetivo principal en Pac-Man?,Atrapar fantasmas,Comer puntos,Escapar de los fantasmas,Resolver acertijos,2,Videojuegos,Fácil,12,2,14
+¿Qué consola fue creada por Sony?,Xbox,PlayStation,GameCube,Atari,2,Videojuegos,Fácil,12,5,17
+¿Qué juego popular de móviles involucra lanzar pájaros a estructuras?,Candy Crush,Temple Run,Angry Birds,Flappy Bird,3,Videojuegos,Fácil,10,6,16
+¿En qué saga aparece el personaje Pikachu?,Pokémon,Digimon,Yu-Gi-Oh!,Animal Crossing,1,Videojuegos,Fácil,12,6,18
+¿Qué videojuego tiene niveles en Mundo 1-1?,Sonic,Super Mario Bros,Zelda,Donkey Kong,2,Videojuegos,Fácil,13,3,16
+¿Qué personaje utiliza un sombrero verde en The Legend of Zelda?,Zelda,Ganondorf,Link,Navi,3,Videojuegos,Fácil,17,4,21
+¿Qué compañía creó el juego Minecraft?,EA,Nintendo,Rockstar,Mojang,4,Videojuegos,Fácil,13,9,22
+¿Qué personaje es un erizo azul famoso?,Sonic,Mario,Kirby,Donkey Kong,1,Videojuegos,Fácil,17,1,18
+¿Qué saga de videojuegos tiene como antagonista principal a Dr. Robotnik?,Sonic,Mega Man,Kirby,Metroid,1,Videojuegos,Fácil,10,3,13
 ¿Cuál es el nombre de los fantasmas de Pac-Man?,Blinky; Pinky; Inky y Clyde,Shadow; Speedy; Bashful y Pokey,Boo; Spooky; Winky y Clyde,Glowy; Slowpoke; Sneaky y Blinky,1,Videojuegos,Normal,4,0,4
 ¿Qué videojuego popular tiene un mapa llamado Dust II?,Fortnite,Counter-Strike,Call of Duty,Valorant,2,Videojuegos,Normal,1,0,1
 ¿Qué género describe a The Legend of Zelda: Breath of the Wild?,Shooter,RPG de acción,Estrategia,Simulación,2,Videojuegos,Normal,0,1,1
@@ -53,7 +53,7 @@ Pregunta,Opción A,Opción B,Opción C,Opción D,Correcta,Categoría,Dificultad,
 ¿En qué ciudad se desarrolla Steins;Gate?,Osaka,Nagoya,Akihabara,Kyoto,3,Anime,Difícil,0,1,1
 ¿Cómo se llama la habilidad especial de Killua en Hunter x Hunter?,Godspeed,Nen Claws,Thunderstrike,Lightning Reflex,1,Anime,Difícil,1,0,1
 ¿Quién creó la primera Quimera Humana en Fullmetal Alchemist?,Van Hohenheim,Father,Shou Tucker,Kimblee,3,Anime,Difícil,0,0,0
-¿Cuál es el verdadero propósito del Proyecto Instrumental Humano en Neon Genesis Evangelion?,Eliminar los Ángeles,Crear una nueva raza de humanos,Detener el Tercer Impacto,Fusionar a toda la humanidad en un solo ser,4,Anime,Difícil,1,0,1
+¿Cuál es el verdadero propósito del Proyecto Instrumental Humano en Neon Genesis Evangelion?,Eliminar los Ángeles,Crear una nueva raza de humanos,Detener el Tercer Impacto,Fusionar a toda la humanidad en un solo ser,4,Anime,Difícil,2,0,2
 ¿Qué representa el emblema de los Eldianos en Attack on Titan?,El Escudo de los Héroes,La Marca del Titán,Las Alas de la Libertad,La Espada del Sol,3,Anime,Difícil,2,0,2
 ¿Qué arma legendaria utiliza Guts en Berserk?,Dragonslayer,Muramasa,Excalibur,Soul Reaver,1,Anime,Difícil,0,0,0
 ¿Cuál es la capital de España?,Barcelona,Sevilla,Madrid,Valencia,3,Geografía,Fácil,0,0,0
@@ -83,3 +83,5 @@ Pregunta,Opción A,Opción B,Opción C,Opción D,Correcta,Categoría,Dificultad,
 ¿Qué estrecho conecta el Océano Pacífico con el Ártico?,Estrecho de Gibraltar,Estrecho de Bering,Estrecho de Malaca,Estrecho de Malaca,2,Geografía,Difícil,1,0,1
 ¿Qué río pasa por la ciudad de Londres?,Támesis,Sena,Rin,Po,1,Geografía,Difícil,0,0,0
 ¿Qué país tiene la selva más grande del mundo?,Brasil,Congo,Indonesia,Australia,1,Geografía,Difícil,1,0,1
+cuanto es 1+1,4,2,5,3,1,Videojuegos,Fácil,1,0,1
+dd,qq,wwe,ee,ww,2,Videojuegos,Medio,0,0,0

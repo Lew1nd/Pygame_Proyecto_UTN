@@ -210,9 +210,10 @@ def cargar_datos(datapath, data: str):
                     question["Opción D"]
                 )
             
-            if key not in question:
+            if key not in preguntas_unicas:
                 preguntas_unicas.add(key)
                 all_questions_data.append(question)
+        print(all_questions_data)
 
     def cargar_puntuaciones(archive):
         '''
@@ -238,18 +239,22 @@ def cargar_datos(datapath, data: str):
             case "Start": obtener_preguntas_filtradas(archivo)
             case "Scores": cargar_puntuaciones(archivo)
 
-
-
 def mostrar_puntuaciones_csv(surface, puntuaciones, posicion_inicial, espacio, color=(255, 255, 255), tamaño_fuente=44):
     """
     Dibuja las puntuaciones en pantalla a partir de una lista de datos y aplica el ordenamiento de fomrma decendente.
     No devuelve nada.
     """
+    mejores_10 = []
     puntos = sorted(puntuaciones, key=lambda x: x['puntos'], reverse=True)
+    
+    for i in range(len(puntos)):#Guarda en una lista nueva a los mejores 10
+        if i > 9: break
+        mejores_10.append(puntos[i])
+
     fuente = pygame.font.Font(None, tamaño_fuente)
     x, y = posicion_inicial
     y += espacio  # Espaciado para la primera puntuación
-    for index, score in enumerate(puntos):
+    for index, score in enumerate(mejores_10):
         texto = fuente.render(f"{score['nombre']} - {score['puntos']} pts", True, color)
         surface.blit(texto, (x, y))
         y += espacio

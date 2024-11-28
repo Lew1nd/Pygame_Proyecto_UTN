@@ -31,13 +31,13 @@ Pregunta,Opción A,Opción B,Opción C,Opción D,Correcta,Categoría,Dificultad,
 ¿Quién es el protagonista de Naruto?,Sasuke,Kakashi,Naruto,Sakura,3,Anime,Fácil,0,1,1
 ¿Qué objeto busca Goku en Dragon Ball?,Las Bolas de Dragón,Las Esferas del Caos,La Espada Z,El Grial Sagrado,1,Anime,Fácil,0,2,2
 ¿Cómo se llama el capitán de los Sombreros de Paja en One Piece?,Roronoa Zoro,Monkey 4. Luffy,Sanji,Usopp,2,Anime,Fácil,1,1,2
-¿Qué tipo de monstruo es Pikachu en Pokémon?,Agua,Planta,Eléctrico,Fuego,3,Anime,Fácil,0,2,2
-¿Cómo se llama el hermano menor de Edward en Fullmetal Alchemist?,Roy,Alphonse,Mustang,Bradley,2,Anime,Fácil,0,2,2
+¿Qué tipo de monstruo es Pikachu en Pokémon?,Agua,Planta,Eléctrico,Fuego,3,Anime,Fácil,1,2,3
+¿Cómo se llama el hermano menor de Edward en Fullmetal Alchemist?,Roy,Alphonse,Mustang,Bradley,2,Anime,Fácil,1,2,3
 ¿Qué fruta es la favorita de Ryuk en Death Note?,Frutilla,Naranja,Banana,Manzana,4,Anime,Fácil,1,2,3
-¿En qué ciudad ocurre la historia de Attack on Titan?,Ciudadela,Shiganshina,Trost,Marley,2,Anime,Fácil,0,2,2
+¿En qué ciudad ocurre la historia de Attack on Titan?,Ciudadela,Shiganshina,Trost,Marley,2,Anime,Fácil,0,3,3
 ¿Cómo se llama el protagonista de Bleach?,Uryu Ishida,Renji Abarai,Ichigo Kurosaki,Byakuya Kuchiki,3,Anime,Fácil,1,1,2
 ¿Qué quiere ser Ash en Pokémon?,Entrenador Maestro,Criador de Pokémon,Líder de Gimnasio,Explorador Pokémon,1,Anime,Fácil,1,2,3
-¿Qué carta es la primera que Sakura captura en Cardcaptor Sakura?,La Carta Fuego,La Carta Vuelo,La Carta Viento,La Carta Sombra,3,Anime,Fácil,1,1,2
+¿Qué carta es la primera que Sakura captura en Cardcaptor Sakura?,La Carta Fuego,La Carta Vuelo,La Carta Viento,La Carta Sombra,3,Anime,Fácil,2,1,3
 ¿Quién es el creador de Neon Genesis Evangelion?,Masashi Kishimoto,Hideaki Anno,Akira Toriyama,Yoshihiro Togashi,2,Anime,Normal,0,0,0
 ¿Cómo se llama el gremio de Natsu en Fairy Tail?,Phantom Lord,Sabertooth,Fairy Tail,Blue Pegasus,3,Anime,Normal,0,0,0
 ¿Qué tipo de Nen tiene Gon en Hunter x Hunter?,Intensificador,Transformación,Especialista,Manipulador,1,Anime,Normal,1,0,1
@@ -48,13 +48,13 @@ Pregunta,Opción A,Opción B,Opción C,Opción D,Correcta,Categoría,Dificultad,
 ¿Qué significa el apellido Elric en Fullmetal Alchemist?,Alquimista,Guerrero,Acerado,Luz,3,Anime,Normal,1,0,1
 ¿Qué tipo de juego usa Kaiba en Yu-Gi-Oh!?,Juegos de Cartas,Juegos de Dados,Juegos de Estrategia,Juegos de Simulación,1,Anime,Normal,0,0,0
 ¿Cómo se llama el grupo principal de villanos en Naruto?,Los Sannin,Akatsuki,La Organización X,Los Espadas,2,Anime,Normal,0,1,1
-¿Qué autor creó Berserk?,Kentaro Miura,Naoki Urasawa,Yoshihiro Togashi,Takehiko Inoue,1,Anime,Difícil,0,1,1
-¿Qué significan los símbolos kanji en los trajes de los Hashira en Demon Slayer?,El Pilar,Los Guardianes de los Humanos,Espadas Mortales,Guerrero del Sol,2,Anime,Difícil,1,0,1
-¿En qué ciudad se desarrolla Steins;Gate?,Osaka,Nagoya,Akihabara,Kyoto,3,Anime,Difícil,0,0,0
+¿Qué autor creó Berserk?,Kentaro Miura,Naoki Urasawa,Yoshihiro Togashi,Takehiko Inoue,1,Anime,Difícil,2,1,3
+¿Qué significan los símbolos kanji en los trajes de los Hashira en Demon Slayer?,El Pilar,Los Guardianes de los Humanos,Espadas Mortales,Guerrero del Sol,2,Anime,Difícil,3,0,3
+¿En qué ciudad se desarrolla Steins;Gate?,Osaka,Nagoya,Akihabara,Kyoto,3,Anime,Difícil,0,1,1
 ¿Cómo se llama la habilidad especial de Killua en Hunter x Hunter?,Godspeed,Nen Claws,Thunderstrike,Lightning Reflex,1,Anime,Difícil,1,0,1
 ¿Quién creó la primera Quimera Humana en Fullmetal Alchemist?,Van Hohenheim,Father,Shou Tucker,Kimblee,3,Anime,Difícil,0,0,0
-¿Cuál es el verdadero propósito del Proyecto Instrumental Humano en Neon Genesis Evangelion?,Eliminar los Ángeles,Crear una nueva raza de humanos,Detener el Tercer Impacto,Fusionar a toda la humanidad en un solo ser,4,Anime,Difícil,0,0,0
-¿Qué representa el emblema de los Eldianos en Attack on Titan?,El Escudo de los Héroes,La Marca del Titán,Las Alas de la Libertad,La Espada del Sol,3,Anime,Difícil,1,0,1
+¿Cuál es el verdadero propósito del Proyecto Instrumental Humano en Neon Genesis Evangelion?,Eliminar los Ángeles,Crear una nueva raza de humanos,Detener el Tercer Impacto,Fusionar a toda la humanidad en un solo ser,4,Anime,Difícil,1,0,1
+¿Qué representa el emblema de los Eldianos en Attack on Titan?,El Escudo de los Héroes,La Marca del Titán,Las Alas de la Libertad,La Espada del Sol,3,Anime,Difícil,2,0,2
 ¿Qué arma legendaria utiliza Guts en Berserk?,Dragonslayer,Muramasa,Excalibur,Soul Reaver,1,Anime,Difícil,0,0,0
 ¿Cuál es la capital de España?,Barcelona,Sevilla,Madrid,Valencia,3,Geografía,Fácil,0,0,0
 ¿En qué continente se encuentra Brasil?,África,Europa,América,Asia,3,Geografía,Fácil,0,0,0
@@ -65,16 +65,16 @@ Pregunta,Opción A,Opción B,Opción C,Opción D,Correcta,Categoría,Dificultad,
 ¿Cuál es el río más largo del mundo?,Nilo,Amazonas,Yangtsé,Danubio,2,Geografía,Fácil,0,0,0
 ¿En qué país está la ciudad de Tokio?,China,Corea del Sur,Japón,Vietnam,2,Geografía,Fácil,0,0,0
 ¿Cuál es el desierto más grande del mundo?,Atacama,Sahara,Gobi,Kalahari,2,Geografía,Fácil,0,0,0
-¿Qué país tiene las pirámides de Giza?,Marruecos,Egipto,Sudán,Etiopía,2,Geografía,Normal,0,1,1
+¿Qué país tiene las pirámides de Giza?,Marruecos,Egipto,Sudán,Etiopía,2,Geografía,Normal,1,1,2
 ¿Cuál es el país más pequeño del mundo?,San Marino,Mónaco,Vaticano,Liechtenstein,3,Geografía,Normal,0,1,1
-¿En qué continente se encuentra el monte Kilimanjaro?,Asia,África ,América,Europa,2,Geografía,Normal,2,0,2
+¿En qué continente se encuentra el monte Kilimanjaro?,Asia,África ,América,Europa,2,Geografía,Normal,3,0,3
 ¿Qué país tiene el canal de Panamá?,Panamá,Costa Rica,Colombia,México,1,Geografía,Normal,0,0,0
 ¿Qué cordillera separa Europa de Asia?,Alpes,Himalaya,Montes Urales,Andes,3,Geografía,Normal,0,0,0
-¿Qué océano rodea a Australia?,Atlántico,Índico,Pacífico,Ártico,2,Geografía,Normal,1,0,1
-¿Cuál es el país con más islas en el mundo?,Indonesia,Filipinas,Suecia,Japón,3,Geografía,Normal,1,0,1
+¿Qué océano rodea a Australia?,Atlántico,Índico,Pacífico,Ártico,2,Geografía,Normal,2,0,2
+¿Cuál es el país con más islas en el mundo?,Indonesia,Filipinas,Suecia,Japón,3,Geografía,Normal,3,0,3
 ¿En qué país se encuentra el Kremlin?,Ucrania,Rusia,Polonia,Bielorrusia,2,Geografía,Normal,0,0,0
-"¿Qué país se conoce como ""La Tierra de los Mil Lagos""?",Suecia,Noruega,Finlandia,Dinamarca,3,Geografía,Normal,1,1,2
-"¿Qué ciudad es conocida como ""La Ciudad Eterna""?",París,Atenas,Roma,Estambul,3,Geografía,Normal,0,0,0
+"¿Qué país se conoce como ""La Tierra de los Mil Lagos""?",Suecia,Noruega,Finlandia,Dinamarca,3,Geografía,Normal,1,2,3
+"¿Qué ciudad es conocida como ""La Ciudad Eterna""?",París,Atenas,Roma,Estambul,3,Geografía,Normal,1,0,1
 ¿Cuál es la capital de Mongolia?,Ulaanbaatar,Astana,Damasco,Bishkek,1,Geografía,Difícil,0,0,0
 ¿En qué país se encuentra el desierto de Sonora?,México,Estados Unidos,Perú,Chile,1,Geografía,Difícil,0,1,1
 ¿Cuál es el lago más profundo del mundo?,Lago Baikal,Lago Superior,Lago Tanganica,Lago Victoria,1,Geografía,Difícil,0,0,0

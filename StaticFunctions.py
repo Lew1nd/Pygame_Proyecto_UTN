@@ -228,6 +228,7 @@ def cargar_datos(datapath, data: str):
 def mostrar_puntuaciones_csv(surface, puntuaciones, posicion_inicial, espacio, color=(255, 255, 255), tamaño_fuente=44):
     """
     Dibuja las puntuaciones en pantalla a partir de una lista de datos y aplica el ordenamiento de fomrma decendente.
+    No devuelve nada.
     """
     puntos = sorted(puntuaciones, key=lambda x: x['puntos'], reverse=True)
     fuente = pygame.font.Font(None, tamaño_fuente)
@@ -308,16 +309,20 @@ def guardar_datos(datapath, data: str, operation: str):
         case "Player": actualizar_datos_jugador(datapath, operation)
 
 def guardar_puntaje(nombre, puntaje):
-        """
-        Guarda el nombre y puntaje en el archivo scoreboard.csv.
-        Crea el archivo si no existe.
-        """
-        print(f"Guardando puntaje: Nombre = {nombre}, Puntaje = {puntaje}")  # Depuración
-        filepath = "archivos_multimedia/scoreboard.csv"
-        with open(filepath, mode='a', newline='', encoding='utf-8') as file:
-            writer = csv.writer(file)
-            writer.writerow([nombre, puntaje])
-            
+    """
+    Guarda el nombre y puntaje en el archivo puntuacion.csv.
+    Crea el archivo si no existe y añade un encabezado automáticamente.
+    """
+    filepath = "archivos_multimedia/puntuacion.csv"
+    if not nombre or not isinstance(puntaje, (int, float)) or puntaje < 0:
+        print("Error: Nombre o puntaje inválido.")
+        return
+    with open(filepath, mode='a', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow([nombre, puntaje])
+        print(f"Puntaje guardado correctamente: {nombre}, {puntaje}")
+
+
 def generar_rectangulo_estilizado(surface, color, dimensiones, borde_color, grosor_borde, redondeo=10):
     """
     Genera y dibuja un rectángulo estilizado con bordes redondeados.

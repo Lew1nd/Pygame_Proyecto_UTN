@@ -495,8 +495,8 @@ class QuestionManager():
                     
                     for option, index in selectable_options:
                         if option.collidepoint(pygame.mouse.get_pos()):
-                            if index < 3:  self.seleccionar_tipo_pregunta(self.categories[index], False)
-                            else: self.seleccionar_tipo_pregunta(self.difficulty[index-3], True)
+                            if index < 3:  self.seleccionar_tipo_pregunta(self.categories[index], True)
+                            else: self.seleccionar_tipo_pregunta(self.difficulty[index-3], False)
 
             for i in range(len(self.text_focus)): self.modificar_texto(event, i-1, i)
         return True

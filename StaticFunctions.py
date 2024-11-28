@@ -287,9 +287,10 @@ def guardar_datos(datapath, data: str, operation: str):
         datos[3] = preguntas_aleatorio[2]#Opción C
         datos[4] = preguntas_aleatorio[3]#Opción D
         datos[5] = int(posicion_pregunta_correcta)#Correcta
-        datos[6] = selected_difficulty#Dificultad
-        datos[7] = selected_category#Categoría
-        print(datos)
+        datos[6] = selected_category#Categoría
+        print(selected_category)
+        datos[7] = selected_difficulty#Dificultad
+        #print(datos)
         with open(datapath, operation, newline='\n', encoding="utf-8") as archivo:
             write_csv = csv.writer(archivo)
             write_csv.writerow([

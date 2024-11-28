@@ -191,14 +191,29 @@ def cargar_datos(datapath, data: str):
     
     def obtener_preguntas_filtradas(archive):
         '''
-        Obtiene todas las preguntas por la categoría y dificultad seleccionadas\n.
-        Recibe el archivo leido\n.
+        Obtiene todas las preguntas por la categoría y dificultad seleccionadas.\n
+        Recibe el archivo leído.\n
         No devuelve nada.
         '''
         global all_questions_data, category_game, difficulty_game
+    
         content = csv.DictReader(archive)
+        preguntas_unicas = set()#El set() conserva solamente un único registro de la pregunta, eliminando las repetidas
+    
         for question in content:
-            if question["Categoría"] == category_game and question["Dificultad"] == difficulty_game: all_questions_data.append(question)
+            if question["Categoría"] == category_game and question["Dificultad"] == difficulty_game:
+                key = (
+                    question["Pregunta"], 
+                    question["Opción A"], 
+                    question["Opción B"], 
+                    question["Opción C"], 
+                    question["Opción D"]
+                )
+            
+            if key not in question:
+                preguntas_unicas.add(key)
+                all_questions_data.append(question)
+
     def cargar_puntuaciones(archive):
         '''
         Carga las puntuaciones desde un archivo CSV.
@@ -272,8 +287,9 @@ def guardar_datos(datapath, data: str, operation: str):
         datos[3] = preguntas_aleatorio[2]#Opción C
         datos[4] = preguntas_aleatorio[3]#Opción D
         datos[5] = int(posicion_pregunta_correcta)#Correcta
-        datos[6] = selected_category#Categoría
-        datos[7] = selected_difficulty#Dificultad
+        datos[6] = selected_difficulty#Dificultad
+        datos[7] = selected_category#Categoría
+        print(datos)
         with open(datapath, operation, newline='\n', encoding="utf-8") as archivo:
             write_csv = csv.writer(archivo)
             write_csv.writerow([
